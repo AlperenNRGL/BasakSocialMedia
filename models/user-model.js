@@ -21,7 +21,7 @@ const userSchema = Schema({
     country : {type : String,},
     token : {type : String,},
     profilImage : {type : String, default : "icons8-person-64.png"},
-    coverImage : {type : String, default : "blog-detailfull.jpg"},
+    coverImage : {type : String, default : "coverimage.jpg"},
     friends : [{type : Schema.Types.ObjectId, ref : "user"}],
     messages : [message],
     biyografi : {type : String, default : null},
