@@ -1,0 +1,84 @@
+<div id="compose-card" class="card is-new-content">
+    <!-- Top tabs -->
+    <div class="tabs-wrapper">
+        <div class="tabs is-boxed is-fullwidth">
+            <ul>
+                <li class="is-active">
+                    <a>
+                        <span class="icon is-small"><i data-feather="edit-3"></i></span>
+                        <span>Paylaş</span>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a class="modal-trigger" data-modal="albums-help-modal">
+                        <span class="icon is-small"><i data-feather="image"></i></span>
+                        <span>Albums</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="modal-trigger" data-modal="videos-help-modal">
+                        <span class="icon is-small"><i data-feather="video"></i></span>
+                        <span>Video</span>
+                    </a>
+                </li> -->
+                <!-- Close X button -->
+                <li class="close-wrap">
+                    <span class="close-publish">
+                            <i data-feather="x"></i>
+                        </span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab content -->
+        <form method="post" enctype="multipart/form-data">
+
+        <div class="tab-content">
+            <!-- Compose form -->
+            <div class="compose">
+                <div class="compose-form">
+                    <img src="/static/uploads/<%= user.profilImage %>" data-demo-src="assets/img/avatars/jenna.png" alt="">
+                    <div class="control">
+                        <textarea id="publish" class="textarea" rows="3" name="text" placeholder="Senin hakkında bir şeyler yaz..."></textarea>
+                    </div>
+                </div>
+
+                <div id="feed-upload" class="feed-upload">
+
+                </div>
+
+                <div id="options-summary" class="options-summary"></div>
+                <!-- /Tag friends suboption -->
+            </div>
+            <!-- /Compose form -->
+
+            
+            <!-- /General extended options -->
+
+            <!-- General basic options -->
+            <div id="basic-options" class="compose-options">
+                <!-- Upload action -->
+                <div class="compose-option">
+                    <i data-feather="camera"></i>
+                    <span>Media</span>
+                    <input id="feed-upload-input-2" name="image" type="file" accept=".png, .jpg, .jpeg" >
+                </div>
+            </div>
+            <!-- /General basic options -->
+
+            <!-- Hidden Options -->
+            
+            <!-- Footer buttons -->
+            <div class="more-wrap">
+                <!-- View more button -->
+                <!-- Publish button -->
+                <button id="publish-button" type="submit" class="button is-solid accent-button is-fullwidth is-disabled">
+                    Publish
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+    </div>
+</div>

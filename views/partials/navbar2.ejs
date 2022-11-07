@@ -1,0 +1,348 @@
+<nav class="navbar mobile-navbar is-hidden-desktop" aria-label="main navigation">
+    <!-- Brand -->
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img class="light-image" src="/static/icons/logowhite.png" alt="">
+            <img class="dark-image" src="/static/icons/logodark.png" alt="">
+        </a>
+
+
+        <%- include("../partials/friend-nofication") %>
+
+
+            <div class="navbar-item is-icon drop-trigger" id="nofication-btn2">
+                <a class="icon-link" href="javascript:void(0);">
+                    <i data-feather="bell"></i>
+                    <span class="indicator"></span>
+                </a>
+
+                <div class="nav-drop">
+                    <div class="inner">
+                        <div class="nav-drop-header">
+                            <span>Notifications</span>
+                            <a href="#">
+                                <i data-feather="bell"></i>
+                            </a>
+                        </div>
+                        <div class="nav-drop-body is-notifications" id="nofication-list2">
+
+                        </div>
+                        <div class="nav-drop-footer">
+                            <a href="#">View All</a>
+                        </div>
+                    </div>
+                </div>
+                <script>
+
+                    document.getElementById("nofication-btn2").addEventListener("click", (e) => {
+                        console.log("nofication-btn click");
+                        const userid = document.getElementById("userid")
+                        fetch(`https://basaksocialmediaapi.herokuapp.com/get-nofication/${userid.value}`)
+                            .then(data => data.json())
+                            .then(data => {
+
+                                const nofication_list = document.getElementById("nofication-list2")
+                                nofication_list.innerHTML = ""
+                                data.forEach(nofication => {
+                                    if (nofication.worktype == "like") {
+                                        nofication.text = `${nofication.bildirimiyapan.username} postunu beğendi.`
+                                    } else if (nofication.worktype == "comment") {
+                                        nofication.text = `${nofication.bildirimiyapan.username} postuna yorum yaptı.`
+                                    }
+                                    nofication_list.insertAdjacentHTML("afterbegin", `<div class="media">
+                                    <figure class="media-left">
+                                        <p class="image">
+                                            <img src="/static/uploads/${nofication.bildirimiyapan.profilImage}" 
+                                            data-demo-src="assets/img/avatars/david.jpg" alt="">
+                                        </p>
+                                    </figure>
+                                    <div class="media-content">
+                                        <span>${nofication.text}</span>
+                                        <span class="time">${nofication.date}</span>
+                                    </div>
+                                    <div class="media-right">
+                                        <div class="added-icon">
+                                            <i data-feather="message-square"></i>
+                                        </div>
+                                    </div>
+                                </div>`)
+                                });
+
+                            })
+                            .catch(err => console.log(err))
+                    })
+
+
+                </script>
+            </div>
+
+
+            <div class="navbar-item is-icon drop-trigger">
+                <a class="icon-link is-icon open-chat" href="javascript:void(0);">
+                    <!-- <i data-feather="mail"></i> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span class="indicator"></span>
+                </a>
+
+                <!-- <div class="nav-drop">
+                <div class="inner">
+                    <div class="nav-drop-header">
+                        <span>Messages</span>
+                        <a href="messages-inbox.html">Inbox</a>
+                    </div>
+                    <div class="nav-drop-body is-friend-requests">
+
+                        <div class="media">
+                            <figure class="media-left">
+                                <p class="image">
+                                    <img src="https://via.placeholder.com/150x150"
+                                        data-demo-src="assets/img/avatars/nelly.png" data-user-popover="9"
+                                        alt="">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <a href="#">Nelly Schwartz</a>
+                                <span>I think we should meet near the Starbucks so we can get...</span>
+                                <span class="time">Yesterday</span>
+                            </div>
+                            <div class="media-right is-centered">
+                                <div class="added-icon">
+                                    <i data-feather="message-square"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="media">
+                            <figure class="media-left">
+                                <p class="image">
+                                    <img src="https://via.placeholder.com/150x150"
+                                        data-demo-src="assets/img/avatars/edward.jpeg" data-user-popover="5"
+                                        alt="">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <a href="#">Edward Mayers</a>
+                                <span>That was a real pleasure seeing you last time we really should...</span>
+                                <span class="time">last week</span>
+                            </div>
+                            <div class="media-right is-centered">
+                                <div class="added-icon">
+                                    <i data-feather="message-square"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="media">
+                            <figure class="media-left">
+                                <p class="image">
+                                    <img src="https://via.placeholder.com/150x150"
+                                        data-demo-src="assets/img/avatars/dan.jpg" data-user-popover="1" alt="">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <a href="#">Dan Walker</a>
+                                <span>Hey there, would it be possible to borrow your bicycle, i really
+                                    need...</span>
+                                <span class="time">Jun 03 2018</span>
+                            </div>
+                            <div class="media-right is-centered">
+                                <div class="added-icon">
+                                    <i data-feather="message-square"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-drop-footer">
+                        <a href="#">Clear All</a>
+                    </div>
+                </div>
+            </div> -->
+            </div>
+
+            <div id="open-mobile-search" class="navbar-item is-icon">
+                <a class="icon-link is-primary" href="javascript:void(0);">
+                    <i data-feather="search"></i>
+                </a>
+
+            </div>
+
+            <!-- Mobile menu toggler icon -->
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    </div>
+    <!-- Navbar mobile menu -->
+    <div class="navbar-menu">
+        <!-- Account -->
+
+
+        <!-- Account -->
+        <div class="navbar-item has-dropdown is-active">
+
+
+
+
+
+            <div class="nav-drop-header is-account-dropdown" style="display:flex;justify-content: space-between; align-items: center;margin: 4px 18px ;">
+                <div  style="display:flex;justify-content: space-between; align-items: center;">
+                    <img style="border-radius: 50%;" class="image"  src="/static/uploads/<%= typeof myuser!="undefined"?myuser.profilImage:user.profilImage %>">
+                    <span style="font-size: 18px;" class="username">&nbsp;<%= typeof myuser!="undefined"?myuser.username:user.username %></span>
+                </div>
+                <label class="theme-toggle">
+                    <input type="checkbox">
+                    <span class="toggler">
+                            <span class="dark">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            </span>
+                    <span class="light">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                            </span>
+                    </span>
+                </label>
+            </div>
+            <!-- <hr> -->
+        
+
+            <!-- Mobile Dropdown -->
+
+            <div class="navbar-dropdown">
+                <!-- ANASAYFA -->
+                <a href="/" class="navbar-item is-flex is-mobile-icon">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-activity">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>Ana Sayfa</span>
+                    <!-- <span class="menu-badge">87</span> -->
+                </a>
+                <!-- FRİEND REQUESTS -->
+                <div id="navbar-friend-btn" href="/navbar-v1-profile-friends.html" class="navbar-item is-flex is-mobile-icon">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-heart">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>Arkadaşlık İstekleri</span>
+                    <!-- <span class="menu-badge">3</span> -->
+                </div>
+                <script>
+                    document.getElementById("navbar-friend-btn").addEventListener("click",(e) => {
+
+                        document.querySelector(".navbar-burger").click();
+                        setTimeout(()=>{
+                            document.getElementById("request-btn").click();
+                        },500)
+
+                    })
+                </script>
+
+                <!-- PROFİLE -->
+                <a href="/user/<%= typeof myuser!="undefined"?myuser._id:user._id %>" class="navbar-item is-flex is-mobile-icon">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-user">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>Profilim</span>
+                </a>
+                
+            </div>
+        </div>
+
+        <!-- More -->
+        <div class="navbar-item has-dropdown">
+            <a href="/user/profile-settings" class="navbar-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-user">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span class="is-heading">Hesabım</span>
+            </a>
+
+            <!-- Mobile Dropdown -->
+            <div class="navbar-dropdown">
+                <a href="/user/profile-settings" class="navbar-item is-flex is-mobile-icon">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-settings">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                            </path>
+                        </svg>Ayarlar</span>
+                </a>
+                <a href="/account/logout" class="navbar-item is-flex is-mobile-icon">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-log-out">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>Çıkış Yap</span>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--Search-->
+    <div class="mobile-search is-hidden">
+        <div class="control" style="margin-top: 50px;">
+            <input id="tipue_drop_input_mobile2" class="input" placeholder="Kullanıcı ara...">
+            <div class="form-icon">
+                <i data-feather="search"></i>
+            </div>
+            <div class="close-icon">
+                <i data-feather="x"></i>
+            </div>
+            <div id="tipue_drop_content_mobile" class="tipue-drop-content">
+
+
+
+            </div>
+            <script>
+
+                document.getElementById("tipue_drop_input_mobile2").addEventListener("keyup", (e) => {
+                    let element = document.getElementById("tipue_drop_content_mobile");
+                    console.log("inputsssss");
+                    if (e.target.value == "") {
+                        element.style.display = "none";
+                        return;
+                    }
+                    fetch("https://basaksocialmediaapi.herokuapp.com/users/" + e.target.value)
+                        .then(value => value.json())
+                        .then(data => showUser(data))
+                        .catch(err => console.log(err))
+                })
+
+                function showUser(data) {
+                    let element = document.getElementById("tipue_drop_content_mobile");
+                    let middle = ""
+                    data.forEach(user => {
+                        middle += ` <a  style="margin-top:15px;" href="/user/${user._id}">
+                            <div class="tipue_drop_item">
+                                <div class="tipue_drop_left"><img
+                                        src="/static/uploads/${user.profilImage}"
+                                        class="tipue_drop_image"></div>
+                                <div class="tipue_drop_right">${user.firstName} ${user.lastName}<div><small>${user.username}</small></div>
+                                </div>
+                            </div>
+                        </a>`})
+                    element.style.display = "block";
+                    element.innerHTML = ""
+                    element.innerHTML = ('<div class="tipue_drop_box">' + middle + '</div>')
+
+                };
+
+            </script>
+        </div>
+
+    </div>
+</nav>
+
+

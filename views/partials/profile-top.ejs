@@ -1,0 +1,162 @@
+<div class="columns is-multiline no-margin">
+    <!-- Left side column -->
+    <div class="column is-paddingless">
+        <!-- Timeline Header -->
+        <!-- html/partials/pages/profile/timeline/timeline-header.html -->
+        <div class="cover-bg">
+            <img class="cover-image" src="/static/uploads/<%= user.coverImage %>" data-demo-src="assets/img/demo/bg/4.png" alt="">
+            <div class="avatar">
+                <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" data-demo-src="assets/img/avatars/jenna.png" alt="">
+                <% if (myuser.username == user.username) { %>
+                    <div class="avatar-button">
+                        <!-- <i data-feather="plus"></i> -->
+                        <div class="modal-trigger" data-modal="change-profile-pic-modal" data-title="Change profile picture">
+                            <a class="inner">
+                                <i data-feather="camera"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="pop-button is-far-left has-tooltip modal-trigger" data-modal="change-profile-pic-modal" data-placement="right" data-title="Change profile picture">
+                        <a class="inner">
+                            <i data-feather="camera"></i>
+                        </a>
+                    </div>
+                    <div id="follow-pop" class="pop-button pop-shift is-left has-tooltip" data-placement="top" data-title="Subscription">
+                        <a class="inner">
+                            <i class="inactive-icon" data-feather="bell"></i>
+                            <i class="active-icon" data-feather="bell-off"></i>
+                        </a>
+                    </div>
+                    <div id="invite-pop" class="pop-button pop-shift is-center has-tooltip" data-placement="top" data-title="Relationship">
+                        <a href="#" class="inner">
+                            <i class="inactive-icon" data-feather="plus"></i>
+                            <i class="active-icon" data-feather="minus"></i>
+                        </a>
+                    </div>
+                    <div id="chat-pop" class="pop-button is-right has-tooltip" data-placement="top" data-title="Chat">
+                        <a class="inner">
+                            <i data-feather="message-circle"></i>
+                        </a>
+                    </div>
+                    <div class="pop-button is-far-right has-tooltip" data-placement="right" data-title="Send message">
+                        <a href="messages-inbox.html" class="inner">
+                            <i data-feather="mail"></i>
+                        </a>
+                    </div> -->
+                <% } %>
+            </div>
+            <% if (myuser.username == user.username) { %>
+                <div class="cover-overlay"></div>
+                <div class="cover-edit modal-trigger" data-modal="change-cover-modal">
+                    <i class="mdi mdi-camera"></i>
+                    <span>Edit cover image</span>
+                </div>
+            <% } %>
+            <!--/html/partials/pages/profile/timeline/dropdowns/timeline-mobile-dropdown.html-->
+            <div class="dropdown is-spaced is-right is-accent dropdown-trigger timeline-mobile-dropdown is-hidden-desktop">
+                <div>
+                    <div class="button">
+                        <i data-feather="more-vertical"></i>
+                    </div>
+                </div>
+                <div class="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                        <a href="/" class="dropdown-item">
+                            <div class="media">
+                                <i data-feather="activity"></i>
+                                <div class="media-content">
+                                    <h3>AnaSayfa</h3>
+                                    <small>Anasayfaya git.</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/user/<%= myuser._id %>" class="dropdown-item">
+                            <div class="media">
+                                <i data-feather="align-right"></i>
+                                <div class="media-content">
+                                    <h3>Benim Hakkımda</h3>
+                                    <small>Kendi sayfanı görüntüle.</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/user/friends/<%= user._id %>" class="dropdown-item">
+                            <div class="media">
+                                <i data-feather="heart"></i>
+                                <div class="media-content">
+                                    <h3>Arkadaşlar</h3>
+                                    <small>Bütün arkadaşlarını görüntüle.</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/user/photos/<%= user._id %>" class="dropdown-item">
+                            <div class="media">
+                                <i data-feather="image"></i>
+                                <div class="media-content">
+                                    <h3>Fotoğraflar</h3>
+                                    <small>Bütün fotoğrafları görüntüle.</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-menu is-hidden-mobile">
+            <div class="menu-start">
+                <a href="/" class="button has-min-width">AnaSayfa</a>
+                <a href="/user/<%= myuser._id %>" class="button has-min-width">Benim Hakkımda</a>
+            </div>
+            <div class="menu-end">
+                <a id="profile-friends-link" href="/user/friends/<%= user._id %>"  class="button has-min-width">Arkadaşlar</a>
+                <a href="/user/photos/<%= user._id %>" class="button has-min-width">Fotoğraflar</a>
+            </div>
+        </div>
+
+        <div  class="profile-subheader">
+            <div class="subheader-middle">
+                <h2><%= user.firstName %> <%= user.lastName %></h2>
+                <span><%= user.username %></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+
+    function user_work(e){
+        fetch(`https://basaksocialmediaapi.herokuapp.com/${e.children[1].attributes[0].nodeValue}`)
+        .then(data => {
+            // console.log(e.children[1].innerHTML);
+            switch(e.children[1].innerHTML){
+                case "İstek Gönder":
+                    replacebtn(`<span link="/remove-request/<%= myuser._id %>/<%= user._id %>">İstek Gönderildi</span>`);
+                    break;
+                case "İstek Gönderildi":
+                    replacebtn(`<span link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>`);
+                    break;
+                case "Arkadaşlar":
+                    replacebtn(`<span link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>`)
+                    break;
+                case "Kabul Et":
+                    replacebtn(`<span link="/remove-friend/<%= myuser._id %>/<%= user._id %>">Arkadaşlar</span>`)
+                    break;
+            }
+        })
+        .catch(err => console.log(err))
+    }
+
+
+    function replacebtn(newbutton){
+        const e = document.getElementById("user-btn")
+        e.children[1].remove();
+        e.insertAdjacentHTML("beforeend",newbutton)
+    }
+
+
+
+</script>

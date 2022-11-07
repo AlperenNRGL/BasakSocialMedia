@@ -1,0 +1,170 @@
+<div class="settings-wrapper is-full">
+    <!-- /partials/settings/sections/general-settings.html -->
+    <div id="general-settings" class="settings-section is-active">
+        <div class="settings-panel">
+
+            <div class="title-wrap">
+                <hr>
+                <hr>
+                <h2 style="margin-top:25px ;">General Settings</h2>
+            </div>
+
+            <div class="settings-form-wrapper">
+                <form method="post">
+                    <div class="settings-form">
+                        <div class="columns is-multiline">
+
+                            <!-- First-Last Name -->
+                            <div class="column is-6">
+                                <!--Field-->
+                                <div class="field field-group">
+                                    <label>İsim</label>
+                                    <div class="control has-icon">
+                                        <input type="text" class="input is-fade" name="firstName"
+                                            value="<%= user.firstName %>">
+                                        <div class="form-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-user">
+                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="12" cy="7" r="4"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Field-->
+                                <div class="field field-group">
+                                    <label>Soyisim</label>
+                                    <div class="control has-icon">
+                                        <input type="text" class="input is-fade" name="lastName"
+                                            value="<%= user.lastName %>">
+                                        <div class="form-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-user">
+                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="12" cy="7" r="4"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- username -->
+                            <div class="column is-6">
+                                <!--Field-->
+                                <% if (message) { %>
+                                    <div style="color:red; text-align: center;" class="alert alert-<%= message.class %>">
+                                        <%= message.text %> 
+                                    </div>
+                                <% } %>
+                                <div class="field field-group">
+                                    <label>Kullanıcı Ado</label>
+                                    <div class="control has-icon">
+                                        <input type="text" name="username" class="input is-fade" value="<%= user.username %>">
+                                        <div class="form-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-user">
+                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="12" cy="7" r="4"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Biograpyh -->
+                            <div class="column is-12">
+                                <div class="field field-group">
+                                    <label>BİYOGRAFİ</label>
+                                    <div class="control has-icon">
+                                        <textarea name="biyografi" class="textarea" style="padding: 5px 40px ;" rows="3"><%= user.biyografi %></textarea>
+                                        <div class="form-icon">
+                                            <img width="24" height="24" src="/static/icons/writer.png" alt="" srcset="">
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Form Text -->
+                            <div class="column is-12">
+                                <!--Field-->
+                                <div class="form-text">
+                                    <p>Kişisel bilgileriniz Başak Holding tarafından güvenli bir şekilde hashlenerek saklanmaktadır.</p>
+                                </div>
+                            </div>
+
+                            <!-- City -->
+                            <div class="column is-6">
+                                <div class="field field-group">
+                                    <label>Şehir</label>
+                                    <div class="control has-icon">
+                                        <input name="city" type="text" class="input is-fade" value="<%= user.city %>">
+                                        <div class="form-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-map-pin">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                                <circle cx="12" cy="10" r="3"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Country -->
+                            <div class="column is-6">
+                                <div class="field field-group is-autocomplete">
+                                    <label>Ülke</label>
+                                    <div class="control has-icon">
+                                        <div class="easy-autocomplete" style="width: 312.578125px;">
+                                            <input id="country-autocpl" name="country" type="text" class="input is-fade"
+                                                value="<%= user.country %>">
+                                            <div class="easy-autocomplete-container" id="eac-container-country-autocpl">
+                                                <ul></ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-globe">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                                <path
+                                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="column is-12">
+                                <div class="buttons">
+                                    <button type="submit" class="button is-solid accent-button form-button">Değişiklikleri Kaydet</button>
+                                    <!-- <button class="button is-light form-button">Advanced</button> -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+
+
+                <div class="illustration">
+                    <img class="light-image" src="assets/img/illustrations/settings/1.svg" alt="">
+                    <img class="dark-image" src="assets/img/illustrations/settings/1-dark.svg" alt="">
+                    <p>If you'd like to learn more about general settings, you can read about it in the <a>user
+                            guide</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

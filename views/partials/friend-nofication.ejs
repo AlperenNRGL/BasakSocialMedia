@@ -1,0 +1,109 @@
+<div class="navbar-item is-icon drop-trigger" onclick="get_friend_request()">
+    <a id="request-btn" class="icon-link is-friends" href="javascript:void(0);">
+        <i data-feather="heart"></i>
+        <span class="indicator"></span>
+    </a>
+
+    <div id="get-request-drop" class="nav-drop">
+        <div class="inner">
+            <div class="nav-drop-header">
+                <span>Arkadaşlık İstekleri</span>
+                <a href="#">
+                    <i data-feather="search"></i>
+                </a>
+            </div>
+            <div class="nav-drop-body is-friend-requests" id="mobile-request-list">
+                <!-- Friend Requests -->
+                
+            </div>
+            <!-- <div class="nav-drop-footer">
+                <a href="#">View All</a>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    function get_friend_request() {
+        const userid = document.getElementById("userid").value;
+        const list = document.getElementById("mobile-request-list");
+        list.innerHTML = "";
+        fetch(`https://basaksocialmediaapi.herokuapp.com/get-request-nofication/${userid}`)
+            .then(data => data.json())
+            .then(requests => {
+                requests.forEach(request => {
+                    list.insertAdjacentHTML("afterbegin", `
+                    <div class="media">
+                    <figure class="media-left">
+                        <p class="image">
+                            <img src="/static/uploads/${request.bildirimiyapan.profilImage}"
+                                data-demo-src="assets/img/avatars/dan.jpg" alt="">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <a href="/user/${request.bildirimiyapan._id}">${request.bildirimiyapan.firstName} ${request.bildirimiyapan.lastName}</a>
+                        <span>${request.date}</span>
+                    </div>
+                    <div class="media-right">
+                        <img onclick="add_friend('${request.bildirimiyapan._id}','${request.aitolan}','${request._id}')" style="margin-right:8px ;"  src="/static/icons/add-friend3.png">
+                        <img onclick="delete_request('${request.bildirimiyapan._id}','${request.aitolan}','${request._id}')" src="/static/icons/unfollow.png">
+                    </div>
+                </div>
+                `)
+                });
+            })
+            .catch(err => console.log(err))
+    }
+
+
+    
+    function get_friend_request_ipad() {
+        const userid = document.getElementById("userid").value;
+        const list = document.getElementById("ipad_request");
+        list.innerHTML = "";
+        fetch(`https://basaksocialmediaapi.herokuapp.com/get-request-nofication/${userid}`)
+            .then(data => data.json())
+            .then(requests => {
+                console.log(requests);
+                requests.forEach(request => {
+                    console.log(request);
+
+                    list.insertAdjacentHTML("afterbegin", `
+                    <div class="media">
+                    <figure class="media-left">
+                        <p class="image">
+                            <img src="/static/uploads/${request.bildirimiyapan.profilImage}"
+                                data-demo-src="assets/img/avatars/dan.jpg" alt="">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <a href="/user/${request.bildirimiyapan._id}">${request.bildirimiyapan.firstName} ${request.bildirimiyapan.lastName}</a>
+                        <span>${request.date}</span>
+                    </div>
+                    <div class="media-right">
+                        <img onclick="add_friend('${request.bildirimiyapan._id}','${request.aitolan}','${request._id}')" style="margin-right:8px ;"  src="/static/icons/add-friend3.png">
+                        <img onclick="delete_request('${request.bildirimiyapan._id}','${request.aitolan}','${request._id}')" src="/static/icons/unfollow.png">
+                    </div>
+                </div>
+                `)
+                });
+            })
+            .catch(err => console.log(err))
+    }
+    function add_friend(bildirimiyapan, aitolan,noficationid){
+        fetch(`https://basaksocialmediaapi.herokuapp.com/add-friend/${bildirimiyapan}/${aitolan}/${noficationid}`)
+        .then(data => data)
+        .catch(err => console.log(err))
+    }
+
+    function delete_request(bildirimiyapan, aitolan, noficationid){
+        fetch(`https://basaksocialmediaapi.herokuapp.com/remove-request/${bildirimiyapan}/${aitolan}`)
+        .then(data => data)
+        .catch(err => console.log(err))
+    }
+
+</script>

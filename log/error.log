@@ -1,0 +1,11 @@
+{
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-05T03:56:22.765Z'
+}
+{
+  message: 'MongoDB Database not connect',
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-05T04:14:00.545Z'
+}

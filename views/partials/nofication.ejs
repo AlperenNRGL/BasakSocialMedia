@@ -1,0 +1,86 @@
+<div class="navbar-item is-icon drop-trigger" id="nofication-btn">
+    <a class="icon-link" href="javascript:void(0);">
+        <i data-feather="bell"></i>
+        <span class="indicator"></span>
+    </a>
+
+    <div class="nav-drop">
+        <div class="inner">
+            <div class="nav-drop-header">
+                <span>Notifications</span>
+                <a href="#">
+                    <i data-feather="bell"></i>
+                </a>
+            </div>
+            <div class="nav-drop-body is-notifications" id="nofication-list">
+                <!-- Notification -->
+                <!-- <div class="media">
+                    <figure class="media-left">
+                        <p class="image">
+                            <img src="https://via.placeholder.com/300x300"
+                                data-demo-src="assets/img/avatars/david.jpg" alt="">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <span><a href="#">David Kim</a> commented on <a href="#">your
+                                post</a>.</span>
+                        <span class="time">30 minutes ago</span>
+                    </div>
+                    <div class="media-right">
+                        <div class="added-icon">
+                            <i data-feather="message-square"></i>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="nav-drop-footer">
+                <a href="#">View All</a>
+            </div>
+        </div>
+    </div>
+    <script>
+    
+        document.getElementById("nofication-btn").addEventListener("click", (e) => {
+            console.log("nofication-btn click");
+            const userid = document.getElementById("userid")
+            fetch(`https://basaksocialmediaapi.herokuapp.com/get-nofication/${userid.value}`)
+            .then(data => data.json())
+            .then(data => {
+    
+                const nofication_list = document.getElementById("nofication-list")
+                nofication_list.innerHTML = ""
+                data.forEach(nofication => {
+                    if(nofication.worktype == "like"){
+                        nofication.text = `${nofication.bildirimiyapan.username} postunu beğendi.`
+                    }else if(nofication.worktype == "comment"){
+                        nofication.text = `${nofication.bildirimiyapan.username} postuna yorum yaptı.`
+                    }
+                    nofication_list.insertAdjacentHTML("afterbegin",`<div class="media">
+                            <figure class="media-left">
+                                <p class="image">
+                                    <img src="/static/uploads/${nofication.bildirimiyapan.profilImage}" 
+                                    data-demo-src="assets/img/avatars/david.jpg" alt="">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <span>${nofication.text}</span>
+                                <span class="time">${nofication.date}</span>
+                            </div>
+                            <div class="media-right">
+                                <div class="added-icon">
+                                    <i data-feather="message-square"></i>
+                                </div>
+                            </div>
+                        </div>`)
+                });
+            
+            })
+            .catch(err => console.log(err))
+        })
+    
+    
+    </script>
+</div>
+    
+
+

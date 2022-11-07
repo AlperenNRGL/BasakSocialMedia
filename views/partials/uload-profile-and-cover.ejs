@@ -1,0 +1,135 @@
+<div id="change-cover-modal" class="modal change-cover-modal is-medium has-light-bg">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+
+        <div class="card">
+            <div class="card-heading">
+                <h3>Update Cover</h3>
+                <!-- Close X button -->
+                <div class="close-wrap">
+                    <span class="close-modal">
+                        <i data-feather="x"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- Placeholder -->
+                <div class="selection-placeholder">
+                    <div class="columns">
+                        <div class="column is-6">
+                            <!-- Selection box -->
+                            <div class="modal-trigger">
+                                <div class="box-content">
+                                    <img src="/static/dist/assets/img/illustrations/profile/upload-cover.svg">
+                                    <style>
+                                        .custom-file-input {
+                                            color: transparent;
+                                        }
+
+                                        .custom-file-input::-webkit-file-upload-button {
+                                            visibility: hidden;
+                                        }
+
+                                        .custom-file-input::before {
+                                            content: 'Arka plan resmi seç';
+                                            color: black;
+                                            display: inline-block;
+                                            background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+                                            border: 1px solid #999;
+                                            border-radius: 3px;
+                                            padding: 5px 8px;
+                                            outline: none;
+                                            white-space: nowrap;
+                                            -webkit-user-select: none;
+                                            cursor: pointer;
+                                            text-shadow: 1px 1px #fff;
+                                            font-weight: 700;
+                                            font-size: 10pt;
+                                        }
+
+                                        .custom-file-input:hover::before {
+                                            border-color: black;
+                                        }
+
+                                        .custom-file-input:active {
+                                            outline: 0;
+                                        }
+
+                                        .custom-file-input:active::before {
+                                            background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+                                        }
+
+                                    </style>
+                                    <div class="box-text">
+                                        <form action="/user/replace-cover" method="post" enctype="multipart/form-data">
+                                            <input required class="custom-file-input" name="coverimage" type="file"></input>
+                                            <hr>
+                                            <button type="submit" class="button">Arka plan resmini değiştir</button>
+                                            <!-- <span>From your computer</span> -->
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- HTML !-->
+<!-- <button class="button-20" role="button">Button 20</button> -->
+
+
+
+
+<!-- Change profile pic modal -->
+<!--html/partials/pages/profile/timeline/modals/change-profile-pic-modal.html-->
+<div id="change-profile-pic-modal" class="modal change-profile-pic-modal is-medium has-light-bg">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+
+        <div class="card">
+            <div class="card-heading">
+                <h3>Update Profile Picture</h3>
+                <!-- Close X button -->
+                <div class="close-wrap">
+                    <span class="close-modal">
+                        <i data-feather="x"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- Placeholder -->
+                <div class="selection-placeholder">
+                    <div class="columns">
+                        <div class="column is-6">
+                            <!-- Selection box -->
+                            <div class="modal-trigger">
+                                <div class="box-content">
+                                    <img src="/static/dist/assets/img/illustrations/profile/change-profile.svg" alt="">
+                                    <div class="box-text">
+
+                                        <form action="/user/replace-profil" method="post" enctype="multipart/form-data">
+                                            <input required class="custom-file-input" name="profilimage" type="file"></input>
+                                            <hr>
+                                            <button type="submit" class="button">Profil resmini değiştir</button>
+                                            <!-- <span>From your computer</span> -->
+                                        </form>
+                                        <!-- <span>Upload</span>
+                                        <span>From your computer</span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

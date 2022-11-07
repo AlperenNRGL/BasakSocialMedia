@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ("../partials/head") %> 
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQHJPZP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Pageloader -->
+    <div class="pageloader"></div>
+    <div class="infraloader is-active"></div>
+    <div class="app-overlay"></div>
+
+    <%- include ("../partials/navbar")  %> 
+    <%- include ("../partials/navbar2")  %> 
+    
+    <div class="view-wrapper">
+
+        <!-- Container -->
+        <div class="container is-custom">
+
+            <!-- Profile page main wrapper -->
+            <div id="profile-friends" class="view-wrap is-headless">
+                <%- include ("../partials/profile-top") %> 
+
+                <div class="columns">
+                    <div class="column">
+                        <div class="box-heading">
+                            <div class="dropdown friends-dropdown is-spaced is-neutral dropdown-trigger">
+                                <div>
+                                    <div class="button">
+                                        <span>All Friends</span>
+                                        <i data-feather="chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="#" class="dropdown-item">
+                                            <div class="media">
+                                                <i data-feather="heart"></i>
+                                                <div class="media-content">
+                                                    <h3>Close Friends</h3>
+                                                    <small>Your closest friends list.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item">
+                                            <div class="media">
+                                                <i data-feather="bell"></i>
+                                                <div class="media-content">
+                                                    <h3>Followed</h3>
+                                                    <small>Friends you are following.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item">
+                                            <div class="media">
+                                                <i data-feather="coffee"></i>
+                                                <div class="media-content">
+                                                    <h3>Work relations</h3>
+                                                    <small>Your work relations.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <hr class="dropdown-divider">
+                                        <a class="dropdown-item modal-trigger" data-modal="albums-modal"">
+                                                <div class=" media">
+                                            <i data-feather="mail"></i>
+                                            <div class="media-content">
+                                                <h3>Friend Requests</h3>
+                                                <small>Your pending friend requests.</small>
+                                            </div>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control heading-search">
+                            <input type="text" class="input is-rounded" placeholder="Search Friends...">
+                            <div class="search-icon">
+                                <i data-feather="search"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Friends grid-->
+                    <div class="friends-grid">
+                        <div class="columns is-multiline">
+                            <% user.friends.forEach(friend => { %>
+                                <div class="column is-3">
+                                    <a class="friend-item has-text-centered">
+                                        <div class="avatar-wrap">
+                                            <div class="circle"></div>
+                                            <div class="chat-button">
+                                                <i data-feather="message-circle"></i>
+                                            </div>
+                                            <img src="/static/uploads/<%= friend.profilImage %>" data-demo-src="assets/img/avatars/dan.jpg" data-user-popover="1" alt="">
+                                        </div>
+                                        <h3><%= friend.firstName %> <%= friend.lastName %></h3>
+                                        <p><%= friend.username %></p>
+                                    </a>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+
+                    <!-- Load more photos -->
+                    <div class=" load-more-wrap has-text-centered">
+                        <a href="#" class="load-more-button">Load More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change cover image modal -->
+    <!--html/partials/pages/profile/timeline/modals/change-cover-modal.html-->
+    <div id="change-cover-modal" class="modal change-cover-modal is-medium has-light-bg">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="card-heading">
+                    <h3>Update Cover</h3>
+                    <!-- Close X button -->
+                    <div class="close-wrap">
+                        <span class="close-modal">
+                                    <i data-feather="x"></i>
+                                </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Placeholder -->
+                    <div class="selection-placeholder">
+                        <div class="columns">
+                            <div class="column is-6">
+                                <!-- Selection box -->
+                                <div class="selection-box modal-trigger" data-modal="upload-crop-cover-modal">
+                                    <div class="box-content">
+                                        <img src="assets/img/illustrations/profile/upload-cover.svg" alt="">
+                                        <div class="box-text">
+                                            <span>Upload</span>
+                                            <span>From your computer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <!-- Selection box -->
+                                <div class="selection-box modal-trigger" data-modal="user-photos-modal">
+                                    <div class="box-content">
+                                        <img src="assets/img/illustrations/profile/change-cover.svg" alt="">
+                                        <div class="box-text">
+                                            <span>Choose</span>
+                                            <span>From your photos</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Change profile pic modal -->
+    <!--html/partials/pages/profile/timeline/modals/change-profile-pic-modal.html-->
+    <div id="change-profile-pic-modal" class="modal change-profile-pic-modal is-medium has-light-bg">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="card-heading">
+                    <h3>Update Profile Picture</h3>
+                    <!-- Close X button -->
+                    <div class="close-wrap">
+                        <span class="close-modal">
+                                    <i data-feather="x"></i>
+                                </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Placeholder -->
+                    <div class="selection-placeholder">
+                        <div class="columns">
+                            <div class="column is-6">
+                                <!-- Selection box -->
+                                <div class="selection-box modal-trigger" data-modal="upload-crop-profile-modal">
+                                    <div class="box-content">
+                                        <img src="assets/img/illustrations/profile/change-profile.svg" alt="">
+                                        <div class="box-text">
+                                            <span>Upload</span>
+                                            <span>From your computer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <!-- Selection box -->
+                                <div class="selection-box modal-trigger" data-modal="user-photos-modal">
+                                    <div class="box-content">
+                                        <img src="assets/img/illustrations/profile/upload-profile.svg" alt="">
+                                        <div class="box-text">
+                                            <span>Choose</span>
+                                            <span>From your photos</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- User photos and albums -->
+    <!--html/partials/pages/profile/timeline/modals/user-photos-modal.html-->
+    <div id="user-photos-modal" class="modal user-photos-modal is-medium has-light-bg">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <!-- Card -->
+            <div class="card">
+                <div class="card-heading">
+                    <h3>Choose a picture</h3>
+                    <!-- Close X button -->
+                    <div class="close-wrap">
+                        <span class="close-modal">
+                                    <i data-feather="x"></i>
+                                </span>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <!-- Tabs -->
+                    <div class="nav-tabs-wrapper">
+                        <div class="tabs">
+                            <ul class="is-faded">
+                                <li class="is-active" data-tab="recent-photos"><a>Recent</a></li>
+                                <li data-tab="all-photos"><a>Photos</a></li>
+                                <li data-tab="photo-albums"><a>Albums</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Recent Photos -->
+                        <div id="recent-photos" class="tab-content has-slimscroll-md is-active">
+                            <!-- Grid -->
+                            <div class="image-grid">
+                                <div class="columns is-multiline">
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/3.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/4.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/9.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/2.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/13.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/11.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/17.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/22.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/8.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/18.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/20.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/21.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- All photos -->
+                        <div id="all-photos" class="tab-content has-slimscroll-md">
+                            <!-- Grid -->
+                            <div class="image-grid">
+                                <div class="columns is-multiline">
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/19.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/25.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/23.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/28.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/34.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/27.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/18.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/30.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/26.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/29.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/20.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/17.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/11.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/24.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/32.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/31.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/33.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/35.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Load more images -->
+                            <div class=" load-more-wrap has-text-centered">
+                                <a href="#" class="load-more-button">Load More</a>
+                            </div>
+                            <!-- /Load more images -->
+                        </div>
+
+                        <!-- Albums -->
+                        <div id="photo-albums" class="tab-content has-slimscroll-md">
+                            <!-- Grid -->
+                            <div class="albums-grid">
+                                <div class="columns is-multiline">
+                                    <!-- Album item -->
+                                    <div class="column is-6">
+                                        <div class="album-wrapper" data-album="album-photos-1">
+                                            <div class="album-image">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/35.jpg" alt="">
+                                            </div>
+                                            <div class="album-meta">
+                                                <div class="album-title">
+                                                    <span>Design and Colors</span>
+                                                    <span>Added on sep 06 2018</span>
+                                                </div>
+                                                <div class="image-count">
+                                                    <i data-feather="image"></i>
+                                                    <span>8</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Album item -->
+                                    <div class="column is-6">
+                                        <div class="album-wrapper" data-album="album-photos-2">
+                                            <div class="album-image">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/19.jpg" alt="">
+                                            </div>
+                                            <div class="album-meta">
+                                                <div class="album-title">
+                                                    <span>Friends and Family</span>
+                                                    <span>Added on jun 10 2016</span>
+                                                </div>
+                                                <div class="image-count">
+                                                    <i data-feather="image"></i>
+                                                    <span>29</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Album item -->
+                                    <div class="column is-6">
+                                        <div class="album-wrapper" data-album="album-photos-3">
+                                            <div class="album-image">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/4.jpg" alt="">
+                                            </div>
+                                            <div class="album-meta">
+                                                <div class="album-title">
+                                                    <span>Trips and Travel</span>
+                                                    <span>Added on feb 14 2017</span>
+                                                </div>
+                                                <div class="image-count">
+                                                    <i data-feather="image"></i>
+                                                    <span>12</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Album item -->
+                                    <div class="column is-6">
+                                        <div class="album-wrapper" data-album="album-photos-4">
+                                            <div class="album-image">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/3.jpg" alt="">
+                                            </div>
+                                            <div class="album-meta">
+                                                <div class="album-title">
+                                                    <span>Summer 2017</span>
+                                                    <span>Added on aug 23 2017</span>
+                                                </div>
+                                                <div class="image-count">
+                                                    <i data-feather="image"></i>
+                                                    <span>32</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Album item -->
+                                    <div class="column is-6">
+                                        <div class="album-wrapper" data-album="album-photos-5">
+                                            <div class="album-image">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/20.jpg" alt="">
+                                            </div>
+                                            <div class="album-meta">
+                                                <div class="album-title">
+                                                    <span>Winter 2017</span>
+                                                    <span>Added on jan 07 2017</span>
+                                                </div>
+                                                <div class="image-count">
+                                                    <i data-feather="image"></i>
+                                                    <span>7</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Album item -->
+                                    <div class="column is-6">
+                                        <div class="album-wrapper" data-album="album-photos-6">
+                                            <div class="album-image">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/2.jpg" alt="">
+                                            </div>
+                                            <div class="album-meta">
+                                                <div class="album-title">
+                                                    <span>Thanksgiving 2017</span>
+                                                    <span>Added on nov 30 2017</span>
+                                                </div>
+                                                <div class="image-count">
+                                                    <i data-feather="image"></i>
+                                                    <span>6</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Grid | Design and colors -->
+                            <div id="album-photos-1" class="album-image-grid is-hidden">
+                                <div class="album-info">
+                                    <h4>Design and Colors | <small>8 photo(s)</small></h4>
+                                    <a class="close-nested-photos">Go Back</a>
+                                </div>
+                                <div class="columns is-multiline">
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/35.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/17.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/30.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/28.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/32.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/27.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/18.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/26.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Load more images -->
+                                <div class=" load-more-wrap has-text-centered">
+                                    <a href="#" class="load-more-button">Load More</a>
+                                </div>
+                                <!-- /Load more images -->
+                            </div>
+
+                            <!-- Hidden Grid | Friends and Family -->
+                            <div id="album-photos-2" class="album-image-grid is-hidden">
+                                <div class="album-info">
+                                    <h4>Friends and Family | <small>29 photo(s)</small></h4>
+                                    <a class="close-nested-photos">Go Back</a>
+                                </div>
+                                <div class="columns is-multiline">
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/23.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/22.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/19.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/20.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/2.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/21.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/38.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/36.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/37.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Load more images -->
+                                <div class=" load-more-wrap has-text-centered">
+                                    <a href="#" class="load-more-button">Load More</a>
+                                </div>
+                                <!-- /Load more images -->
+                            </div>
+
+                            <!-- Hidden Grid | Trips and Travel -->
+                            <div id="album-photos-3" class="album-image-grid is-hidden">
+                                <div class="album-info">
+                                    <h4>Trips and Travel | <small>12 photo(s)</small></h4>
+                                    <a class="close-nested-photos">Go Back</a>
+                                </div>
+                                <div class="columns is-multiline">
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/4.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/6.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/5.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/38.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/37.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/18.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/19.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/3.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/32.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Grid | Summer 2017 -->
+                            <div id="album-photos-4" class="album-image-grid is-hidden">
+                                <div class="album-info">
+                                    <h4>Summer 2017 | <small>32 photo(s)</small></h4>
+                                    <a class="close-nested-photos">Go Back</a>
+                                </div>
+                                <div class="columns is-multiline">
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/4.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/6.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/5.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/38.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/37.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/18.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/19.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/3.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/32.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Load more images -->
+                                <div class=" load-more-wrap has-text-centered">
+                                    <a href="#" class="load-more-button">Load More</a>
+                                </div>
+                                <!-- /Load more images -->
+                            </div>
+
+                            <!-- Hidden Grid | Winter 2017 -->
+                            <div id="album-photos-5" class="album-image-grid is-hidden">
+                                <div class="album-info">
+                                    <h4>Winter 2017 | <small>7 photo(s)</small></h4>
+                                    <a class="close-nested-photos">Go Back</a>
+                                </div>
+                                <div class="columns is-multiline">
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/22.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/24.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/36.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/25.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/2.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/8.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/12.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Grid | Thanksgiving 2017 -->
+                            <div id="album-photos-6" class="album-image-grid is-hidden">
+                                <div class="album-info">
+                                    <h4>Thanksgiving 2017 | <small>6 photo(s)</small></h4>
+                                    <a class="close-nested-photos">Go Back</a>
+                                </div>
+                                <div class="columns is-multiline">
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/23.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/22.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/19.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/20.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/2.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Grid item -->
+                                    <div class="column is-4">
+                                        <div class="grid-image">
+                                            <input type="radio" name="selected_photos">
+                                            <div class="inner">
+                                                <img src="https://via.placeholder.com/1600x900" data-demo-src="assets/img/demo/unsplash/21.jpg" alt="">
+                                                <div class="inner-overlay"></div>
+                                                <div class="indicator gelatine">
+                                                    <i data-feather="check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="button is-solid accent-button replace-button is-disabled">Use Picture</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Profile picture crop modal -->
+    <!--html/partials/pages/profile/timeline/modals/upload-crop-profile-modal.html-->
+    <div id="upload-crop-profile-modal" class="modal upload-crop-profile-modal is-xsmall has-light-bg">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="card-heading">
+                    <h3>Upload Picture</h3>
+                    <!-- Close X button -->
+                    <div class="close-wrap">
+                        <span class="close-modal">
+                                    <i data-feather="x"></i>
+                                </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <label class="profile-uploader-box" for="upload-profile-picture">
+                        <span class="inner-content">
+                                    <img src="assets/img/illustrations/profile/add-profile.svg" alt="">
+                                    <span>Click here to <br>upload a profile picture</span>
+                        </span>
+                        <input type="file" id="upload-profile-picture" accept="image/*">
+                    </label>
+                    <div class="upload-demo-wrap is-hidden">
+                        <div id="upload-profile"></div>
+                        <div class="upload-help">
+                            <a id="profile-upload-reset" class="profile-reset is-hidden">Reset Picture</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="submit-profile-picture" class="button is-solid accent-button is-fullwidth raised is-disabled">Use Picture</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Cover image crop modal -->
+    <!--html/partials/pages/profile/timeline/modals/upload-crop-cover-modal.html-->
+    <div id="upload-crop-cover-modal" class="modal upload-crop-cover-modal is-large has-light-bg">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="card-heading">
+                    <h3>Upload Cover</h3>
+                    <!-- Close X button -->
+                    <div class="close-wrap">
+                        <span class="close-modal">
+                                    <i data-feather="x"></i>
+                                </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <label class="cover-uploader-box" for="upload-cover-picture">
+                        <span class="inner-content">
+                                    <img src="assets/img/illustrations/profile/add-cover.svg" alt="">
+                                    <span>Click here to <br>upload a cover image</span>
+                        </span>
+                        <input type="file" id="upload-cover-picture" accept="image/*">
+                    </label>
+                    <div class="upload-demo-wrap is-hidden">
+                        <div id="upload-cover"></div>
+                        <div class="upload-help">
+                            <a id="cover-upload-reset" class="cover-reset is-hidden">Reset Picture</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="submit-cover-picture" class="button is-solid accent-button is-fullwidth raised is-disabled">Use
+                        Picture</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <%- include ("../partials/chat") %> 
+
+
+    <div class="explorer-menu">
+        <div class="explorer-inner">
+            <div class="explorer-container">
+                <!--Header-->
+                <div class="explorer-header">
+                    <h3>Explore</h3>
+                    <div class="control">
+                        <input type="text" class="input is-rounded is-fade" placeholder="Filter">
+                        <div class="form-icon">
+                            <i data-feather="filter"></i>
+                        </div>
+                    </div>
+                </div>
+                <!--List-->
+                <div class="explore-list has-slimscroll">
+                    <!--item-->
+                    <a href="/navbar-v1-feed.html" class="explore-item">
+                        <img src="assets/img/icons/explore/clover.svg" alt="">
+                        <h4>Feed</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-profile-friends.html" class="explore-item">
+                        <img src="assets/img/icons/explore/friends.svg" alt="">
+                        <h4>Friends</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-videos-home.html" class="explore-item">
+                        <img src="assets/img/icons/explore/videos.svg" alt="">
+                        <h4>Videos</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-pages-main.html" class="explore-item">
+                        <img src="assets/img/icons/explore/tag-euro.svg" alt="">
+                        <h4>Pages</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-ecommerce-products.html" class="explore-item">
+                        <img src="assets/img/icons/explore/cart.svg" alt="">
+                        <h4>Commerce</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-groups.html" class="explore-item">
+                        <img src="assets/img/icons/explore/house.svg" alt="">
+                        <h4>Interests</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-stories-main.html" class="explore-item">
+                        <img src="assets/img/icons/explore/chrono.svg" alt="">
+                        <h4>Stories</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-questions-home.html" class="explore-item">
+                        <img src="assets/img/icons/explore/question.svg" alt="">
+                        <h4>Questions</h4>
+                    </a>
+                    <!--item-->
+                    <a href="news.html" class="explore-item">
+                        <img src="assets/img/icons/explore/news.svg" alt="">
+                        <h4>News</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-groups.html" class="explore-item">
+                        <img src="assets/img/icons/explore/cake.svg" alt="">
+                        <h4>Groups</h4>
+                    </a>
+                    <!--item-->
+                    <a href="https://envato.com" class="explore-item">
+                        <img src="assets/img/icons/explore/envato.svg" alt="">
+                        <h4>Envato</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-events.html" class="explore-item">
+                        <img src="assets/img/icons/explore/calendar.svg" alt="">
+                        <h4>Events</h4>
+                    </a>
+                    <!--item-->
+                    <a href="https://cssninja.io" target="_blank" class="explore-item">
+                        <img src="assets/img/icons/explore/pin.svg" alt="">
+                        <h4>Css Ninja</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/elements.html" class="explore-item">
+                        <img src="assets/img/icons/explore/idea.svg" alt="">
+                        <h4>Elements</h4>
+                    </a>
+                    <!--item-->
+                    <a href="/navbar-v1-settings.html" class="explore-item">
+                        <img src="assets/img/icons/explore/settings.svg" alt="">
+                        <h4>Settings</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="end-tour-modal" class="modal end-tour-modal is-xsmall has-light-bg">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="card-heading">
+                    <h3></h3>
+                    <!-- Close X button -->
+                    <div class="close-wrap">
+                        <span class="close-modal">
+                                <i data-feather="x"></i>
+                            </span>
+                    </div>
+                </div>
+                <div class="card-body has-text-centered">
+
+                    <div class="image-wrap">
+                        <img src="assets/img/logo/friendkit.svg" alt="">
+                    </div>
+
+                    <h3>That's all folks!</h3>
+                    <p>Thanks for taking the friendkit tour. There are still tons of other features for you to discover!</p>
+
+                    <div class="action">
+                        <a href="/#demos-section" class="button is-solid accent-button raised is-fullwidth">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Concatenated js plugins and jQuery -->
+    <%- include ("../partials/script") %> 
+    <!-- Landing page js -->
+
+    <!-- Signup page js -->
+
+    <!-- Feed pages js -->
+
+    <!-- profile js -->
+
+    <!-- stories js -->
+
+    <!-- friends js -->
+
+    <!-- questions js -->
+
+    <!-- video js -->
+
+    <!-- events js -->
+
+    <!-- news js -->
+
+    <!-- shop js -->
+
+    <!-- inbox js -->
+
+    <!-- settings js -->
+
+    <!-- map page js -->
+
+    <!-- elements page js -->
+</body>
+
+</html>

@@ -1,0 +1,687 @@
+<div class="chat-wrapper">
+    <div class="chat-inner">
+
+        <!-- Chat top navigation -->
+        <div class="chat-nav">
+            <div class="nav-start">
+                <div class="recipient-block">
+                    <div class="avatar-container">
+                        <% if (messages.length != 0) { %>
+                            <img class="user-avatar" src="/static/uploads/<%= messages[0].user.profilImage %>"
+                            data-demo-src="assets/img/avatars/dan.jpg" alt="">
+                        <% } %>
+                    </div>
+                    <div class="username">
+                        <span>
+                            <% if (messages.length != 0) { %> 
+                                <%= messages[0].user.username %>
+                             <% } else { %>
+                                 Hadi yeni konuşma başlat...
+                            <% } %>
+                        </span>
+                        <!-- <span><i data-feather="star"></i> <span>| Online</span></span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="nav-end">
+
+                <% if (messages.length != 0) { %>
+                <!-- Settings icon dropdown -->
+                <div class="dropdown is-spaced is-neutral is-right dropdown-trigger">
+                    <div>
+                        <a class="chat-nav-item is-icon">
+                            <i data-feather="settings"></i>
+                        </a>
+                    </div>
+                    <div class="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            <!-- <a href="#" class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="message-square"></i>
+                                    <div class="media-content">
+                                        <h3>Details</h3>
+                                        <small>View this conversation's details.</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="settings"></i>
+                                    <div class="media-content">
+                                        <h3>Preferences</h3>
+                                        <small>Define your preferences.</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="bell"></i>
+                                    <div class="media-content">
+                                        <h3>Notifications</h3>
+                                        <small>Set notifications settings.</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="bell-off"></i>
+                                    <div class="media-content">
+                                        <h3>Silence</h3>
+                                        <small>Disable notifications.</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="box"></i>
+                                    <div class="media-content">
+                                        <h3>Archive</h3>
+                                        <small>Archive this conversation.</small>
+                                    </div>
+                                </div>
+                            </a> -->
+                            <a onclick="deletemessage()" class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="trash-2"></i>
+                                    <div class="media-content">
+                                        <h3>Temizle</h3>
+                                        <small>Bu konuşmayı bütün kullanıcılardan sil.</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <script>
+
+                                function deletemessage(){
+                                    const myid = document.getElementById("userid").value;
+                                    const element = document.getElementById("chat-sidebar").querySelector(".is-active");
+                                    const userid = element.attributes[2].nodeValue;
+                                    const messageid = element.attributes[3].nodeValue;
+
+                                    fetch(`https://basaksocialmediaapi.herokuapp.com/delete-message/${myid}/${userid}/${messageid}`)
+                                    .then(data => {
+                                        document.getElementById(`${messageid}-conversation`).remove();
+                                        document.getElementById(`${messageid}-details`).remove();
+                                        element.remove();
+                                    
+                                        console.log("Mesaj Silindi");
+                                        if(document.querySelector(".conversations-list").children.length != 0){
+                                            document.querySelector(".conversations-list").children[0].click();
+                                        }else{
+                                            document.querySelector(".close-chat").click();
+                                            window.location.reload();
+                                        }
+                                        
+                                    
+                                    
+                                    
+                                    })
+                                    .catch(err => console.log(err))
+
+
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+                <!-- <div class="chat-search">
+                    <div class="control has-icon">
+                        <input type="text" class="input" placeholder="Search messages">
+                        <div class="form-icon">
+                            <i data-feather="search"></i>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <a class="chat-nav-item is-icon is-hidden-mobile">
+                    <i data-feather="at-sign"></i>
+                </a> -->
+                <!-- <a class="chat-nav-item is-icon is-hidden-mobile">
+                    <i data-feather="star"></i>
+                </a> -->
+
+                <!-- More dropdown -->
+                <!-- <div class="dropdown is-spaced is-neutral is-right dropdown-trigger">
+                    <div>
+                        <a class="chat-nav-item is-icon no-margin">
+                            <i data-feather="more-vertical"></i>
+                        </a>
+                    </div>
+                    <div class="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="file-text"></i>
+                                    <div class="media-content">
+                                        <h3>Files</h3>
+                                        <small>View all your files.</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="users"></i>
+                                    <div class="media-content">
+                                        <h3>Users</h3>
+                                        <small>View all users you're talking to.</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="gift"></i>
+                                    <div class="media-content">
+                                        <h3>Daily bonus</h3>
+                                        <small>Get your daily bonus.</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="download-cloud"></i>
+                                    <div class="media-content">
+                                        <h3>Downloads</h3>
+                                        <small>See all your downloads.</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a class="dropdown-item">
+                                <div class="media">
+                                    <i data-feather="life-buoy"></i>
+                                    <div class="media-content">
+                                        <h3>Support</h3>
+                                        <small>Reach our support team.</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+                <a class="chat-nav-item is-icon close-chat">
+                    <i data-feather="x"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Chat sidebar -->
+        <div id="chat-sidebar" class="users-sidebar">
+            <!-- Header -->
+            <div class="header-item">
+                <img class="light-image" src="/static/dist/assets/img/logo/friendkit-bold.svg" alt="">
+                <img class="dark-image" src="/static/dist/assets/img/logo/friendkit-white.svg" alt="">
+            </div>
+            <!-- User list -->
+            <div class="conversations-list has-slimscroll-xs">
+                <!-- User -->
+                <% messages.forEach(message=> { %>
+                    <div class="user-item" message_count="<%= message.messages.text.length %>" data-userid="<%= message.user._id %>" data-chat-user="<%= message.messages._id %>"
+                        data-full-name="<%= message.user.username %> " data-status="Online">
+                        <div class="avatar-container">
+                            <img class="user-avatar" src="/static/uploads/<%= message.user.profilImage %>"
+                                data-demo-src="assets/img/avatars/dan.jpg" alt="">
+                            <div class="user-status is-online"></div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+
+            <script>
+                document.querySelector(".conversations-list").children[0].classList.add("is-active");
+            </script>
+
+            <!-- Add Conversation -->
+            <div class="footer-item">
+                <div class="add-button modal-trigger" data-modal="add-conversation-modal"><i data-feather="user"></i>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        <!-- Mesajlar Bölümü -->
+        <div id="chat-body" class="chat-body is-opened">
+            <% messages.forEach(message=> { %>
+                <div id="<%= message.messages._id %>-conversation" class="chat-body-inner has-slimscroll">
+                    <!-- <div class="date-divider">
+                        <hr class="date-divider-line">
+                        <span class="date-divider-text">Today</span>
+                    </div> -->
+
+                    <% message.messages.text.forEach(text=> { %>
+                        <% if (String(user._id)==String(text.user._id)) { %>
+                            <div class="chat-message is-sent">
+                                <img src="/static/uploads/<%= user.profilImage %>"
+                                    data-demo-src="assets/img/avatars/dan.jpg" alt="">
+                                <div class="message-block">
+                                    <span>
+                                        <%= text.date %>
+                                    </span>
+                                    <div class="message-text">
+                                        <%= text.text %>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } else { %>
+                                <div class="chat-message is-received">
+                                    <img src="/static/uploads/<%= message.user.profilImage %>"
+                                        data-demo-src="assets/img/avatars/jenna.png" alt="">
+                                    <div class="message-block">
+                                        <span>
+                                            <%= text.date %>
+                                        </span>
+                                        <div class="message-text">
+                                            <%= text.text %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                        <% }) %>
+                </div>
+                <% }) %>
+
+                    <!-- Compose message area -->
+                    <div class="chat-action">
+                        <div class="chat-action-inner">
+                            <div class="control">
+                                <textarea class="textarea comment-textarea" id="message-input" rows="1"></textarea>
+                                <!-- <div class="dropdown compose-dropdown is-spaced is-accent is-up dropdown-trigger">
+                                    <div>
+                                        <div class="add-button">
+                                            <button  class="button-inner">
+                                                <i data-feather="plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-menu" role="menu">
+                                        <div class="dropdown-content">
+                                            <a href="#" class="dropdown-item">
+                                                <div class="media">
+                                                    <i data-feather="code"></i>
+                                                    <div class="media-content">
+                                                        <h3>Code snippet</h3>
+                                                        <small>Add and paste a code snippet.</small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <div class="media">
+                                                    <i data-feather="file-text"></i>
+                                                    <div class="media-content">
+                                                        <h3>Note</h3>
+                                                        <small>Add and paste a note.</small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <hr class="dropdown-divider">
+                                            <a class="dropdown-item">
+                                                <div class="media">
+                                                    <i data-feather="server"></i>
+                                                    <div class="media-content">
+                                                        <h3>Remote file</h3>
+                                                        <small>Add a file from a remote drive.</small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <div class="media">
+                                                    <i data-feather="monitor"></i>
+                                                    <div class="media-content">
+                                                        <h3>Local file</h3>
+                                                        <small>Add a file from your computer.</small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+        </div>
+
+        <script>
+            document.getElementById("message-input").addEventListener("keyup",(e) => {
+
+                if(e.key == "Enter"){
+                    sendmessage(e.target.value);
+                    e.target.value = "";
+                }
+
+            })
+            function sendmessage(text) {
+                const element = document.querySelector(".conversations-list");
+                const messageid = element.querySelector(".is-active").attributes["data-chat-user"].nodeValue
+                const userid = document.getElementById("userid").value;
+                // const text = document.getElementById("message-input").value
+                const data = document.querySelector(".conversations-list").querySelector(".is-active").attributes
+                data["message_count"].nodeValue ++ 
+                const date = new Date()
+                const options = {
+                    method: 'POST', // or 'PUT'
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            text : text
+                        }),
+                }
+                fetch(`https://basaksocialmediaapi.herokuapp.com/sendmessage/${messageid}/${userid}`,options)
+                .then(data => {
+                    document.getElementById(`${messageid}-conversation`).insertAdjacentHTML("beforeend",`
+                        <div class="chat-message is-sent">
+                                <img src="/static/uploads/<%= user.profilImage %>"
+                                    data-demo-src="assets/img/avatars/dan.jpg" alt="">
+                                <div class="message-block">
+                                    <span>
+                                        ${date}
+                                    </span>
+                                    <div class="message-text">
+                                        ${text}
+                                    </div>
+                                </div>
+                            </div>`)
+                })
+                .catch(err => console.log(err))
+                    
+            }
+            
+            let messagecount = ""
+            setInterval(() =>{
+                const data = document.querySelector(".conversations-list").querySelector(".is-active").attributes
+                const messageid = data["data-chat-user"].nodeValue;
+                messagecount = data["message_count"].nodeValue;
+                // console.log(messageid,messagecount);
+
+                fetch(`https://basaksocialmediaapi.herokuapp.com/getmessage/${messageid}`)
+                .then(data => data.json())
+                .then(res =>{
+                    if(messagecount != res.__v){
+                        data["message_count"].nodeValue = res.__v;
+                        const newmessage = res.text.slice(messagecount, res.__v)
+                        newmessage.forEach(message => {     
+                            document.getElementById(`${messageid}-conversation`).insertAdjacentHTML("beforeend",`
+                            <div class="chat-message is-received">
+                                    <img src="/static/uploads/${message.user.profilImage}"
+                                        data-demo-src="assets/img/avatars/dan.jpg" alt="">
+                                    <div class="message-block">
+                                        <span>
+                                            ${message.date}
+                                        </span>
+                                        <div class="message-text">
+                                           ${message.text}
+                                        </div>
+                                    </div>
+                                </div>`)
+                        });
+                        
+                    }
+                })
+                .catch(err => console.error(err))
+
+            },60000)
+
+
+        </script>
+
+        <!-- Details Sağ Taraf -->
+        <div id="chat-panel" class="chat-panel is-opened">
+            <div class="panel-inner">
+                <div class="panel-header">
+                    <h3>Details</h3>
+                    <div class="panel-close">
+                        <i data-feather="x"></i>
+                    </div>
+                </div>
+
+                <!-- Sol Taraf Details -->
+                <% messages.forEach(message=> { %>
+                    <div id="<%= message.messages._id %>-details" class="panel-body is-user-details is-hidden">
+                        <div class="panel-body-inner">
+                            <div class="subheader">
+                                <!-- <div class="action-icon">
+                                    <i class="mdi mdi-video"></i>
+                                </div>
+                                <div class="action-icon">
+                                    <i class="mdi mdi-camera"></i>
+                                </div>
+                                <div class="action-icon">
+                                    <i class="mdi mdi-microphone"></i>
+                                </div> -->
+                                <div
+                                    class="dropdown details-dropdown is-spaced is-neutral is-right dropdown-trigger ml-auto">
+                                    <div>
+                                        <div class="action-icon">
+                                            <i class="mdi mdi-dots-vertical"></i>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-menu" role="menu">
+                                        <div class="dropdown-content">
+                                            <a href="/user/<%= message.messages._id %>" class="dropdown-item">
+                                                <div class="media">
+                                                    <i data-feather="user"></i>
+                                                    <div class="media-content">
+                                                        <h3>Profili Görüntüle</h3>
+                                                        <small>Profili detaylı görmek için tıkla.</small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!-- <a class="dropdown-item">
+                                                <div class="media">
+                                                    <i data-feather="mail"></i>
+                                                    <div class="media-content">
+                                                        <h3>Send message</h3>
+                                                        <small>Send a message to the user's inbox.</small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <hr class="dropdown-divider">
+                                            <a class="dropdown-item">
+                                                <div class="media">
+                                                    <i data-feather="share-2"></i>
+                                                    <div class="media-content">
+                                                        <h3>Share profile</h3>
+                                                        <small>Share this user's profile.</small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <div class="media">
+                                                    <i data-feather="x"></i>
+                                                    <div class="media-content">
+                                                        <h3>Block user</h3>
+                                                        <small>Block this user permanently.</small>
+                                                    </div>
+                                                </div>
+                                            </a> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="details-avatar">
+                                <img src="/static/uploads/<%= message.user.profilImage %>"
+                                    data-demo-src="assets/img/avatars/dan.jpg" alt="">
+                                <!-- <div class="call-me">
+                                    <i class="mdi mdi-phone"></i>
+                                </div> -->
+                            </div>
+
+                            <div class="user-meta has-text-centered">
+                                <h3>
+                                    <%= message.user.firstName %>
+                                        <%= message.user.lastName %>
+                                </h3>
+                                <h4>
+                                    <%= message.user.username %>
+                                </h4>
+                            </div>
+
+                            <div class="user-badges">
+                                <div class="hexagon is-red">
+                                    <div>
+                                        <i class="mdi mdi-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="hexagon is-green">
+                                    <div>
+                                        <i class="mdi mdi-dog"></i>
+                                    </div>
+                                </div>
+                                <div class="hexagon is-accent">
+                                    <div>
+                                        <i class="mdi mdi-flash"></i>
+                                    </div>
+                                </div>
+                                <div class="hexagon is-blue">
+                                    <div>
+                                        <i class="mdi mdi-briefcase"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="user-about">
+                                <label>Benim Hakkımda</label>
+                                <div class="about-block">
+                                    <!--<i class="mdi mdi-domain"></i> -->
+                                    <img src="/static/icons/writer.png" width="24px" height="24px">
+                                    <div class="about-text">
+                                        <span>Biyografi</span>
+                                        <span><a class="is-inverted" href="#"><%= message.user.biyografi %> </a></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <% }) %>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector(".panel-body").classList.remove("is-hidden");
+</script>
+
+
+
+
+<div id="add-conversation-modal" class="modal add-conversation-modal is-xsmall has-light-bg">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+
+        <div class="card">
+            <div class="card-heading">
+                <h3>Yeni Konuşma</h3>
+                <!-- Close X button -->
+                <div class="close-wrap">
+                    <span class="close-modal">
+                        <i data-feather="x"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <img src="/static/dist/assets/img/icons/chat/bubbles.svg" alt="">
+
+                <div class="field is-autocomplete">
+                    <div class="control has-icon" id="message-user-list">
+                        <input type="text" class="input simple-users-autocpl" id="newmessage"
+                            placeholder="Search a user">
+
+
+                        <div class="tipue_drop_box" id="deneme">
+                            <!-- <a href="/user/634c4dac771beb151a142b90">
+                                <div class="tipue_drop_item">
+                                    <div class="tipue_drop_left"><img
+                                            src="/static/uploads/image-1665953144043.jpeg"
+                                            class="tipue_drop_image"></div>
+                                    <div class="tipue_drop_right">Aperen Nuroğlu<div><small>Alperen
+                                                Nrgl</small></div>
+                                    </div>
+                                </div>
+                            </a> -->
+                        </div>
+                        <div class="form-icon">
+                            <i data-feather="search"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+
+                    // Yeni konuşma baslatma
+                    const userid = document.getElementById("userid").value
+                    document.getElementById("newmessage").addEventListener("keyup", (e) => {
+                        let options = {
+                            method: 'POST', // or 'PUT'
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                name: e.target.value
+                            }),
+                        }
+                        fetch(`https://basaksocialmediaapi.herokuapp.com/getnewmessageusers/${userid}`, options)
+                            .then(data => data.json())
+                            .then(result => {
+                                let start = "<div class='tipue_drop_box'>"
+                                let end = "</div>"
+                                let middle = ""
+                                result.forEach(user => {
+                                    middle += `
+                                        <div class="tipue_drop_item" onclick="startnewmessage(this)" userid="${userid}" fromid="${user._id}">
+                                        <div class="tipue_drop_left"><img
+                                                src="/static/uploads/${user.profilImage}"
+                                                class="tipue_drop_image"></div>
+                                        <div class="tipue_drop_right">${user.firstName} ${user.lastName}<div><small>${user.username}</small></div>
+                                        </div>
+                                        </div>`
+                                });
+                                document.getElementById("deneme").innerHTML = ""
+                                document.getElementById("deneme").insertAdjacentHTML("beforeend", middle);
+
+
+                            })
+                            .catch(err => console.log(err))
+
+                    })
+                    
+                    // Yeni konusma baslatma fonksiyonu.
+                    function startnewmessage(element) {
+                        const userid = element.getAttribute("userid");
+                        const fromid = element.getAttribute("fromid");
+
+                        fetch(`https://basaksocialmediaapi.herokuapp.com/newmessage/${userid}/${fromid}`)
+                            .then(data => {
+                                console.log("Mesaj Başlatıldı");
+                                window.location.reload();
+                                console.log(document.getElementById("denme"))
+
+
+                            })
+                            .catch(err => console.log(err))
+                    }
+
+
+                </script>
+
+                <div class="help-text">
+                    Yeni arkadaşlarla konuşma başlatmak için kullanıcı ara. 
+                    Hemde konuşma için arkadaş olmana gerek yok. İyi Mesajlaşmalar.
+                </div>
+
+                <!-- <div class="action has-text-centered">
+                    <button type="button" class="button is-solid accent-button raised">Start
+                        conversation</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

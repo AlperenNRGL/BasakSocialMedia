@@ -1,0 +1,284 @@
+<div id="main-navbar" class="navbar navbar-v1 is-inline-flex is-transparent no-shadow is-hidden-mobile">
+    <div class="container is-fluid">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                <img class="logo light-image" src="/static/icons/logowhite.png" width="112" height="28"
+                    alt="">
+                <img class="logo dark-image" src="/static/icons/logodark.png" width="112" height="28"
+                    alt="">
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <!-- Navbar Search -->
+
+                <div class="navbar-item is-icon drop-trigger" onclick="get_friend_request_ipad()">
+                    <a class="icon-link is-friends" href="javascript:void(0);">
+                        <i data-feather="heart"></i>
+                        <span class="indicator"></span>
+                    </a>
+
+                    <div class="nav-drop">
+                        <div class="inner">
+                            <div class="nav-drop-header">
+                                <span>Arkadaşlık İstekleri</span>
+                                <a href="#">
+                                    <i data-feather="search"></i>
+                                </a>
+                            </div>
+                            <div class="nav-drop-body is-friend-requests" id="ipad_request">
+                                <!-- Friend request -->
+                                <div class="media">
+                                    <figure class="media-left">
+                                        <p class="image">
+                                            <img src="https://via.placeholder.com/300x300"
+                                                data-demo-src="assets/img/avatars/bobby.jpg" alt="">
+                                        </p>
+                                    </figure>
+                                    <div class="media-content">
+                                        <a href="#">Bobby Brown</a>
+                                        <span>Najeel verwick is a common friend</span>
+                                    </div>
+                                    <div class="media-right">
+                                        <button class="button icon-button is-solid grey-button raised">
+                                            <i data-feather="user-plus"></i>
+                                        </button>
+                                        <button class="button icon-button is-solid grey-button raised">
+                                            <i data-feather="user-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="nav-drop-footer">
+                                <a href="#">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%- include ("../partials/nofication") %> 
+                <!-- <div class="navbar-item is-icon drop-trigger">
+                    <a class="icon-link is-active" href="javascript:void(0);">
+                        <i data-feather="mail"></i>
+                        <span class="indicator"></span>
+                    </a> -->
+
+                    <!-- <div class="nav-drop">
+                        <div class="inner">
+                            <div class="nav-drop-header">
+                                <span>Messages</span>
+                                <a href="messages-inbox.html">Inbox</a>
+                            </div>
+                            <div class="nav-drop-body is-friend-requests">
+                                <div class="media">
+                                    <figure class="media-left">
+                                        <p class="image">
+                                            <img src="https://via.placeholder.com/150x150"
+                                                data-demo-src="assets/img/avatars/nelly.png"
+                                                data-user-popover="9" alt="">
+                                        </p>
+                                    </figure>
+                                    <div class="media-content">
+                                        <a href="#">Nelly Schwartz</a>
+                                        <span>I think we should meet near the Starbucks so we can get...</span>
+                                        <span class="time">Yesterday</span>
+                                    </div>
+                                    <div class="media-right is-centered">
+                                        <div class="added-icon">
+                                            <i data-feather="message-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="nav-drop-footer">
+                                <a href="#">Clear All</a>
+                            </div>
+                        </div>
+                    </div>
+                 </div> -->
+                <div class="navbar-item is-icon open-chat">
+                    <a class="icon-link is-primary" href="javascript:void(0);">
+                        <i data-feather="message-square"></i>
+                        <span class="indicator"></span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="navbar-end">
+
+                <div class="navbar-item">
+                    <div id="global-search" class="control">
+                        <input id="tipue_drop_input" class="input is-rounded" type="text" placeholder="Search"
+                            required>
+                        <span id="clear-search" class="reset-search">
+                            <i data-feather="x"></i>
+                        </span>
+                        <span class="search-icon">
+                            <i data-feather="search"></i>
+                        </span>
+
+                        <div id="tipue_drop_content" class="tipue-drop-content">
+                           
+                        </div>
+                    </div>
+
+                    <script>
+                        const element = document.getElementById("tipue_drop_content");
+
+                        document.getElementById("tipue_drop_input").addEventListener("keyup", (e) => {
+                            if(e.target.value == ""){
+                                element.style.display = "none";
+                                return;
+                            }
+                            fetch("https://basaksocialmediaapi.herokuapp.com/users/" + e.target.value)
+                                .then(value => value.json())
+                                .then(data => showUser2(data))
+                                .catch(err => console.log(err))
+                        })
+
+                        function showUser2(data) {
+                            console.log(data);
+                            let middle = ""
+                            data.forEach(user => {
+                                middle += ` <a href="/user/${user._id}">
+                                        <div class="tipue_drop_item">
+                                            <div class="tipue_drop_left"><img
+                                                    src="/static/uploads/${user.profilImage}"
+                                                    class="tipue_drop_image"></div>
+                                            <div class="tipue_drop_right">${user.firstName} ${user.lastName}<div><small>${user.username}</small></div>
+                                            </div>
+                                        </div>
+                                    </a>`})
+                                element.style.display = "block";
+                                element.innerHTML =""
+                                element.innerHTML = ('<div class="tipue_drop_box">' + middle + '</div>')
+
+                            };
+
+                        </script>
+
+                </div>
+                
+            </div>
+
+            <div id="account-dropdown" class="navbar-item is-account drop-trigger has-caret">
+                <div class="user-image">
+                    <img src="/static/uploads/<%= typeof myuser!="undefined"?myuser.profilImage:user.profilImage %>" data-demo-src="/static/uploads/<%= typeof myuser!="undefined"?myuser.profilImage:user.profilImage %>" alt="">
+                    <span class="indicator"></span>
+                </div>
+
+                <div class="nav-drop is-account-dropdown">
+                    <div class="inner">
+                        <div class="nav-drop-header">
+                            <span class="username"><%= typeof myuser!="undefined"?myuser.username:user.username %></span>
+                            <label class="theme-toggle">
+                                <input type="checkbox">
+                                <span class="toggler">
+                                        <span class="dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                                        </span>
+                                <span class="light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                                        </span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="nav-drop-body account-items">
+                            <!-- <a id="profile-link" href="/profile-main.html" class="account-item">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <div class="image">
+                                            <img src="https://via.placeholder.com/400x400" data-demo-src="assets/img/avatars/jenna.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="media-content">
+                                        <h3>username</h3>
+                                        <small>Main account</small>
+                                    </div>
+                                    <div class="media-right">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    </div>
+                                </div>
+                            </a> -->
+                            <!-- <hr class="account-divider"> -->
+                            <a href="/" class="account-item">
+                                <div class="media">
+                                    <div class="icon-wrap">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-activity">
+                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                    </svg>
+                                    </div>
+                                    <div class="media-content">
+                                        <h3>AnaSayfa</h3>
+                                        <!-- <small>Contact our support.</small> -->
+                                    </div>
+                                </div>
+                            </a>
+                            <a id="navbar-friend-btn" class="account-item">
+                                <div class="media">
+                                    <div class="icon-wrap">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-heart">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                    </div>
+                                    <div class="media-content">
+                                        <h3>Arkadaşlık İstekleri</h3>
+                                        <!-- <small>Log out from your account.</small> -->
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="/user/<%= typeof myuser!="undefined"?myuser._id:user._id %>" class="account-item">
+                                <div class="media">
+                                    <div class="icon-wrap">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-user">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    </div>
+                                    <div class="media-content">
+                                        <h3>Profilim</h3>
+                                        <!-- <small>Log out from your account.</small> -->
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="account-divider">
+                            <a href="/user/profile-settings" class="account-item">
+                                <div class="media">
+                                    <div class="icon-wrap">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                                    </div>
+                                    <div class="media-content">
+                                        <h3>Hesabım</h3>
+                                        <!-- <small>Access widget settings.</small> -->
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="/account/logout" class="account-item">
+                                <div class="media">
+                                    <div class="icon-wrap">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-power"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+                                    </div>
+                                    <div class="media-content">
+                                        <h3>Çıkış Yap</h3>
+                                        <!-- <small>Log out from your account.</small> -->
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

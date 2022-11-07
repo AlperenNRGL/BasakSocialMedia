@@ -1,0 +1,2530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include ("../partials/head") %>
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+                integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQHJPZP" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <!-- Pageloader -->
+        <div class="pageloader"></div>
+        <div class="infraloader is-active"></div>
+        <div class="app-overlay"></div>
+
+        <%- include ("../partials/navbar") %>
+            <%- include ("../partials/navbar2") %>
+
+                <div class="view-wrapper">
+
+                    <!-- Container -->
+                    <div id="main-feed" class="container">
+
+                        <!-- Content placeholders at page load -->
+                        <!-- this holds the animated content placeholders that show up before content -->
+                        <div id="shadow-dom" class="view-wrap">
+                            <div class="columns">
+
+                                <div class="column is-3">
+
+                                    <!-- Placeload element -->
+                                    <div class="placeload weather-widget-placeload">
+                                        <div class="header">
+                                            <div class="inner-wrap">
+                                                <div class="img loads"></div>
+                                                <div class="content-shape loads"></div>
+                                                <div class="content-shape loads"></div>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <div class="inner-wrap">
+                                                <div class="rect loads"></div>
+                                                <div class="content-shape loads"></div>
+                                                <div class="content-shape loads"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Placeload element -->
+                                    <div class="placeload list-placeload">
+                                        <div class="header">
+                                            <div class="content-shape loads"></div>
+                                        </div>
+                                        <div class="body">
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column is-6">
+
+                                    <!-- Placeload element -->
+                                    <div class="placeload compose-placeload">
+                                        <div class="header">
+                                            <div class="content-shape is-lg loads"></div>
+                                            <div class="content-shape is-lg loads"></div>
+                                            <div class="content-shape is-lg loads"></div>
+                                        </div>
+                                        <div class="body">
+                                            <div class="img loads"></div>
+                                            <div class="inner-wrap">
+                                                <div class="content-shape loads"></div>
+                                                <div class="content-shape loads"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Placeload element -->
+                                    <div class="placeload post-placeload">
+                                        <div class="header">
+                                            <div class="img loads"></div>
+                                            <div class="header-content">
+                                                <div class="content-shape loads"></div>
+                                                <div class="content-shape loads"></div>
+                                            </div>
+                                        </div>
+                                        <div class="image-placeholder loads"></div>
+                                        <div class="placeholder-footer">
+                                            <div class="footer-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Placeload element -->
+                                    <div class="placeload post-placeload">
+                                        <div class="header">
+                                            <div class="img loads"></div>
+                                            <div class="header-content">
+                                                <div class="content-shape loads"></div>
+                                                <div class="content-shape loads"></div>
+                                            </div>
+                                        </div>
+                                        <div class="image-placeholder loads"></div>
+                                        <div class="placeholder-footer">
+                                            <div class="footer-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Placeload element -->
+                                    <div class="placeload post-placeload">
+                                        <div class="header">
+                                            <div class="img loads"></div>
+                                            <div class="header-content">
+                                                <div class="content-shape loads"></div>
+                                                <div class="content-shape loads"></div>
+                                            </div>
+                                        </div>
+                                        <div class="image-placeholder loads"></div>
+                                        <div class="placeholder-footer">
+                                            <div class="footer-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Placeload element -->
+                                    <div class="placeload post-placeload">
+                                        <div class="header">
+                                            <div class="img loads"></div>
+                                            <div class="header-content">
+                                                <div class="content-shape loads"></div>
+                                                <div class="content-shape loads"></div>
+                                            </div>
+                                        </div>
+                                        <div class="image-placeholder loads"></div>
+                                        <div class="placeholder-footer">
+                                            <div class="footer-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column is-3">
+
+                                    <!-- Placeload element -->
+                                    <div class="placeload stories-placeload">
+                                        <div class="header">
+                                            <div class="content-shape loads"></div>
+                                        </div>
+                                        <div class="body">
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Placeload element -->
+                                    <div class="placeload mini-widget-placeload">
+                                        <div class="body">
+                                            <div class="inner-wrap">
+                                                <div class="img loads"></div>
+                                                <div class="content-shape loads"></div>
+                                                <div class="content-shape loads"></div>
+                                                <div class="content-shape loads"></div>
+                                                <div class="button-shape loads"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Placeload element -->
+                                    <div class="placeload list-placeload">
+                                        <div class="header">
+                                            <div class="content-shape loads"></div>
+                                        </div>
+                                        <div class="body">
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-block">
+                                                <div class="img loads"></div>
+                                                <div class="inner-wrap">
+                                                    <div class="content-shape loads"></div>
+                                                    <div class="content-shape loads"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Feed page main wrapper -->
+                        <div id="activity-feed" class="view-wrap true-dom is-hidden">
+                            <div class="columns">
+                                <!-- Left side column -->
+                                <div class="column is-3 is-hidden-mobile">
+                                    <!-- Weather widget -->
+                                    <!-- /partials/widgets/weather-widget.html -->
+                                    <!-- <div class="card is-weather-card has-background-image"
+                                        data-background="assets/img/illustrations/cards/weather-bg.svg">
+                                        <div class="card-heading">
+                                            <div
+                                                class="dropdown is-spaced is-accent is-right dropdown-trigger is-light">
+                                                <div>
+                                                    <div class="button">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-menu" role="menu">
+                                                    <div class="dropdown-content">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="map-pin"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Change City</h3>
+                                                                    <small>Change the displayed city.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="rotate-ccw"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Synchronize</h3>
+                                                                    <small>Synchronize with a weather source.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="settings"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Settings</h3>
+                                                                    <small>Access widget settings.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <hr class="dropdown-divider">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="trash-2"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Remove</h3>
+                                                                    <small>Removes this widget from your feed.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="temperature">
+                                                <span>71</span>
+                                            </div>
+                                            <div class="weather-icon">
+                                                <div>
+                                                    <i data-feather="sun"></i>
+                                                    <h4>Sunny</h4>
+                                                    <div class="details">
+                                                        <span>Real Feel: 78° </span>
+                                                        <span>Rain Chance: 5%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="previsions">
+                                                <div class="day">
+                                                    <span>Mon</span>
+                                                    <i data-feather="sun"></i>
+                                                    <span>69°</span>
+                                                </div>
+                                                <div class="day">
+                                                    <span>Tue</span>
+                                                    <i data-feather="cloud-lightning"></i>
+                                                    <span>74°</span>
+                                                </div>
+                                                <div class="day">
+                                                    <span>Wed</span>
+                                                    <i data-feather="cloud-lightning"></i>
+                                                    <span>73°</span>
+                                                </div>
+                                                <div class="day">
+                                                    <span>Thu</span>
+                                                    <i data-feather="sun"></i>
+                                                    <span>68°</span>
+                                                </div>
+                                                <div class="day">
+                                                    <span>Fri</span>
+                                                    <i data-feather="cloud-drizzle"></i>
+                                                    <span>55°</span>
+                                                </div>
+                                                <div class="day">
+                                                    <span>Sat</span>
+                                                    <i data-feather="cloud-rain"></i>
+                                                    <span>58°</span>
+                                                </div>
+                                                <div class="day">
+                                                    <span>Sun</span>
+                                                    <i data-feather="sun"></i>
+                                                    <span>64°</span>
+                                                </div>
+                                            </div>
+                                            <div class="current-date-location has-text-centered">
+                                                <span class="date">Sunday, 18th 2018</span>
+                                                <span class="location"> <i data-feather="map-pin"></i> Los Angeles,
+                                                    CA</span>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- Pages widget -->
+                                    <!-- /partials/widgets/recommended-pages-1-widget.html -->
+                                    <!-- <div class="card">
+                                        <div class="card-heading is-bordered">
+                                            <h4>Recommended Pages</h4>
+                                            <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                                <div>
+                                                    <div class="button">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-menu" role="menu">
+                                                    <div class="dropdown-content">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="file-text"></i>
+                                                                <div class="media-content">
+                                                                    <h3>All Recommandations</h3>
+                                                                    <small>View all recommandations.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="settings"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Settings</h3>
+                                                                    <small>Access widget settings.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <hr class="dropdown-divider">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="trash-2"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Remove</h3>
+                                                                    <small>Removes this widget from your feed.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body no-padding">
+
+                                            <div class="page-block transition-block">
+                                                <img src="https://via.placeholder.com/300x300"
+                                                    data-demo-src="assets/img/icons/logos/fastpizza.svg"
+                                                    data-page-popover="0" alt="">
+                                                <div class="page-meta">
+                                                    <span>Fast Pizza</span>
+                                                    <span>Pizza & Fast Food</span>
+                                                </div>
+                                                <div class="add-page add-transition">
+                                                    <i data-feather="bookmark"></i>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div> -->
+                                    <!-- Fake Ad -->
+                                    <!-- /partials/widgets/fake-add-widget.html -->
+                                    <!-- <div class="card is-ad">
+                                        <div class="card-body">
+                                            <img src="assets/img/ads/ninja-ad.svg" alt="">
+                                            <div class="ad-text">
+                                                Simple, pleasant, and productive.
+                                            </div>
+                                            <div class="ad-brand">
+                                                Ads via Ninja
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- Latest activities widget -->
+                                    <!-- /partials/widgets/latest-activity-1-widget.html -->
+                                    <!-- <div id="latest-activity-1" class="card">
+                                        <div class="card-heading is-bordered">
+                                            <h4>Latest activity</h4>
+                                            <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                                <div>
+                                                    <div class="button">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-menu" role="menu">
+                                                    <div class="dropdown-content">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="list"></i>
+                                                                <div class="media-content">
+                                                                    <h3>All updates</h3>
+                                                                    <small>View my network's activity.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="settings"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Settings</h3>
+                                                                    <small>Access widget settings.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <hr class="dropdown-divider">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="trash-2"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Remove</h3>
+                                                                    <small>Removes this widget from your feed.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body no-padding">
+                                            <div class="page-block">
+                                                <img src="https://via.placeholder.com/300x300"
+                                                    data-demo-src="assets/img/avatars/hanzo.svg" data-page-popover="5"
+                                                    alt="">
+                                                <div class="page-meta">
+                                                    <span>Css Ninja</span>
+                                                    <span>3 hours ago</span>
+                                                </div>
+                                                <div class="add-page">
+                                                    <i data-feather="eye"></i>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <!-- /Left side column -->
+                                <input type="hidden" id="userid" value="<%= user._id %>">
+                                <!-- Middle column -->
+                                <div class="column is-6" id="postlist">
+
+                                    <!-- Publishing Area -->
+                                    <!-- /partials/pages/feed/compose-card.html -->
+                                    <%- include ("../partials/post-form") %>
+                                        <!-- Post 1 -->
+                                        <!-- /partials/pages/feed/posts/feed-post1.html -->
+                                        <!-- POST #1 -->
+                                        <% if (suggestedusers.length != 0) { %>
+                                            <div class="card">
+                                                <div class="card-heading is-bordered">
+                                                    <h4>Önerilen arkadaşlar</h4>
+                                                    <!-- <div class="dropdown is-spaced is-right dropdown-trigger">
+                                                        <div>
+                                                            <div class="button">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dropdown-menu" role="menu">
+                                                            <div class="dropdown-content">
+                                                                <a href="#" class="dropdown-item">
+                                                                    <div class="media">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                                                        <div class="media-content">
+                                                                            <h3>All Suggestions</h3>
+                                                                            <small>View all friend suggestions.</small>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <a class="dropdown-item">
+                                                                    <div class="media">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                                                                        <div class="media-content">
+                                                                            <h3>Settings</h3>
+                                                                            <small>Access widget settings.</small>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <hr class="dropdown-divider">
+                                                                <a href="#" class="dropdown-item">
+                                                                    <div class="media">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                                        <div class="media-content">
+                                                                            <h3>Remove</h3>
+                                                                            <small>Removes this widget from your feed.</small>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+                                                </div>
+                                                <div class="card-body no-padding">
+                                                    <% suggestedusers.forEach(friend => { %>
+                                                        <!-- Suggested friend -->
+                                                        <div class="add-friend-block transition-block">
+                                                            <img src="/static/uploads/<%= friend.profilImage %>" data-demo-src="assets/img/avatars/nelly.png" data-user-popover="9" alt="">
+                                                            <div class="page-meta">
+                                                                <span><%= friend.firstName %> <%= friend.lastName %></span>
+                                                                <span><%= friend.username %></span>
+                                                            </div>
+                                                            <a href="/user/<%= friend._id %>" class="add-friend">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye">
+                                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                    <% }) %>
+                                                </div>
+                                            </div>
+                                        <% } %>
+                                        <% posts.forEach(post=> { %>
+                                            <%- include ("../partials/post",{post : post}) %>
+                                                <% }) %>
+
+                                                    <!-- POST #1 -->
+                                                    <!-- Post 2 -->
+                                                    <!-- /partials/pages/feed/posts/feed-post2.html -->
+                                                    <!-- POST #2 -->
+
+                                                    <!-- /POST #6 -->
+                                                    <!-- Load more posts -->
+                                                    <div class=" load-more-wrap narrow-top has-text-centered">
+                                                        <button style="cursor: pointer;" onclick="loadmore(this)" class="load-more-button">Daha Fazla</button>
+                                                    </div>
+                                                    <!-- /Load more posts -->
+                                                    <input id="post-count" type="hidden" value="<%= posts.length %>">
+                                                    <input id="profilImage" type="hidden" value="<%= user.profilImage %>">
+                                                    <script>
+                                                        const userid = document.getElementById("userid").value
+                                                        const profilImage = document.getElementById("profilImage").value
+
+                                                        function loadmore(e){
+                                                            const postcount = document.getElementById("post-count").value;
+
+                                                            fetch(`https://basaksocialmediaapi.herokuapp.com/get-posts/${userid}/${postcount}`)
+                                                            .then(data => data.json())
+                                                            .then(result =>{
+                                                                result.forEach(post => {
+                                                                    document.getElementById("post-count").value ++;
+                                                                    const html1 = `
+                                                                    <div id="feed-post-1" class="card is-post">
+                                                                        <!-- Main wrap -->
+                                                                        <div class="content-wrap">
+                                                                            <!-- Post header -->
+                                                                            <div class="card-heading">
+                                                                                <!-- User meta -->
+                                                                                <div class="user-block">
+                                                                                        <div class="image">
+                                                                                            <img src="/static/uploads/${post.user.profilImage}" data-demo-src="assets/img/avatars/dan.jpg"
+                                                                                                data-user-popover="1" alt="">
+                                                                                        </div>
+                                                                                    <div class="user-info">
+                                                                                        <a href="/user/${post.user._id}">${post.user.username}</a>
+                                                                                        <span class="time">${post.date}</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- Right side dropdown -->
+                                                                                <!-- /partials/pages/feed/dropdowns/feed-post-dropdown.html -->
+                                                                                <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                                                                    <div>
+                                                                                        <div class="button" onclick="show_dropdown(this)">
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="dropdown-menu" role="menu">
+                                                                                        <div class="dropdown-content">
+                                                                                            <a href="/user/${post.user._id}" class="dropdown-item">
+                                                                                                <div class="media">
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                                                                                    <div class="media-content">
+                                                                                                        <h3>Profil</h3>
+                                                                                                        <small>Profili Görüntelemek İçin Tıkla.</small>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- /Post header -->
+                                                                            <!-- Post body -->
+                                                                            <div class="card-body">
+                                                                                <!-- Post body text -->
+                                                                                <div class="post-text">
+                                                                                    <p>
+                                                                                        ${post.text}
+                                                                                    </p>
+                                                                                </div>
+                                                                                <!-- Featured image -->
+                                                                        <div class="post-image">
+                                                                        `
+                                                                     
+                                                                    let html2 = ""
+                                                                    if(post.image != "null"){
+                                                                        html2 += `<img src="/static/uploads/${post.image}" data-demo-src="assets/img/demo/unsplash/1.jpg" alt="">`
+                                                                    }else{
+                                                                        html2 += `<div style="height: 30px;"></div>`
+                                                                    }
+
+                                                                    const html3 = `
+                                                                    <div class="like-wrapper">
+                                                                    <input type="hidden" value="${post.user._id}">
+                                                                    <input type="hidden" value="${post._id}">
+                                                                    <a onclick="like_btn(this)" class="like-button" >
+                                                                    `
+                                                                    
+                                                                    let html4 = ""
+                                                                    if (post.like.find(l => l.user.username== post.user.username )){
+                                                                        html4 =  `<img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">`
+                                                                    }else{
+                                                                        html4 =  `<img width="35px" height="35px" src="/static/uploads/icons8-like-64-2.png">`
+                                                                    }
+
+
+                                                                    const html5 = `     
+                                                                                <span class="like-overlay"></span>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="fab-wrapper is-share">
+                                                                            <a href="javascript:void(0);" class="small-fab share-fab modal-trigger" data-modal="share-modal">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                                                                            </a>
+                                                                        </div>
+
+                                                                        <div class="fab-wrapper is-comment" onclick="show_comment_loadmore(this)">
+                                                                            <a href="javascript:void(0);" class="small-fab">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /Post body -->
+
+                                                                <!-- Post footer -->
+                                                                <div class="card-footer">
+                                                                    <!-- Followers avatars -->
+                                                                    <div class="likers-group">`
+
+                                                                    let html6 = ""
+                                                                    for ( let i = 0; i < post.like.length && i < 4; i++) {
+                                                                        html6+= `<img src="/static/uploads/${post.like[i].user.profilImage}" data-demo-src="/static/dist/assets/img/avatars/dan.jpg" data-user-popover="1" alt="">`
+                                                                    }
+
+                                                                    const html7 = `
+                                                                            </div>
+                                                                            <!-- Followers text -->
+                                                                            <!-- <div class="likers-text">
+                                                                                <p>
+                                                                                    <a href="#">Milly</a>,
+                                                                                    <a href="#">David</a>
+                                                                                </p>
+                                                                                <p>and 23 more liked this</p>
+                                                                            </div> -->
+                                                                            <!-- Post statistics -->
+                                                                            <div class="social-count">
+                                                                                <div class="likes-count">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                                    <span class="countlike" id="${post._id}" >${post.like.length}</span>
+                                                                                </div>
+                                                                                <div class="shares-count">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                                                                                    <span>not now</span>
+                                                                                </div>
+                                                                                <div class="comments-count">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                                                                    <span id="commentlike">${post.comments.length}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- /Post footer -->
+                                                                    </div>
+                                                                    <!-- /Main wrap -->
+
+                                                                    <!-- Post #1 Comments -->
+                                                                    <div class="comments-wrap is-hidden">
+                                                                        <!-- Header -->
+                                                                        <div class="comments-heading">
+                                                                            <h4>Comments
+                                                                                <small>( ${post.comments.length} )</small>
+                                                                            </h4>
+                                                                            <div onclick="show_comment_loadmore_close(this)" class="close-comments">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- /Header -->
+
+                                                                        <!-- Comments body -->
+                                                                        <div class="comments-body has-slimscroll" id="post-${post._id}">
+                                                                            <!-- Comment -->
+                                                                    `
+                                                                    
+                                                                    let html8 = ""
+                                                                    post.comments.forEach(comment => {
+                                                                        let comment1 = `
+                                                                        <div class="media is-comment">
+                                                                            <!-- User image -->
+                                                                            <div class="media-left">
+                                                                                <div class="image">
+                                                                                    <img src="/static/uploads/${comment.user.profilImage} "
+                                                                                        data-demo-src="assets/img/avatars/dan.jpg" data-user-popover="1" alt="">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- Content -->
+                                                                            <div class="media-content">
+                                                                                <a href="#">${comment.user.username}</a>
+                                                                                <span class="time">${comment.date}</span>
+                                                                                <p>${comment.text}</p>
+                                                                                <!-- Actions -->
+                                                                                <div class="controls">
+                                                                                    <div class="like-count">
+                                                                                        <i data-feather="x"></i>
+                                                                                        <span></span>
+                                                                                    </div>
+                                                                                    <div class="reply">
+                                                                                        <input type="hidden" value="${comment._id}">
+                                                                                        <a></a>
+                                                                                    </div>
+                                                                                    <div class="edit">
+                                                                                        <a href="#"></a>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- Nested Comment -->
+                                                                        `
+                                                                    
+                                                                        comment.altcomment.forEach(altcomment=> {
+
+                                                                            comment1+= `
+                                                                            <div class="media is-comment">
+                                                                                 <!-- User image -->
+                                                                                 <div class="media-left">
+                                                                                     <div class="image">
+                                                                                         <img src="/static/uploads/${altcomment.user.profilImage}"
+                                                                                             data-demo-src="assets/img/avatars/david.jpg" data-user-popover="4" alt="">
+                                                                                     </div>
+                                                                                 </div>
+                                                                                 <!-- Content -->
+                                                                                 <div class="media-content">
+                                                                                     <a href="#">
+                                                                                         ${altcomment.user.username}
+                                                                                     </a>
+                                                                                     <span class="time">
+                                                                                         ${altcomment.date}
+                                                                                     </span>
+                                                                                     <p>
+                                                                                         ${altcomment.text}
+                                                                                     </p>
+                                                                                     <!-- Actions -->
+                                                                                     <div class="controls">
+                                                                                         <div class="like-count">
+
+                                                                                             <span></span>
+                                                                                         </div>
+                                                                                         <div class="reply">
+                                                                                             <a onclick="show_alt_comment(this)"></a>
+                                                                                         </div>
+                                                                                     </div>
+                                                                                 </div>
+                                                                                 <!-- Right side dropdown -->
+                                                                                 <div class="media-right">
+                                                                                     <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                                                                         <div>
+                                                                                             <div class="button">
+                                                                                                 <i data-feather="more-vertical"></i>
+                                                                                             </div>
+                                                                                         </div>
+                                                                                         <div class="dropdown-menu" role="menu">
+                                                                                             <div class="dropdown-content">
+                                                                                                 <a class="dropdown-item">
+                                                                                                     <div class="media">
+                                                                                                         <i data-feather="x"></i>
+                                                                                                         <div class="media-content">
+                                                                                                             <h3>Hide</h3>
+                                                                                                             <small>Hide this comment.</small>
+                                                                                                         </div>
+                                                                                                     </div>
+                                                                                                 </a>
+                                                                                                 <div class="dropdown-divider"></div>
+                                                                                                 <a href="#" class="dropdown-item">
+                                                                                                     <div class="media">
+                                                                                                         <i data-feather="flag"></i>
+                                                                                                         <div class="media-content">
+                                                                                                             <h3>Report</h3>
+                                                                                                             <small>Report this comment.</small>
+                                                                                                         </div>
+                                                                                                     </div>
+                                                                                                 </a>
+                                                                                             </div>
+                                                                                         </div>
+                                                                                     </div>
+                                                                                 </div>
+                                                                                </div>
+                                                                            `
+                                                                        })
+                                                                    
+                                                                        comment1 += ` <div class="card-footer">
+                                                                                     <div class="media post-comment has-emojis">
+                                                                                         <!-- Comment Textarea -->
+                                                                                         <div class="media-content">
+                                                                                             <div class="field">
+                                                                                                 <p class="control">
+                                                                                                     <textarea class="textarea comment-textarea" rows="0"
+                                                                                                         placeholder="Write a comment..."></textarea>
+                                                                                                 </p>
+                                                                                             </div>
+                                                                                             <!-- Additional actions -->
+                                                                                             <div class="actions">
+                                                                                                 <div class="image is-32x32">
+                                                                                                     <img class="is-rounded"
+                                                                                                         src="/static/uploads/${profilImage}"
+                                                                                                         data-demo-src="assets/img/avatars/jenna.png"
+                                                                                                         data-user-popover="0" alt="">
+                                                                                                 </div>
+                                                                                                 <div class="toolbar">
+                                                                                                     <input type="hidden" value="${comment._id}">
+                                                                                                     <input type="hidden" value="${post._id}">
+                                                                                                     <a class="button is-solid primary-button"
+                                                                                                         onclick="add_alt_comment(this)" raised">Post
+                                                                                                         Alt Comment</a>
+                                                                                                 </div>
+                                                                                             </div>
+                                                                                         </div>
+                                                                                     </div>
+                                                                                 </div>
+                                                                              </div>
+                                                                           </div>`
+
+                                                                        html8 += comment1
+                                                                    
+                                                                    });
+
+                                                                    const html9 = `
+                                                                            </div>
+                                                                               <div class="card-footer">
+                                                                                   <div class="media post-comment has-emojis">
+                                                                                       <!-- Comment Textarea -->
+                                                                                       <div class="media-content">
+                                                                                           <div class="field">
+                                                                                               <p class="control">
+                                                                                                   <textarea class="textarea comment-textarea" rows="1"
+                                                                                                       placeholder="Write a comment..."></textarea>
+                                                                                               </p>
+                                                                                           </div>
+                                                                                           <!-- Additional actions -->
+                                                                                           <div class="actions">
+                                                                                               <div class="image is-32x32">
+                                                                                                   <img class="is-rounded" src="/static/uploads/${profilImage}"
+                                                                                                       data-demo-src="assets/img/avatars/jenna.png" data-user-popover="0" alt="">
+                                                                                               </div>
+                                                                                               <div class="toolbar">
+                                                                                                   <!-- <div class="action is-auto">
+                                                                                                       <i data-feather="at-sign"></i>
+                                                                                                   </div>
+                                                                                                   <div class="action is-emoji">
+                                                                                                       <i data-feather="smile"></i>
+                                                                                                   </div>
+                                                                                                   <div class="action is-upload">
+                                                                                                       <i data-feather="camera"></i>
+                                                                                                       <input type="file">
+                                                                                                   </div> -->
+                                                                                                   <input type="hidden" value="${post.user._id}">
+                                                                                                   <input type="hidden" value="${post._id}">
+                                                                                                   <a class="button is-solid primary-button" onclick="add_comment(this)">Post
+                                                                                                       Comment</a>
+                                                                                               </div>
+                                                                                           </div>
+                                                                                       </div>
+                                                                                   </div>
+                                                                               </div>
+
+                                                                               <input type="hidden" name="userid" id="userid" value="${userid}">
+
+                                                                               <!-- /Comments body -->
+                                                                           
+                                                                               <!-- Comments footer -->
+                                                                               <!-- Comments footer -->
+                                                                           </div>
+                                                                           <!-- /Post #1 Comments -->
+                                                                        </div>
+                                                                        `
+                                                                    
+                                                                    e.parentNode.insertAdjacentHTML("beforebegin",(html1+html2+html3+html4+html5+html6+html7+html8+html9));
+
+                                                                });
+
+                                                                console.log(document.getElementById("post-count"));
+                                                            })
+                                                            .catch(err => console.log(err))
+
+                                                        }
+
+
+                                                        
+
+                                                        function show_dropdown(e){
+                                                            e.parentNode.parentNode.classList.add("is-active");
+                                                        }
+
+                                                        function show_comment_loadmore(e){
+                                                            console.log(e.parentNode.parentNode.parentNode.nextElementSibling.classList.toggle("is-hidden"));
+                                                        }
+
+
+                                                        function show_comment_loadmore_close(e){
+                                                            e.parentNode.parentNode.classList.toggle("is-hidden");
+                                                        }
+
+
+                                                    </script>
+
+                                </div>
+                                <!-- /Middle column -->
+
+                                <!-- Right side column -->
+                                <div class="column is-3">
+
+                                    <!-- Stories widget -->
+                                    <!-- /partials/widgets/stories-widget.html -->
+                                    <!-- <div class="card">
+                                        <div class="card-heading is-bordered">
+                                            <h4>Stories</h4>
+                                            <div class="dropdown is-spaced is-neutral is-right dropdown-trigger">
+                                                <div>
+                                                    <div class="button">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-menu" role="menu">
+                                                    <div class="dropdown-content">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="tv"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Browse stories</h3>
+                                                                    <small>View all recent stories.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="settings"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Settings</h3>
+                                                                    <small>Access widget settings.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <hr class="dropdown-divider">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="trash-2"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Remove</h3>
+                                                                    <small>Removes this widget from your feed.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body no-padding"> -->
+                                            <!-- Story block -->
+                                            <!-- <div class="story-block">
+                                                <a id="add-story-button" href="#" class="add-story">
+                                                    <i data-feather="plus"></i>
+                                                </a>
+                                                <div class="story-meta">
+                                                    <span>Add a new Story</span>
+                                                    <span>Share an image, a video or some text</span>
+                                                </div>
+                                            </div> -->
+
+                                        </div>
+                                    </div>
+                                    <!-- Birthday widget -->
+                                    <!-- /partials/widgets/birthday-widget.html -->
+                                    <div class="card is-birthday-card has-background-image"
+                                        data-background="assets/img/illustrations/cards/birthday-bg.svg">
+                                        <!-- <div class="card-heading">
+                                            <i data-feather="gift"></i>
+                                            <div class="dropdown is-spaced is-right dropdown-trigger is-light">
+                                                <div>
+                                                    <div class="button">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-menu" role="menu">
+                                                    <div class="dropdown-content">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="clock"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Remind me</h3>
+                                                                    <small>Remind me of this later today.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="message-circle"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Message</h3>
+                                                                    <small>Send an automatic greeting message.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <hr class="dropdown-divider">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="trash-2"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Remove</h3>
+                                                                    <small>Removes this widget from your feed.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <div class="card-body">
+                                            <div>
+                                                <!-- <div class="birthday-avatar"> -->
+                                                    <img src="/static/icons/thank-you.png" >
+                                                    <!-- <div class="birthday-indicator">
+                                                        31
+                                                    </div>
+                                                </div>-->
+                                                <div class="birthday-content">
+                                                    <h4>Sonunda Social Media Bitti...</h4>
+                                                    <p>Bana bu yolda destek veren herkese teşekkürler.</p>
+                                                    <!-- <button type="button" class="button light-button">Write
+                                                        Message</button> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Suggested friends widget -->
+                                    <!-- /partials/widgets/suggested-friends-1-widget.html -->
+                                    <!-- <div class="card">
+                                        <div class="card-heading is-bordered">
+                                            <h4>Suggested Friends</h4>
+                                            <div class="dropdown is-spaced is-right dropdown-trigger">
+                                                <div>
+                                                    <div class="button">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-menu" role="menu">
+                                                    <div class="dropdown-content">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="users"></i>
+                                                                <div class="media-content">
+                                                                    <h3>All Suggestions</h3>
+                                                                    <small>View all friend suggestions.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="settings"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Settings</h3>
+                                                                    <small>Access widget settings.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <hr class="dropdown-divider">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="trash-2"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Remove</h3>
+                                                                    <small>Removes this widget from your feed.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body no-padding">-->
+                                            <!-- Suggested friend -->
+                                            <!-- <div class="add-friend-block transition-block">
+                                                <img src="https://via.placeholder.com/300x300"
+                                                    data-demo-src="assets/img/avatars/nelly.png" data-user-popover="9"
+                                                    alt="">
+                                                <div class="page-meta">
+                                                    <span>Nelly Schwartz</span>
+                                                    <span>Melbourne</span>
+                                                </div>
+                                                <div class="add-friend add-transition">
+                                                    <i data-feather="user-plus"></i>
+                                                </div>
+                                            </div> -->
+                                        <!-- </div>
+                                    </div> -->
+                                    <!-- New job widget -->
+                                    <!-- /partials/widgets/new-job-widget.html -->
+                                    <!-- <div class="card is-new-job-card has-background-image"
+                                        data-background="assets/img/illustrations/cards/job-bg.svg">
+                                        <div class="card-heading">
+                                            <i data-feather="briefcase"></i>
+                                            <div class="dropdown is-spaced is-right dropdown-trigger is-light">
+                                                <div>
+                                                    <div class="button">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-menu" role="menu">
+                                                    <div class="dropdown-content">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="clock"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Remind me</h3>
+                                                                    <small>Remind me of this later today.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="message-circle"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Message</h3>
+                                                                    <small>Send an automatic congratz message.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <hr class="dropdown-divider">
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <i data-feather="trash-2"></i>
+                                                                <div class="media-content">
+                                                                    <h3>Remove</h3>
+                                                                    <small>Removes this widget from your feed.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div>
+                                                <div class="job-avatar">
+                                                    <img src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/nelly.png" alt="">
+                                                </div>
+                                                <div class="job-content">
+                                                    <h4>Nelly has a new job!</h4>
+                                                    <p>Send her message congratulating her for getting this job.</p>
+                                                    <button type="button" class="button light-button">Write
+                                                        Message</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <!-- /Right side column -->
+                            </div>
+                        </div>
+                        <!-- /Feed page main wrapper -->
+                    </div>
+                    <!-- /Container -->
+
+                    <!-- Create group modal in compose card -->
+                    <!-- /partials/pages/feed/modals/create-group-modal.html -->
+                    <div id="create-group-modal" class="modal create-group-modal is-light-bg">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <h3>Create group</h3>
+                                    <!-- Close X button -->
+                                    <div class="close-wrap">
+                                        <span class="close-modal">
+                                            <i data-feather="x"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- Modal subheading -->
+                                <div class="subheading">
+                                    <!-- Group avatar -->
+                                    <div class="group-avatar">
+                                        <input id="group-avatar-upload" type="file">
+                                        <div class="add-photo">
+                                            <i data-feather="plus"></i>
+                                        </div>
+                                    </div>
+                                    <!-- Group name -->
+                                    <div class="control">
+                                        <input type="text" class="input" placeholder="Give the group a name">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="inner">
+                                        <div class="left-section">
+                                            <div class="search-subheader">
+                                                <div class="control">
+                                                    <input type="text" class="input"
+                                                        placeholder="Search for friends to add">
+                                                    <span class="icon">
+                                                        <i data-feather="search"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div id="new-group-list" class="user-list has-slimscroll">
+
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-1">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/dan.jpg" alt="">
+                                                    <div class="friend-name">Dan Walker</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-1">
+                                                            <label for="checkbox-group-1"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-2">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/daniel.jpg" alt="">
+                                                    <div class="friend-name">Daniel Wellington</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-2">
+                                                            <label for="checkbox-group-2"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-3">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/stella.jpg" alt="">
+                                                    <div class="friend-name">Stella Bergmann</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-3">
+                                                            <label for="checkbox-group-3"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-4">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/david.jpg" alt="">
+                                                    <div class="friend-name">David Kim</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-4">
+                                                            <label for="checkbox-group-4"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-5">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/nelly.png" alt="">
+                                                    <div class="friend-name">Nelly Schwartz</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-5">
+                                                            <label for="checkbox-group-5"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-6">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/elise.jpg" alt="">
+                                                    <div class="friend-name">Elise Walker</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-6">
+                                                            <label for="checkbox-group-6"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-7">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/bobby.jpg" alt="">
+                                                    <div class="friend-name">Bobby Brown</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-7">
+                                                            <label for="checkbox-group-7"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-8">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/lana.jpeg" alt="">
+                                                    <div class="friend-name">Lana Henrikssen</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-8">
+                                                            <label for="checkbox-group-8"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-9">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/gaelle.jpeg" alt="">
+                                                    <div class="friend-name">Gaelle Morris</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-9">
+                                                            <label for="checkbox-group-9"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Friend -->
+                                                <div class="friend-block" data-ref="ref-10">
+                                                    <img class="friend-avatar" src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/mike.jpg" alt="">
+                                                    <div class="friend-name">Mike Lasalle</div>
+                                                    <div class="round-checkbox is-small">
+                                                        <div>
+                                                            <input type="checkbox" id="checkbox-group-10">
+                                                            <label for="checkbox-group-10"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="right-section has-slimscroll">
+                                            <div class="selected-count">
+                                                <span>Selected</span>
+                                                <span id="selected-friends-count">0</span>
+                                            </div>
+
+                                            <div id="selected-list" class="selected-list"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="button"
+                                        class="button is-solid grey-button close-modal">Cancel</button>
+                                    <button type="button" class="button is-solid accent-button close-modal">Create a
+                                        Group</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Albums onboarding modal -->
+                    <!-- /partials/pages/feed/modals/albums-help-modal.html -->
+                    <div id="albums-help-modal" class="modal albums-help-modal is-xsmall has-light-bg">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <h3>Add Photos</h3>
+                                    <!-- Close X button -->
+                                    <div class="close-wrap">
+                                        <span class="close-modal">
+                                            <i data-feather="x"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="content-block is-active">
+                                        <img src="assets/img/illustrations/cards/albums.svg" alt="">
+                                        <div class="help-text">
+                                            <h3>Manage your photos</h3>
+                                            <p>Lorem ipsum sit dolor amet is a dummy text used by the typography
+                                                industry and
+                                                the web industry.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content-block">
+                                        <img src="assets/img/illustrations/cards/upload.svg" alt="">
+                                        <div class="help-text">
+                                            <h3>Upload your photos</h3>
+                                            <p>Lorem ipsum sit dolor amet is a dummy text used by the typography
+                                                industry and
+                                                the web industry.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="slide-dots">
+                                        <div class="dot is-active"></div>
+                                        <div class="dot"></div>
+                                    </div>
+                                    <div class="action">
+                                        <button type="button" class="button is-solid accent-button next-modal raised"
+                                            data-modal="albums-modal">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Album upload modal -->
+                    <!-- /partials/pages/feed/modals/albums-modal.html -->
+                    <div id="albums-modal" class="modal albums-modal is-xxl has-light-bg">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <h3>New album</h3>
+                                    <div class="button is-solid accent-button fileinput-button">
+                                        <i class="mdi mdi-plus"></i>
+                                        Add pictures/videos
+                                    </div>
+
+                                    <!-- Close X button -->
+                                    <div class="close-wrap">
+                                        <span class="close-modal">
+                                            <i data-feather="x"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="left-section">
+                                        <div class="album-form">
+                                            <div class="control">
+                                                <input type="text" class="input is-sm no-radius is-fade"
+                                                    placeholder="Album name">
+                                                <div class="icon">
+                                                    <i data-feather="camera"></i>
+                                                </div>
+                                            </div>
+                                            <div class="control">
+                                                <textarea class="textarea is-fade no-radius is-sm" rows="3"
+                                                    placeholder="describe your album ..."></textarea>
+                                            </div>
+                                            <div class="control">
+                                                <input type="text" class="input is-sm no-radius is-fade"
+                                                    placeholder="Place">
+                                                <div class="icon">
+                                                    <i data-feather="map-pin"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="album-date" class="album-date">
+                                            <div class="head">
+                                                <h4>Change the date</h4>
+                                                <button type="button"
+                                                    class="button is-solid dark-grey-button icon-button">
+                                                    <i data-feather="plus"></i>
+                                                </button>
+                                            </div>
+
+                                            <p>Set a date for your album. You can always change it later.</p>
+                                            <div class="control is-hidden">
+                                                <input id="album-datepicker" type="text" class="input is-sm is-fade"
+                                                    placeholder="Select a date">
+                                                <div class="icon">
+                                                    <i data-feather="calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="tagged-in-album" class="tagged-in-album">
+                                            <div class="head">
+                                                <h4>Tag friends in this album</h4>
+                                                <button type="button"
+                                                    class="button is-solid dark-grey-button icon-button">
+                                                    <i data-feather="plus"></i>
+                                                </button>
+                                            </div>
+
+                                            <p>Tag friends in this album. Tagged friends can see photos they are tagged
+                                                in.</p>
+                                            <div class="field is-autocomplete is-hidden">
+                                                <div class="control">
+                                                    <input id="create-album-friends-autocpl" type="text"
+                                                        class="input is-sm is-fade" placeholder="Search for friends">
+                                                    <div class="icon">
+                                                        <i data-feather="search"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="album-tag-list" class="album-tag-list"></div>
+
+                                        </div>
+
+                                        <div class="shared-album">
+                                            <div class="head">
+                                                <h4>Allow friends to add photos</h4>
+                                                <div class="basic-checkbox">
+                                                    <input class="styled-checkbox" id="styled-checkbox-1"
+                                                        type="checkbox" value="value1">
+                                                    <label for="styled-checkbox-1"></label>
+                                                </div>
+                                            </div>
+
+                                            <p>Tagged friends will be able to share content inside this album.</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="right-section has-slimscroll">
+
+                                        <div class="modal-uploader">
+                                            <div id="actions" class="columns is-multiline no-mb">
+                                                <div class="column is-12">
+                                                    <span class="button has-icon is-solid grey-button fileinput-button">
+                                                        <i data-feather="plus"></i>
+                                                    </span>
+                                                    <button type="submit" class="button start is-hidden">
+                                                        <span>Upload</span>
+                                                    </button>
+                                                    <button type="reset" class="button is-solid grey-button cancel">
+                                                        <span>Clear all</span>
+                                                    </button>
+                                                    <span class="file-count">
+                                                        <span id="modal-uploader-file-count">0</span> file(s) selected
+                                                    </span>
+                                                </div>
+
+                                                <div class="column is-12 is-hidden">
+                                                    <!-- The global file processing state -->
+                                                    <div class="fileupload-process">
+                                                        <div id="total-progress"
+                                                            class="progress progress-striped active" role="progressbar"
+                                                            aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                                            <div class="progress-bar progress-bar-success"
+                                                                style="width:0%;" data-dz-uploadprogress></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="columns is-multiline" id="previews">
+
+                                                <div id="template" class="column is-4 is-template">
+                                                    <div class="preview-box">
+                                                        <!-- This is used as the file preview template -->
+                                                        <div class="remove-button" data-dz-remove>
+                                                            <i class="mdi mdi-close"></i>
+                                                        </div>
+                                                        <div>
+                                                            <span class="preview"><img
+                                                                    src="https://via.placeholder.com/120x120"
+                                                                    data-dz-thumbnail alt="" /></span>
+                                                        </div>
+                                                        <div class="preview-body">
+                                                            <div class="item-meta">
+                                                                <div>
+                                                                    <p class="name" data-dz-name></p>
+                                                                    <strong class="error text-danger"
+                                                                        data-dz-errormessage></strong>
+                                                                </div>
+                                                                <small class="size" data-dz-size></small>
+                                                            </div>
+                                                            <div class="upload-item-progress">
+                                                                <div class="progress active" role="progressbar"
+                                                                    aria-valuemin="0" aria-valuemax="100"
+                                                                    aria-valuenow="0">
+                                                                    <div class="progress-bar progress-bar-success"
+                                                                        data-dz-uploadprogress></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="upload-item-description">
+                                                                <div class="control">
+                                                                    <textarea
+                                                                        class="textarea is-small is-fade no-radius"
+                                                                        rows="4"
+                                                                        placeholder="Describe this photo ..."></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="upload-item-actions is-hidden">
+                                                                <button class="button start is-hidden">
+                                                                    <span>Start</span>
+                                                                </button>
+                                                                <button data-dz-remove class="button cancel is-hidden">
+                                                                    <span>Cancel</span>
+                                                                </button>
+                                                                <button data-dz-remove class="button delete is-hidden">
+                                                                    <span>Delete</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <!-- Dropdown menu -->
+                                    <div
+                                        class="dropdown is-up is-spaced is-modern is-neutral is-right dropdown-trigger">
+                                        <div>
+                                            <button class="button" aria-haspopup="true">
+                                                <i class="main-icon" data-feather="smile"></i>
+                                                <span>Friends</span>
+                                                <i class="caret" data-feather="chevron-down"></i>
+                                            </button>
+                                        </div>
+                                        <div class="dropdown-menu" role="menu">
+                                            <div class="dropdown-content">
+                                                <a href="#" class="dropdown-item">
+                                                    <div class="media">
+                                                        <i data-feather="globe"></i>
+                                                        <div class="media-content">
+                                                            <h3>Public</h3>
+                                                            <small>Anyone can see this publication.</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <div class="media">
+                                                        <i data-feather="users"></i>
+                                                        <div class="media-content">
+                                                            <h3>Friends</h3>
+                                                            <small>only friends can see this publication.</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <div class="media">
+                                                        <i data-feather="user"></i>
+                                                        <div class="media-content">
+                                                            <h3>Specific friends</h3>
+                                                            <small>Don't show it to some friends.</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <hr class="dropdown-divider">
+                                                <a class="dropdown-item">
+                                                    <div class="media">
+                                                        <i data-feather="lock"></i>
+                                                        <div class="media-content">
+                                                            <h3>Only me</h3>
+                                                            <small>Only me can see this publication.</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="button is-solid accent-button close-modal">Create
+                                        album</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Live video onboarding modal -->
+                    <!-- /partials/pages/feed/modals/videos-help-modal.html -->
+                    <div id="videos-help-modal" class="modal videos-help-modal is-xsmall has-light-bg">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <h3>Add Photos</h3>
+                                    <!-- Close X button -->
+                                    <div class="close-wrap">
+                                        <span class="close-modal">
+                                            <i data-feather="x"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="content-block is-active">
+                                        <img src="assets/img/illustrations/cards/videotrip.svg" alt="">
+                                        <div class="help-text">
+                                            <h3>Share live videos</h3>
+                                            <p>Lorem ipsum sit dolor amet is a dummy text used by the typography
+                                                industry and
+                                                the web industry.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content-block">
+                                        <img src="assets/img/illustrations/cards/videocall.svg" alt="">
+                                        <div class="help-text">
+                                            <h3>To build your audience</h3>
+                                            <p>Lorem ipsum sit dolor amet is a dummy text used by the typography
+                                                industry and
+                                                the web industry.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="slide-dots">
+                                        <div class="dot is-active"></div>
+                                        <div class="dot"></div>
+                                    </div>
+                                    <div class="action">
+                                        <button type="button" class="button is-solid accent-button next-modal raised"
+                                            data-modal="videos-modal">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live video modal -->
+                    <!-- /partials/pages/feed/modals/videos-modal.html -->
+                    <div id="videos-modal" class="modal videos-modal is-xxl has-light-bg">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <h3>Go live</h3>
+                                    <div id="stop-stream" class="button is-solid accent-button is-hidden"
+                                        onclick="stopWebcam();">
+                                        <i class="mdi mdi-video-off"></i>
+                                        Stop stream
+                                    </div>
+                                    <div id="start-stream" class="button is-solid accent-button"
+                                        onclick="startWebcam();">
+                                        <i class="mdi mdi-video"></i>
+                                        Start stream
+                                    </div>
+
+
+                                    <!-- Close X button -->
+                                    <div class="close-wrap">
+                                        <span class="close-modal">
+                                            <i data-feather="x"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="inner">
+                                        <div class="left-section">
+                                            <div class="video-wrapper">
+                                                <div class="video-wrap">
+                                                    <div id="live-indicator" class="live is-vhidden">Live</div>
+                                                    <video id="video" width="400" height="240" controls
+                                                        autoplay></video>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right-section">
+                                            <div class="header">
+                                                <img src="https://via.placeholder.com/300x300"
+                                                    data-demo-src="assets/img/avatars/jenna.png" alt="">
+                                                <div class="user-meta">
+                                                    <span>Jenna Davis <small>is live</small></span>
+                                                    <span><small>right now</small></span>
+                                                </div>
+                                                <button type="button" class="button">Follow</button>
+                                                <div class="dropdown is-spaced is-right dropdown-trigger">
+                                                    <div>
+                                                        <div class="button">
+                                                            <i data-feather="more-vertical"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="dropdown-menu" role="menu">
+                                                        <div class="dropdown-content">
+                                                            <div class="dropdown-item is-title">
+                                                                Who can see this ?
+                                                            </div>
+                                                            <a href="#" class="dropdown-item">
+                                                                <div class="media">
+                                                                    <i data-feather="globe"></i>
+                                                                    <div class="media-content">
+                                                                        <h3>Public</h3>
+                                                                        <small>Anyone can see this publication.</small>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <a class="dropdown-item">
+                                                                <div class="media">
+                                                                    <i data-feather="users"></i>
+                                                                    <div class="media-content">
+                                                                        <h3>Friends</h3>
+                                                                        <small>only friends can see this
+                                                                            publication.</small>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <a class="dropdown-item">
+                                                                <div class="media">
+                                                                    <i data-feather="user"></i>
+                                                                    <div class="media-content">
+                                                                        <h3>Specific friends</h3>
+                                                                        <small>Don't show it to some friends.</small>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <hr class="dropdown-divider">
+                                                            <a class="dropdown-item">
+                                                                <div class="media">
+                                                                    <i data-feather="lock"></i>
+                                                                    <div class="media-content">
+                                                                        <h3>Only me</h3>
+                                                                        <small>Only me can see this publication.</small>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="inner-content">
+                                                <div class="control">
+                                                    <input type="text" class="input is-sm is-fade"
+                                                        placeholder="What is this live about?">
+                                                    <div class="icon">
+                                                        <i data-feather="activity"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="live-stats">
+                                                    <div class="social-count">
+                                                        <div class="likes-count">
+                                                            <i data-feather="heart"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                        <div class="shares-count">
+                                                            <i data-feather="link-2"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                        <div class="comments-count">
+                                                            <i data-feather="message-circle"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="social-count ml-auto">
+                                                        <div class="views-count">
+                                                            <i data-feather="eye"></i>
+                                                            <span>0</span>
+                                                            <span class="views"><small>views</small></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="action">
+                                                        <i data-feather="thumbs-up"></i>
+                                                        <span>Like</span>
+                                                    </div>
+                                                    <div class="action">
+                                                        <i data-feather="message-circle"></i>
+                                                        <span>Comment</span>
+                                                    </div>
+                                                    <div class="action">
+                                                        <i data-feather="link-2"></i>
+                                                        <span>Share</span>
+                                                    </div>
+                                                    <div class="dropdown is-spaced is-right dropdown-trigger">
+                                                        <div>
+                                                            <div class="avatar-button">
+                                                                <img src="https://via.placeholder.com/300x300"
+                                                                    data-demo-src="assets/img/avatars/jenna.png" alt="">
+                                                                <i data-feather="triangle"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dropdown-menu has-margin" role="menu">
+                                                            <div class="dropdown-content">
+                                                                <a href="#" class="dropdown-item is-selected">
+                                                                    <div class="media">
+                                                                        <img src="https://via.placeholder.com/300x300"
+                                                                            data-demo-src="assets/img/avatars/jenna.png"
+                                                                            alt="">
+                                                                        <div class="media-content">
+                                                                            <h3>Jenna Davis</h3>
+                                                                            <small>Interact as Jenna Davis.</small>
+                                                                        </div>
+                                                                        <div class="checkmark">
+                                                                            <i data-feather="check"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <hr class="dropdown-divider">
+                                                                <a href="#" class="dropdown-item">
+                                                                    <div class="media">
+                                                                        <img src="https://via.placeholder.com/478x344"
+                                                                            data-demo-src="assets/img/avatars/hanzo.svg"
+                                                                            alt="">
+                                                                        <div class="media-content">
+                                                                            <h3>Css Ninja</h3>
+                                                                            <small>Interact as Css Ninja.</small>
+                                                                        </div>
+                                                                        <div class="checkmark">
+                                                                            <i data-feather="check"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tabs-wrapper">
+                                                <div class="tabs is-fullwidth">
+                                                    <ul>
+                                                        <li class="is-active">
+                                                            <a>Comments</a>
+                                                        </li>
+                                                        <li>
+                                                            <a>Upcoming</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="tab-content has-slimscroll">
+                                                    <div class="media is-comment">
+                                                        <figure class="media-left">
+                                                            <p class="image is-32x32">
+                                                                <img src="https://via.placeholder.com/300x300"
+                                                                    data-demo-src="assets/img/avatars/dan.jpg" alt=""
+                                                                    data-user-popover="1">
+                                                            </p>
+                                                        </figure>
+                                                        <div class="media-content">
+                                                            <div class="username">Dan Walker</div>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                Proin
+                                                                ornare magna
+                                                                eros.</p>
+                                                            <div class="comment-actions">
+                                                                <a href="javascript:void(0);"
+                                                                    class="is-inverted">Like</a>
+                                                                <span>3h</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="media is-comment">
+                                                        <figure class="media-left">
+                                                            <p class="image is-32x32">
+                                                                <img src="https://via.placeholder.com/300x300"
+                                                                    data-demo-src="assets/img/avatars/david.jpg" alt=""
+                                                                    data-user-popover="4">
+                                                            </p>
+                                                        </figure>
+                                                        <div class="media-content">
+                                                            <div class="username">David Kim</div>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                                                            <div class="comment-actions">
+                                                                <a href="javascript:void(0);"
+                                                                    class="is-inverted">Like</a>
+                                                                <span>4h</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="media is-comment">
+                                                        <figure class="media-left">
+                                                            <p class="image is-32x32">
+                                                                <img src="https://via.placeholder.com/300x300"
+                                                                    data-demo-src="assets/img/avatars/rolf.jpg" alt=""
+                                                                    data-user-popover="17">
+                                                            </p>
+                                                        </figure>
+                                                        <div class="media-content">
+                                                            <div class="username">Rolf Krupp</div>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                Proin
+                                                                ornare magna
+                                                                eros. Consectetur adipiscing elit. Proin ornare magna
+                                                                eros.</p>
+                                                            <div class="comment-actions">
+                                                                <a href="javascript:void(0);"
+                                                                    class="is-inverted">Like</a>
+                                                                <span>4h</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="comment-controls">
+                                                <div class="controls-inner">
+                                                    <img src="https://via.placeholder.com/300x300"
+                                                        data-demo-src="assets/img/avatars/jenna.png" alt="">
+                                                    <div class="control">
+                                                        <textarea class="textarea comment-textarea is-rounded"
+                                                            rows="1"></textarea>
+                                                        <button class="emoji-button">
+                                                            <i data-feather="smile"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Share from feed modal -->
+                    <!-- /partials/pages/feed/modals/share-modal.html -->
+                    <div id="share-modal" class="modal share-modal is-xsmall has-light-bg">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <div class="dropdown is-primary share-dropdown">
+                                        <div>
+                                            <div class="button">
+                                                <i class="mdi mdi-format-float-left"></i> <span>Share in your
+                                                    feed</span> <i data-feather="chevron-down"></i>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-menu" role="menu">
+                                            <div class="dropdown-content">
+                                                <div class="dropdown-item" data-target-channel="feed">
+                                                    <div class="media">
+                                                        <i class="mdi mdi-format-float-left"></i>
+                                                        <div class="media-content">
+                                                            <h3>Share in your feed</h3>
+                                                            <small>Share this publication on your feed.</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-item" data-target-channel="friend">
+                                                    <div class="media">
+                                                        <i class="mdi mdi-account-heart"></i>
+                                                        <div class="media-content">
+                                                            <h3>Share in a friend's feed</h3>
+                                                            <small>Share this publication on a friend's feed.</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-item" data-target-channel="group">
+                                                    <div class="media">
+                                                        <i class="mdi mdi-account-group"></i>
+                                                        <div class="media-content">
+                                                            <h3>Share in a group</h3>
+                                                            <small>Share this publication in a group.</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-item" data-target-channel="page">
+                                                    <div class="media">
+                                                        <i class="mdi mdi-file-document-box"></i>
+                                                        <div class="media-content">
+                                                            <h3>Share in a page</h3>
+                                                            <small>Share this publication in a page.</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr class="dropdown-divider">
+                                                <div class="dropdown-item" data-target-channel="private-message">
+                                                    <div class="media">
+                                                        <i class="mdi mdi-email-plus"></i>
+                                                        <div class="media-content">
+                                                            <h3>Share in message</h3>
+                                                            <small>Share this publication in a private message.</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Close X button -->
+                                    <div class="close-wrap">
+                                        <span class="close-modal">
+                                            <i data-feather="x"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="share-inputs">
+                                    <div class="field is-autocomplete">
+                                        <div id="share-to-friend" class="control share-channel-control is-hidden">
+                                            <input id="share-with-friend" type="text"
+                                                class="input is-sm no-radius share-input simple-users-autocpl"
+                                                placeholder="Your friend's name">
+                                            <div class="input-heading">
+                                                Friend :
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field is-autocomplete">
+                                        <div id="share-to-group" class="control share-channel-control is-hidden">
+                                            <input id="share-with-group" type="text"
+                                                class="input is-sm no-radius share-input simple-groups-autocpl"
+                                                placeholder="Your group's name">
+                                            <div class="input-heading">
+                                                Group :
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="share-to-page" class="control share-channel-control no-border is-hidden">
+                                        <div class="page-controls">
+                                            <div class="page-selection">
+
+                                                <div class="dropdown is-accent page-dropdown">
+                                                    <div>
+                                                        <div class="button page-selector">
+                                                            <img src="https://via.placeholder.com/150x150"
+                                                                data-demo-src="assets/img/avatars/hanzo.svg" alt="">
+                                                            <span>Css
+                                                                Ninja</span> <i data-feather="chevron-down"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="dropdown-menu" role="menu">
+                                                        <div class="dropdown-content">
+                                                            <div class="dropdown-item">
+                                                                <div class="media">
+                                                                    <img src="https://via.placeholder.com/150x150"
+                                                                        data-demo-src="assets/img/avatars/hanzo.svg"
+                                                                        alt="">
+                                                                    <div class="media-content">
+                                                                        <h3>Css Ninja</h3>
+                                                                        <small>Share on Css Ninja.</small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="dropdown-item">
+                                                                <div class="media">
+                                                                    <img src="https://via.placeholder.com/150x150"
+                                                                        data-demo-src="assets/img/icons/logos/nuclearjs.svg"
+                                                                        alt="">
+                                                                    <div class="media-content">
+                                                                        <h3>NuclearJs</h3>
+                                                                        <small>Share on NuclearJs.</small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="dropdown-item">
+                                                                <div class="media">
+                                                                    <img src="https://via.placeholder.com/150x150"
+                                                                        data-demo-src="assets/img/icons/logos/slicer.svg"
+                                                                        alt="">
+                                                                    <div class="media-content">
+                                                                        <h3>Slicer</h3>
+                                                                        <small>Share on Slicer.</small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="alias">
+                                                <img src="https://via.placeholder.com/150x150"
+                                                    data-demo-src="assets/img/avatars/jenna.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field is-autocomplete">
+                                        <div id="share-to-private-message"
+                                            class="control share-channel-control is-hidden">
+                                            <input id="share-with-private-message" type="text"
+                                                class="input is-sm no-radius share-input simple-users-autocpl"
+                                                placeholder="Message a friend">
+                                            <div class="input-heading">
+                                                To :
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="control">
+                                        <textarea class="textarea comment-textarea" rows="1"
+                                            placeholder="Say something about this ..."></textarea>
+                                        <button class="emoji-button">
+                                            <i data-feather="smile"></i>
+                                        </button>
+                                    </div>
+                                    <div class="shared-publication">
+                                        <div class="featured-image">
+                                            <img id="share-modal-image" src="https://via.placeholder.com/1600x900"
+                                                data-demo-src="assets/img/demo/unsplash/1.jpg" alt="">
+                                        </div>
+                                        <div class="publication-meta">
+                                            <div class="inner-flex">
+                                                <img id="share-modal-avatar" src="https://via.placeholder.com/300x300"
+                                                    data-demo-src="assets/img/avatars/dan.jpg" data-user-popover="1"
+                                                    alt="">
+                                                <p id="share-modal-text">Yesterday with <a href="#">@Karen Miller</a>
+                                                    and <a href="#">@Marvin Stemperd</a> at the
+                                                    <a href="#">#Rock'n'Rolla</a> concert in LA. Was totally fantastic!
+                                                    People
+                                                    were really
+                                                    excited about this one!
+                                                </p>
+                                            </div>
+                                            <div class="publication-footer">
+                                                <div class="stats">
+                                                    <div class="stat-block">
+                                                        <i class="mdi mdi-earth"></i>
+                                                        <small>Public</small>
+                                                    </div>
+                                                    <div class="stat-block">
+                                                        <i class="mdi mdi-eye"></i>
+                                                        <small>163 views</small>
+                                                    </div>
+                                                </div>
+                                                <div class="publication-origin">
+                                                    <small>Friendkit.io</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="bottom-share-inputs">
+
+                                    <div id="action-place" class="field is-autocomplete is-dropup is-hidden">
+                                        <div id="share-place" class="control share-bottom-channel-control">
+                                            <input type="text"
+                                                class="input is-sm no-radius share-input simple-locations-autocpl"
+                                                placeholder="Where are you?">
+                                            <div class="input-heading">
+                                                Location :
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="action-tag" class="field is-autocomplete is-dropup is-hidden">
+                                        <div id="share-tags" class="control share-bottom-channel-control">
+                                            <input id="share-friend-tags-autocpl" type="text"
+                                                class="input is-sm no-radius share-input"
+                                                placeholder="Who are you with">
+                                            <div class="input-heading">
+                                                Friends :
+                                            </div>
+                                        </div>
+                                        <div id="share-modal-tag-list" class="tag-list no-margin"></div>
+                                    </div>
+
+                                </div>
+                                <div class="card-footer">
+                                    <div class="action-wrap">
+                                        <div class="footer-action" data-target-action="tag">
+                                            <i class="mdi mdi-account-plus"></i>
+                                        </div>
+                                        <div class="footer-action" data-target-action="place">
+                                            <i class="mdi mdi-map-marker"></i>
+                                        </div>
+                                        <div class="footer-action dropdown is-spaced is-neutral dropdown-trigger is-up"
+                                            data-target-action="permissions">
+                                            <div>
+                                                <i class="mdi mdi-lock-clock"></i>
+                                            </div>
+                                            <div class="dropdown-menu" role="menu">
+                                                <div class="dropdown-content">
+                                                    <a href="#" class="dropdown-item">
+                                                        <div class="media">
+                                                            <i data-feather="globe"></i>
+                                                            <div class="media-content">
+                                                                <h3>Public</h3>
+                                                                <small>Anyone can see this publication.</small>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item">
+                                                        <div class="media">
+                                                            <i data-feather="users"></i>
+                                                            <div class="media-content">
+                                                                <h3>Friends</h3>
+                                                                <small>only friends can see this publication.</small>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item">
+                                                        <div class="media">
+                                                            <i data-feather="user"></i>
+                                                            <div class="media-content">
+                                                                <h3>Specific friends</h3>
+                                                                <small>Don't show it to some friends.</small>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <hr class="dropdown-divider">
+                                                    <a class="dropdown-item">
+                                                        <div class="media">
+                                                            <i data-feather="lock"></i>
+                                                            <div class="media-content">
+                                                                <h3>Only me</h3>
+                                                                <small>Only me can see this publication.</small>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="button-wrap">
+                                        <button type="button"
+                                            class="button is-solid dark-grey-button close-modal">Cancel</button>
+                                        <button type="button"
+                                            class="button is-solid primary-button close-modal">Publish</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- No Stream modal -->
+                    <!-- /partials/pages/feed/modals/no-stream-modal.html -->
+                    <div id="no-stream-modal" class="modal no-stream-modal is-xsmall has-light-bg">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <h3></h3>
+                                    <!-- Close X button -->
+                                    <div class="close-wrap">
+                                        <span class="close-modal">
+                                            <i data-feather="x"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body has-text-centered">
+
+                                    <div class="image-wrap">
+                                        <img src="assets/img/illustrations/characters/no-stream.svg" alt="">
+                                    </div>
+
+                                    <h3>Streaming Disabled</h3>
+                                    <p>Streaming is not allowed from mobile web. Please use our mobile apps for mobile
+                                        streaming.</p>
+
+                                    <div class="action">
+                                        <a href="/#demos-section"
+                                            class="button is-solid accent-button raised is-fullwidth">Got
+                                            It</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Google places Lib -->
+                    <script
+                        src="https://maps.google.com/maps/api/js?key=AIzaSyAGLO_M5VT7BsVdjMjciKoH1fFJWWdhDPU&libraries=places"></script>
+                </div>
+
+                <%- include ("../partials/chat") %>
+
+                    
+
+                    <div id="end-tour-modal" class="modal end-tour-modal is-xsmall has-light-bg">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <h3></h3>
+                                    <!-- Close X button -->
+                                    <div class="close-wrap">
+                                        <span class="close-modal">
+                                            <i data-feather="x"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body has-text-centered">
+
+                                    <div class="image-wrap">
+                                        <img src="assets/img/logo/friendkit.svg" alt="">
+                                    </div>
+
+                                    <h3>That's all folks!</h3>
+                                    <p>Thanks for taking the friendkit tour. There are still tons of other features for
+                                        you to
+                                        discover!</p>
+
+                                    <div class="action">
+                                        <a href="/#demos-section"
+                                            class="button is-solid accent-button raised is-fullwidth">Explore</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Concatenated js plugins and jQuery -->
+                    <%- include ("../partials/script") %>
+
+                        <!-- Landing page js -->
+
+                        <!-- Signup page js -->
+
+                        <!-- Feed pages js -->
+                        <script src="/static/dist/assets/js/feed.js"></script>
+                        <script src="/static/dist/assets/js/webcam.js"></script>
+                        <script src="/static/dist/assets/js/compose.js"></script>
+                        <script src="/static/dist/assets/js/autocompletes.js"></script>
+
+                        <!-- profile js -->
+
+                        <!-- stories js -->
+
+                        <!-- friends js -->
+
+                        <!-- questions js -->
+
+                        <!-- video js -->
+
+                        <!-- events js -->
+
+                        <!-- news js -->
+
+                        <!-- shop js -->
+
+                        <!-- inbox js -->
+
+                        <!-- settings js -->
+
+                        <!-- map page js -->
+
+                        <!-- elements page js -->
+    </body>
+
+</html>
