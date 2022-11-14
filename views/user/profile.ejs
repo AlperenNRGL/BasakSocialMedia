@@ -222,7 +222,7 @@
                                                         <%= post.user.username %>
                                                     </a>
                                                     <span class="time">
-                                                        <%= post.date %>
+                                                        <%= post.getDate() %>
                                                     </span>
                                                 </div>
                                             </div>
@@ -396,7 +396,7 @@
                                     <div class="comments-wrap is-hidden">
                                         <!-- Header -->
                                         <div class="comments-heading">
-                                            <h4>Comments
+                                            <h4>Yorumlar
                                                 <small>(<%= post.comments.length %> )</small>
                                             </h4>
                                             <div class="close-comments">
@@ -424,14 +424,14 @@
                                                             <%= comment.user.username %>
                                                         </a>
                                                         <span class="time">
-                                                            <%= comment.data %>
+                                                            <%= comment.getDate() %>
                                                         </span>
                                                         <p>
                                                             <%= comment.text %>
                                                         </p>
                                                         <!-- Actions -->
                                                         <div class="controls">
-                                                            <div class="like-count">
+                                                            <!-- <div class="like-count">
                                                                 <i data-feather="thumbs-up"></i>
                                                                 <span>4</span>
                                                             </div>
@@ -441,7 +441,7 @@
                                                             </div>
                                                             <div class="edit">
                                                                 <a href="#">Edit</a>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                         <!-- Nested Comment -->
                                                         <% comment.altcomment.forEach(altcomment=> { %>
@@ -459,20 +459,20 @@
                                                                         <%= altcomment.user.username %>
                                                                     </a>
                                                                     <span class="time">
-                                                                        <%= altcomment.date %>
+                                                                        <%= altcomment.getDate() %>
                                                                     </span>
                                                                     <p>
                                                                         <%= altcomment.text %>
                                                                     </p>
                                                                     <!-- Actions -->
                                                                     <div class="controls">
-                                                                        <div class="like-count">
+                                                                        <!-- <div class="like-count">
                                                                             <i data-feather="thumbs-up"></i>
                                                                             <span>0</span>
                                                                         </div>
                                                                         <div class="reply">
                                                                             <a onclick="show_alt_comment(this)">Reply</a>
-                                                                        </div>
+                                                                        </div> -->
                                                                     </div>
                                                                 </div>
                                                                 <!-- Right side dropdown -->
@@ -517,7 +517,7 @@
                                                                             <div class="field">
                                                                                 <p class="control">
                                                                                     <textarea class="textarea comment-textarea" rows="0"
-                                                                                        placeholder="Write a comment..."></textarea>
+                                                                                        placeholder="Yorum yaz ..."></textarea>
                                                                                 </p>
                                                                             </div>
                                                                             <!-- Additional actions -->
@@ -532,8 +532,7 @@
                                                                                     <input type="hidden" value="<%= comment._id %>">
                                                                                     <input type="hidden" value="<%= post._id %>">
                                                                                     <a class="button is-solid primary-button"
-                                                                                        onclick="add_alt_comment(this)" raised">Post
-                                                                                        Alt Comment</a>
+                                                                                        onclick="add_alt_comment(this)" raised">Alt yorum yap</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -555,7 +554,7 @@
                                                     <div class="field">
                                                         <p class="control">
                                                             <textarea class="textarea comment-textarea" rows="1"
-                                                                placeholder="Write a comment..."></textarea>
+                                                                placeholder="Yorum yaz ..."></textarea>
                                                         </p>
                                                     </div>
                                                     <!-- Additional actions -->
@@ -577,8 +576,7 @@
                                                             </div> -->
                                                             <input type="hidden" value="<%= post.user._id %>">
                                                             <input type="hidden" value="<%= post._id %>">
-                                                            <a class="button is-solid primary-button" onclick="add_comment(this)">Post
-                                                                Comment</a>
+                                                            <a class="button is-solid primary-button" onclick="add_comment(this)">Yorum yap</a>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -154,7 +154,6 @@ router.post("/profile-settings", isLogin, async (req, res) => {
 
 router.get("/:id", isLogin, async (req, res) => {
     const user = await User.findById(req.params.id).populate("friends");
-    console.log(user.coverImage);
     const myuser = await User.findById(req.session.user).populate("messages.user").populate("messages.messages");
     const posts = await Post.find({ user: req.params.id })
         .sort({ date: -1 })

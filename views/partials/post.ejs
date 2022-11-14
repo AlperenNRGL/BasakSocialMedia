@@ -14,7 +14,7 @@
                         <%= post.user.username %>
                     </a>
                     <span class="time">
-                        <%= post.date %>
+                        <%= post.getDate() %>
                     </span>
                 </div>
             </div>
@@ -210,7 +210,7 @@
                             <%= comment.user.username %>
                         </a>
                         <span class="time">
-                            <%= comment.data %>
+                            <%= comment.getDate() %>
                         </span>
                         <p>
                             <%= comment.text %>
@@ -245,7 +245,7 @@
                                         <%= altcomment.user.username %>
                                     </a>
                                     <span class="time">
-                                        <%= altcomment.date %>
+                                        <%= altcomment.getDate() %>
                                     </span>
                                     <p>
                                         <%= altcomment.text %>
@@ -384,6 +384,8 @@
         const touserid = e.previousElementSibling.previousElementSibling.value
         const postid = e.previousElementSibling.value;
         const text = e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value;
+        if(text == "")
+            return;
         e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value = ""
         fetch(`https://basaksocialmediaapi.herokuapp.com/add-comment/${postid}/${userid}`, {
             method: 'POST',
@@ -426,6 +428,8 @@
         const postid = e.previousElementSibling.value;
         const commentid = e.previousElementSibling.previousElementSibling.value;
         const text = e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value;
+        if(text == "")
+            return;
         e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value = "";
         e.parentNode.parentNode.parentNode.parentNode.parentNode.insertAdjacentHTML("beforeBegin", `
         <div class="media is-comment">

@@ -682,7 +682,7 @@
                                                                                         </div>
                                                                                     <div class="user-info">
                                                                                         <a href="/user/${post.user._id}">${post.user.username}</a>
-                                                                                        <span class="time">${post.date}</span>
+                                                                                        <span class="time">${post.getDate()}</span>
                                                                                     </div>
                                                                                 </div>
                                                                                 <!-- Right side dropdown -->
@@ -834,7 +834,7 @@
                                                                             <!-- Content -->
                                                                             <div class="media-content">
                                                                                 <a href="#">${comment.user.username}</a>
-                                                                                <span class="time">${comment.date}</span>
+                                                                                <span class="time">${comment.getDate()}</span>
                                                                                 <p>${comment.text}</p>
                                                                                 <!-- Actions -->
                                                                                 
@@ -858,7 +858,7 @@
                                                                                          ${altcomment.user.username}
                                                                                      </a>
                                                                                      <span class="time">
-                                                                                         ${altcomment.date}
+                                                                                         ${altcomment.getDate()}
                                                                                      </span>
                                                                                      <p>
                                                                                          ${altcomment.text}
