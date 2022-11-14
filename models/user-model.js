@@ -20,8 +20,25 @@ const userSchema = Schema({
     city : {type : String,},
     country : {type : String,},
     token : {type : String,},
-    profilImage : {type : String, default : "icons8-person-64.png"},
-    coverImage : {type : String, default : "coverimage.jpg"},
+    profilImageData : {
+        data: {
+            type : Buffer,
+            // default : fs.readFileSync(path.join(__dirname + '/../doc/uploads/icons8-person-64.png')),  
+        },
+        contentType: {
+            type : String,
+            default : "image/png"    
+        
+        }
+    },
+    profilImage : {
+        type : String,
+        default : "icons8-person-64.png"
+    },
+    coverImage : {
+        data: Buffer,
+        contentType: String,
+    },
     friends : [{type : Schema.Types.ObjectId, ref : "user"}],
     messages : [message],
     biyografi : {type : String, default : null},
@@ -30,8 +47,8 @@ const userSchema = Schema({
 const registerValidate = joi.object({
     firstName :joi.string().required(),
     lastName : joi.string().required(),
-    username : joi.string().required().alphanum().min(5).max(30)
-    .messages({"string.alphanum" : "Lütfen geçerli karakterler giriniz",
+    username : joi.string().required().min(5).max(30)
+    .messages({
     "string.min" : "Username en az 5 karakter olması gerekmektedir",
     "string.max" : "Username en fazla 30 karakter olabilir"
 }),

@@ -120,20 +120,12 @@
 
                         <div class="is-photos-widget">
                             <% for( let i = 0; i < posts.length && i<12 ; i++ ) { %>
-                                <% if (posts[i].image != "null") { %>
-                                    <img src="/static/uploads/<%= posts[i].image %>" data-demo-src="assets/img/demo/widgets/photos/1.jpg" alt="">
+                                <% if (posts[i].img.data != "null") { %>
+                                    <img src="data:image/<%=posts[i].img.contentType%>;base64,<%=posts[i].img.data.toString('base64')%>"  alt="">
                                 <% } %>
                             <% } %>
                             <!-- <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/2.jpg" alt="">
-                            <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/3.jpg" alt="">
-                            <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/4.jpg" alt="">
-                            <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/5.jpg" alt="">
-                            <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/6.jpg" alt="">
-                            <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/7.jpg" alt="">
-                            <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/8.jpg" alt="">
-                            <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/9.jpg" alt="">
-                            <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/10.jpg" alt="">
-                            <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/11.jpg" alt="">
+                           
                             <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/12.jpg" alt=""> -->
                         </div>
                         <!-- Star friends widget -->
@@ -203,7 +195,7 @@
 
                     <div class="column is-8">
                         <div id="profile-timeline-posts" class="box-heading">
-                            <h4>Posts</h4>
+                            <h4>Paylaşımlar</h4>
                             <div class="button-wrap">
                                 <!-- <button type="button" class="button is-active">Recent</button>
                                 <button type="button" class="button">Popular</button> -->
@@ -291,7 +283,7 @@
                                             <div class="post-image">
                                                 <% if (post.image != "null") { %>
                                                 <!-- <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg"> -->
-                                                    <img src="/static/uploads/<%= post.image %>" data-demo-src="assets/img/demo/unsplash/1.jpg" alt="">
+                                                    <img src="data:image/<%=post.img.contentType%>;base64,<%=post.img.data.toString('base64')%>" alt="post_image">
                                                 <!-- </a> -->
                                                 <% } else { %>
                                                  <div style="height: 30px;"></div>

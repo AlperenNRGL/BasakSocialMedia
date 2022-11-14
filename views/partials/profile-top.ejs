@@ -4,9 +4,13 @@
         <!-- Timeline Header -->
         <!-- html/partials/pages/profile/timeline/timeline-header.html -->
         <div class="cover-bg">
-            <img class="cover-image" src="/static/uploads/<%= user.coverImage %>" data-demo-src="assets/img/demo/bg/4.png" alt="">
+            <% if (user.coverImage.data == undefined) { %>
+                <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+            <% } else { %>
+                <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=user.coverImage.data.toString('base64')%>" alt="">
+            <% } %>
             <div class="avatar">
-                <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" data-demo-src="assets/img/avatars/jenna.png" alt="">
+                <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" alt="">
                 <% if (myuser.username == user.username) { %>
                     <div class="avatar-button">
                         <!-- <i data-feather="plus"></i> -->
@@ -50,7 +54,7 @@
                 <div class="cover-overlay"></div>
                 <div class="cover-edit modal-trigger" data-modal="change-cover-modal">
                     <i class="mdi mdi-camera"></i>
-                    <span>Edit cover image</span>
+                    <span>Arka plan fotoğrafını değiştir</span>
                 </div>
             <% } %>
             <!--/html/partials/pages/profile/timeline/dropdowns/timeline-mobile-dropdown.html-->
@@ -106,7 +110,7 @@
         <div class="profile-menu is-hidden-mobile">
             <div class="menu-start">
                 <a href="/" class="button has-min-width">AnaSayfa</a>
-                <a href="/user/<%= myuser._id %>" class="button has-min-width">Benim Hakkımda</a>
+
             </div>
             <div class="menu-end">
                 <a id="profile-friends-link" href="/user/friends/<%= user._id %>"  class="button has-min-width">Arkadaşlar</a>

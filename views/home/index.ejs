@@ -17,7 +17,7 @@
         <!-- End Google Tag Manager (noscript) -->
 
         <!-- Pageloader -->
-        <div class="pageloader"></div>
+        <div id="pageloader" class="pageloader"></div>
         <div class="infraloader is-active"></div>
         <div class="app-overlay"></div>
 
@@ -614,26 +614,55 @@
                                             <%- include ("../partials/post",{post : post}) %>
                                                 <% }) %>
 
-                                                    <!-- POST #1 -->
-                                                    <!-- Post 2 -->
-                                                    <!-- /partials/pages/feed/posts/feed-post2.html -->
-                                                    <!-- POST #2 -->
-
-                                                    <!-- /POST #6 -->
-                                                    <!-- Load more posts -->
+                                                    
                                                     <div class=" load-more-wrap narrow-top has-text-centered">
-                                                        <button style="cursor: pointer;" onclick="loadmore(this)" class="load-more-button">Daha Fazla</button>
+
+                                                        <style>
+
+                                                            /* CSS */
+                                                            .button-19 {
+                                                                background-color:rgb(74, 173, 242) ;
+                                                                padding: 10px;
+                                                                margin: 10px;
+                                                            }
+                                                            
+                                                        
+                                                        </style>
+
+                                                        <button onclick="loadmore(this)" id="load_more" style="width: 250px ;" class="button-19 load-more-button">Daha Fazla Post Geliyor ...</button>
                                                     </div>
                                                     <!-- /Load more posts -->
                                                     <input id="post-count" type="hidden" value="<%= posts.length %>">
                                                     <input id="profilImage" type="hidden" value="<%= user.profilImage %>">
                                                     <script>
+
+                                                        let calısma = false;
+                                                        function deneme(){
+                                                            if(calısma)
+                                                                return;
+
+                                                            let button = document.getElementById("load_more")
+                                                            
+                                                            fark = ( window.scrollY + button.getBoundingClientRect().top) - window.scrollY ;
+                                                            if(fark < 1200){
+                                                                calısma = true
+                                                                button.click();
+                                                                button.setAttribute("disabled", "");
+                                                              
+
+                                                            }
+                                                        }
+
+                                                        setInterval(()=>{deneme()},1000 )
+
+
+
                                                         const userid = document.getElementById("userid").value
                                                         const profilImage = document.getElementById("profilImage").value
 
                                                         function loadmore(e){
                                                             const postcount = document.getElementById("post-count").value;
-
+                                                            console.log("Load More");
                                                             fetch(`https://basaksocialmediaapi.herokuapp.com/get-posts/${userid}/${postcount}`)
                                                             .then(data => data.json())
                                                             .then(result =>{
@@ -694,7 +723,7 @@
                                                                      
                                                                     let html2 = ""
                                                                     if(post.image != "null"){
-                                                                        html2 += `<img src="/static/uploads/${post.image}" data-demo-src="assets/img/demo/unsplash/1.jpg" alt="">`
+                                                                        html2 += `<img src="data:image/${post.img.contentType};base64,${post.img.data.toString('base64')}" alt="">`
                                                                     }else{
                                                                         html2 += `<div style="height: 30px;"></div>`
                                                                     }
@@ -707,7 +736,7 @@
                                                                     `
                                                                     
                                                                     let html4 = ""
-                                                                    if (post.like.find(l => l.user.username== post.user.username )){
+                                                                    if (post.like.find(l => l.user._id== userid )){
                                                                         html4 =  `<img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">`
                                                                     }else{
                                                                         html4 =  `<img width="35px" height="35px" src="/static/uploads/icons8-like-64-2.png">`
@@ -777,7 +806,7 @@
                                                                     <div class="comments-wrap is-hidden">
                                                                         <!-- Header -->
                                                                         <div class="comments-heading">
-                                                                            <h4>Comments
+                                                                            <h4>Yorumlar
                                                                                 <small>( ${post.comments.length} )</small>
                                                                             </h4>
                                                                             <div onclick="show_comment_loadmore_close(this)" class="close-comments">
@@ -808,19 +837,7 @@
                                                                                 <span class="time">${comment.date}</span>
                                                                                 <p>${comment.text}</p>
                                                                                 <!-- Actions -->
-                                                                                <div class="controls">
-                                                                                    <div class="like-count">
-                                                                                        <i data-feather="x"></i>
-                                                                                        <span></span>
-                                                                                    </div>
-                                                                                    <div class="reply">
-                                                                                        <input type="hidden" value="${comment._id}">
-                                                                                        <a></a>
-                                                                                    </div>
-                                                                                    <div class="edit">
-                                                                                        <a href="#"></a>
-                                                                                    </div>
-                                                                                </div>
+                                                                                
                                                                                 <!-- Nested Comment -->
                                                                         `
                                                                     
@@ -859,36 +876,7 @@
                                                                                  </div>
                                                                                  <!-- Right side dropdown -->
                                                                                  <div class="media-right">
-                                                                                     <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
-                                                                                         <div>
-                                                                                             <div class="button">
-                                                                                                 <i data-feather="more-vertical"></i>
-                                                                                             </div>
-                                                                                         </div>
-                                                                                         <div class="dropdown-menu" role="menu">
-                                                                                             <div class="dropdown-content">
-                                                                                                 <a class="dropdown-item">
-                                                                                                     <div class="media">
-                                                                                                         <i data-feather="x"></i>
-                                                                                                         <div class="media-content">
-                                                                                                             <h3>Hide</h3>
-                                                                                                             <small>Hide this comment.</small>
-                                                                                                         </div>
-                                                                                                     </div>
-                                                                                                 </a>
-                                                                                                 <div class="dropdown-divider"></div>
-                                                                                                 <a href="#" class="dropdown-item">
-                                                                                                     <div class="media">
-                                                                                                         <i data-feather="flag"></i>
-                                                                                                         <div class="media-content">
-                                                                                                             <h3>Report</h3>
-                                                                                                             <small>Report this comment.</small>
-                                                                                                         </div>
-                                                                                                     </div>
-                                                                                                 </a>
-                                                                                             </div>
-                                                                                         </div>
-                                                                                     </div>
+                                                                                    
                                                                                  </div>
                                                                                 </div>
                                                                             `
@@ -901,7 +889,7 @@
                                                                                              <div class="field">
                                                                                                  <p class="control">
                                                                                                      <textarea class="textarea comment-textarea" rows="0"
-                                                                                                         placeholder="Write a comment..."></textarea>
+                                                                                                         placeholder="Alt yorum yaz ..."></textarea>
                                                                                                  </p>
                                                                                              </div>
                                                                                              <!-- Additional actions -->
@@ -916,8 +904,7 @@
                                                                                                      <input type="hidden" value="${comment._id}">
                                                                                                      <input type="hidden" value="${post._id}">
                                                                                                      <a class="button is-solid primary-button"
-                                                                                                         onclick="add_alt_comment(this)" raised">Post
-                                                                                                         Alt Comment</a>
+                                                                                                         onclick="add_alt_comment(this)" raised">Alt Yorum Ekle</a>
                                                                                                  </div>
                                                                                              </div>
                                                                                          </div>
@@ -930,6 +917,8 @@
                                                                     
                                                                     });
 
+
+
                                                                     const html9 = `
                                                                             </div>
                                                                                <div class="card-footer">
@@ -939,14 +928,13 @@
                                                                                            <div class="field">
                                                                                                <p class="control">
                                                                                                    <textarea class="textarea comment-textarea" rows="1"
-                                                                                                       placeholder="Write a comment..."></textarea>
+                                                                                                       placeholder="Yorum yaz ..."></textarea>
                                                                                                </p>
                                                                                            </div>
                                                                                            <!-- Additional actions -->
                                                                                            <div class="actions">
                                                                                                <div class="image is-32x32">
-                                                                                                   <img class="is-rounded" src="/static/uploads/${profilImage}"
-                                                                                                       data-demo-src="assets/img/avatars/jenna.png" data-user-popover="0" alt="">
+                                                                                                   <img class="is-rounded" src="/static/uploads/${profilImage}" data-user-popover="0" alt="">
                                                                                                </div>
                                                                                                <div class="toolbar">
                                                                                                    <!-- <div class="action is-auto">
@@ -961,8 +949,7 @@
                                                                                                    </div> -->
                                                                                                    <input type="hidden" value="${post.user._id}">
                                                                                                    <input type="hidden" value="${post._id}">
-                                                                                                   <a class="button is-solid primary-button" onclick="add_comment(this)">Post
-                                                                                                       Comment</a>
+                                                                                                   <a class="button is-solid primary-button" onclick="add_comment(this)">Yorum Yap</a>
                                                                                                </div>
                                                                                            </div>
                                                                                        </div>
@@ -984,7 +971,9 @@
 
                                                                 });
 
-                                                                console.log(document.getElementById("post-count"));
+                                                                calısma=false;
+                                                                document.getElementById("load_more").removeAttribute("disabled")
+
                                                             })
                                                             .catch(err => console.log(err))
 

@@ -9,6 +9,9 @@ const Message = require("../models/message-model");
 const Nofication = require("../models/nofication-models");
 
 
+const fs = require("fs")
+const path = require("path")
+
 router.get("/", isLogin, async (req, res) => {
     const success = req.query.account || undefined
     const sessionmessage = req.session.message || undefined;
@@ -57,21 +60,24 @@ router.get("/", isLogin, async (req, res) => {
 })
 
 router.post("/", upload.single("image"), isLogin, async (req, res) => {
-    const image = req.file || "null";
-    try {
-        const { value, error } = postValidate.validate({ user: req.session.user, text: req.body.text, image: image != "null" ? req.file.filename : image })
-        if (error) {
-            console.log(error);
-            req.session.message = { message: { text: "Bir hata oluştu", class: "danger" } }
-            res.redirect("/");
-            return;
+
+    await new Promise(r => setTimeout(r, 500));
+
+    await Post.create({
+        user: req.session.user,
+        text: req.body.text,
+        img: {
+            data: req.file == undefined ? "null" : fs.readFileSync(path.join(__dirname + `/../doc/uploads/${req.file.filename}`)),
+            contentType: 'image/jpeg'
         }
-        const post = Post(value);
-        await post.save();
-        res.redirect("/");
-    } catch (err) {
-        console.log(err);
+    }, (err) => err?console.log(err):"")
+
+    if (req.file != undefined) {
+        fs.unlinkSync(path.join(__dirname + '/../doc/uploads/' + req.file.filename))
     }
+
+    await new Promise(r => setTimeout(r, 2000));
+    return res.redirect("/")
 })
 
 

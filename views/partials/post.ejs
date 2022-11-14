@@ -5,10 +5,10 @@
         <div class="card-heading">
             <!-- User meta -->
             <div class="user-block">
-                    <div class="image">
-                        <img src="/static/uploads/<%= post.user.profilImage %>" data-demo-src="assets/img/avatars/dan.jpg"
-                            data-user-popover="1" alt="">
-                    </div>
+                <div class="image">
+                    <img src="/static/uploads/<%= post.user.profilImage %>" data-demo-src="assets/img/avatars/dan.jpg"
+                        data-user-popover="1" alt="">
+                </div>
                 <div class="user-info">
                     <a href="/user/<%= post.user._id %>">
                         <%= post.user.username %>
@@ -71,70 +71,66 @@
                 </p>
             </div>
             <!-- Featured image -->
-            
+
             <div class="post-image">
-                <% if (post.image != "null") { %>
-                <!-- <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg"> -->
-                    <img src="/static/uploads/<%= post.image %>" data-demo-src="assets/img/demo/unsplash/1.jpg" alt="">
-                <!-- </a> -->
-                <% } else { %>
-                 <div style="height: 30px;"></div>
-                <% } %>
-
-                <!-- Action buttons -->
-                <!-- /partials/pages/feed/buttons/feed-post-actions.html -->
-                <div class="like-wrapper">
-                    <input type="hidden" value="<%= post.user._id %>">
-                    <input type="hidden" value="<%= post._id %>">
-                    <a onclick="like_btn(this)" class="like-button" >
-                        <% if (post.like.find(l => l.user.username== post.user.username )) { %>
-                            <img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">
-                        <% } else { %>
-                            <img width="35px" height="35px" src="/static/uploads/icons8-like-64-2.png">
+                <% if (post.image !="null" ) { %>
+                    <!-- <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg"> -->
+                    <img src="data:image/<%=post.img.contentType%>;base64,<%=post.img.data.toString('base64')%>"
+                        alt="Post_image">
+                    <!-- </a> -->
+                    <% } else { %>
+                        <div style="height: 30px;"></div>
                         <% } %>
-                        <span class="like-overlay"></span>
-                    </a>
-                </div>
-                <script>
-                    function like_btn(e){
-                        const postid = e.previousElementSibling.value;
-                        const userid = document.getElementById("userid").value;
-                        const countlike = document.getElementById(postid);
-                        if(e.children[0].attributes.src.nodeValue == "/static/uploads/icons8-like-64.png"){
-                            fetch(`https://basaksocialmediaapi.herokuapp.com/remove-like/${postid}/${userid}`)
-                            .then(data => {
-                            countlike.innerHTML = (Number(countlike.innerHTML) - 1)
-                            e.children[0].remove();
-                            e.insertAdjacentHTML("afterbegin",`
-                            <img width="40px" height="40px" src="/static/uploads/icons8-like-64-2.png">
-                            `)
-                        })
-                        .catch(err => console.log(err))
-                            return;
-                        }
-                        fetch(`https://basaksocialmediaapi.herokuapp.com/add-like/${postid}/${userid}`)
-                        .then(data => {
-                            add_nofication("like",userid,e.previousElementSibling.previousElementSibling.value)
-                            e.children[0].remove();
-                            e.insertAdjacentHTML("afterbegin",`
-                            <img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">
-                            `)
-                        countlike.innerHTML = (Number(countlike.innerHTML) + 1)
-                        })
-                        .catch(err => console.log(err))
-                    }
-                </script>
-                <div class="fab-wrapper is-share">
-                    <a href="javascript:void(0);" class="small-fab share-fab" data-modal="share-modal">
-                        <i data-feather="link-2"></i>
-                    </a>
-                </div>
 
-                <div class="fab-wrapper is-comment">
-                    <a href="javascript:void(0);" class="small-fab">
-                        <i data-feather="message-circle"></i>
-                    </a>
-                </div>
+                            <!-- Action buttons -->
+                            <!-- /partials/pages/feed/buttons/feed-post-actions.html -->
+                            <div class="like-wrapper">
+                                <input type="hidden" value="<%= post.user._id %>">
+                                <input type="hidden" value="<%= post._id %>">
+                                <a onclick="like_btn(this)" class="like-button">
+                                    <% if (post.like.find(l=> l.user.username== user.username )) { %>
+                                        <img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">
+                                    <% } else { %>
+                                        <img width="35px" height="35px" src="/static/uploads/icons8-like-64-2.png">
+                                    <% } %>
+                                        <span class="like-overlay"></span>
+                                </a>
+                            </div>
+                            <script>
+                                function like_btn(e) {
+                                    const postid = e.previousElementSibling.value;
+                                    const userid = document.getElementById("userid").value;
+                                    const countlike = document.getElementById(postid);
+                                    if (e.children[0].attributes.src.nodeValue == "/static/uploads/icons8-like-64.png") {
+                                        e.children[0].remove();
+                                        e.insertAdjacentHTML("afterbegin", `<img width="40px" height="40px" src="/static/uploads/icons8-like-64-2.png">`)
+                                        fetch(`https://basaksocialmediaapi.herokuapp.com/remove-like/${postid}/${userid}`)
+                                            .then(data => { countlike.innerHTML = (Number(countlike.innerHTML) - 1) })
+                                            .catch(err => console.log(err))
+                                    } else {
+                                        e.children[0].remove();
+                                        e.insertAdjacentHTML("afterbegin", `<img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">`)
+                                        fetch(`https://basaksocialmediaapi.herokuapp.com/add-like/${postid}/${userid}`)
+                                            .then(data => {
+                                                add_nofication("like", userid, e.previousElementSibling.previousElementSibling.value)
+                                                countlike.innerHTML = (Number(countlike.innerHTML) + 1)
+                                            })
+                                            .catch(err => console.log(err))
+
+                                    }
+                                }
+                            </script>
+                            <div class="fab-wrapper is-share">
+                                <a href="javascript:void(0);" class="small-fab share-fab" data-modal="share-modal">
+                                    <i data-feather="link-2"></i>
+                                </a>
+                            </div>
+
+                            <div class="fab-wrapper is-comment">
+                                <a href="javascript:void(0);" class="small-fab">
+                                    <i data-feather="message-circle"></i>
+                                </a>
+                            </div>
             </div>
         </div>
         <!-- /Post body -->
@@ -143,11 +139,11 @@
         <div class="card-footer">
             <!-- Followers avatars -->
             <div class="likers-group">
-                <% for( let i = 0; i < post.like.length && i < 4; i++ ) { %> 
-                    <img src="/static/uploads/<%= post.like[i].user.profilImage %>" data-demo-src="/static/dist/assets/img/avatars/dan.jpg"
-                        data-user-popover="1" alt="">
-                <% } %>
-                
+                <% for( let i=0; i < post.like.length && i < 4; i++ ) { %>
+                    <img src="/static/uploads/<%= post.like[i].user.profilImage %>"
+                        data-demo-src="/static/dist/assets/img/avatars/dan.jpg" data-user-popover="1" alt="">
+                    <% } %>
+
             </div>
             <!-- Followers text -->
             <!-- <div class="likers-text">
@@ -162,7 +158,9 @@
                 <div class="likes-count">
                     <i data-feather="heart"></i>
 
-                    <span class="countlike" id="<%= post._id %>" ><%= post.like.length %></span>
+                    <span class="countlike" id="<%= post._id %>">
+                        <%= post.like.length %>
+                    </span>
                 </div>
                 <div class="shares-count">
                     <i data-feather="link-2"></i>
@@ -170,7 +168,9 @@
                 </div>
                 <div class="comments-count">
                     <i data-feather="message-circle"></i>
-                    <span id="commentlike"><%= post.comments.length %></span>
+                    <span id="commentlike">
+                        <%= post.comments.length %>
+                    </span>
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@
     <div class="comments-wrap is-hidden">
         <!-- Header -->
         <div class="comments-heading">
-            <h4>Comments
+            <h4>Yorumlar
                 <small>(<%= post.comments.length %>)</small>
             </h4>
             <div class="close-comments">
@@ -217,17 +217,17 @@
                         </p>
                         <!-- Actions -->
                         <div class="controls">
-                            <div class="like-count">
+                            <!-- <div class="like-count">
                                 <i data-feather="thumbs-up"></i>
                                 <span>4</span>
-                            </div>
-                            <div class="reply">
+                            </div> -->
+                            <!-- <div class="reply">
                                 <input type="hidden" value="<%= comment._id %> ">
-                                <a>Reply</a>
-                            </div>
-                            <div class="edit">
+                                <a>Cevapla</a>
+                            </div> -->
+                            <!-- <div class="edit">
                                 <a href="#">Edit</a>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- Nested Comment -->
                         <% comment.altcomment.forEach(altcomment=> { %>
@@ -251,7 +251,7 @@
                                         <%= altcomment.text %>
                                     </p>
                                     <!-- Actions -->
-                                    <div class="controls">
+                                    <!-- <div class="controls">
                                         <div class="like-count">
                                             <i data-feather="thumbs-up"></i>
                                             <span>0</span>
@@ -259,11 +259,11 @@
                                         <div class="reply">
                                             <a onclick="show_alt_comment(this)">Reply</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <!-- Right side dropdown -->
                                 <div class="media-right">
-                                    <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                    <!-- <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
                                         <div>
                                             <div class="button">
                                                 <i data-feather="more-vertical"></i>
@@ -285,14 +285,14 @@
                                                     <div class="media">
                                                         <i data-feather="flag"></i>
                                                         <div class="media-content">
-                                                            <h3>Report</h3>
-                                                            <small>Report this comment.</small>
+                                                            <h3>Bildir</h3>
+                                                            <small>Bu yorumu şikayet et.</small>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <% }) %>
@@ -303,7 +303,7 @@
                                             <div class="field">
                                                 <p class="control">
                                                     <textarea class="textarea comment-textarea" rows="0"
-                                                        placeholder="Write a comment..."></textarea>
+                                                        placeholder="Alt yorum yaz ..."></textarea>
                                                 </p>
                                             </div>
                                             <!-- Additional actions -->
@@ -318,8 +318,7 @@
                                                     <input type="hidden" value="<%= comment._id %>">
                                                     <input type="hidden" value="<%= post._id %>">
                                                     <a class="button is-solid primary-button"
-                                                        onclick="add_alt_comment(this)" raised">Post
-                                                        Alt Comment</a>
+                                                        onclick="add_alt_comment(this)" raised">Alt yorum ekle</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -341,7 +340,7 @@
                     <div class="field">
                         <p class="control">
                             <textarea class="textarea comment-textarea" rows="1"
-                                placeholder="Write a comment..."></textarea>
+                                placeholder="Yorum yaz ..."></textarea>
                         </p>
                     </div>
                     <!-- Additional actions -->
@@ -363,15 +362,14 @@
                             </div> -->
                             <input type="hidden" value="<%= post.user._id %>">
                             <input type="hidden" value="<%= post._id %>">
-                            <a class="button is-solid primary-button" onclick="add_comment(this)">Post
-                                Comment</a>
+                            <a class="button is-solid primary-button" onclick="add_comment(this)">Yorum Yap</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <input type="hidden" name="userid" id="userid" value="<%= user._id %>">
-        
+
         <!-- /Comments body -->
 
         <!-- Comments footer -->
@@ -385,7 +383,8 @@
         const userid = document.getElementById("userid").value;
         const touserid = e.previousElementSibling.previousElementSibling.value
         const postid = e.previousElementSibling.value;
-        const text = e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value
+        const text = e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value;
+        e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value = ""
         fetch(`https://basaksocialmediaapi.herokuapp.com/add-comment/${postid}/${userid}`, {
             method: 'POST',
             headers: {
@@ -418,15 +417,16 @@
             })
             .catch(err => console.log(err))
 
-            add_nofication("comment",userid, touserid);
-        
+        add_nofication("comment", userid, touserid);
+
     }
 
     function add_alt_comment(e) {
         const userid = document.getElementById("userid").value;
         const postid = e.previousElementSibling.value;
         const commentid = e.previousElementSibling.previousElementSibling.value;
-        const text = e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value
+        const text = e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value;
+        e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value = "";
         e.parentNode.parentNode.parentNode.parentNode.parentNode.insertAdjacentHTML("beforeBegin", `
         <div class="media is-comment">
             <!-- User image -->
@@ -457,27 +457,28 @@
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({text : text}),
+            body: JSON.stringify({ text: text }),
         })
-        .then(data => data)
-        .catch(err => console.log(err))
+            .then(data => data)
+            .catch(err => console.log(err))
     }
 
 
-    function add_nofication(work, bildirimiyapan, aitolan ){
-                        
-        console.log(work,bildirimiyapan, aitolan);
-        
+    function add_nofication(work, bildirimiyapan, aitolan) {
+        const userid = document.getElementById("userid").value;
+        if(userid == bildirimiyapan)
+            return;
+
         fetch(`https://basaksocialmediaapi.herokuapp.com/add-nofication/${aitolan}/${bildirimiyapan}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ type : work }),
+            body: JSON.stringify({ type: work }),
         })
-        .then(data => data.json())
-        .then(veri => console.log(veri))
-        .catch(err => console.log(err))
+            .then(data => data.json())
+            .then(veri => console.log(veri))
+            .catch(err => console.log(err))
     }
 
 </script>

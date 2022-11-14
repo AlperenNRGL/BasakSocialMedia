@@ -9,3 +9,337 @@
   label: 'Loglama',
   timestamp: '2022-11-05T04:14:00.545Z'
 }
+{
+  message: Error: ENOENT: no such file or directory, unlink '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/undefined'
+      at Object.unlinkSync (node:fs:1772:3)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:102:12
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    errno: -2,
+    syscall: 'unlink',
+    code: 'ENOENT',
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/undefined'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T15:34:48.095Z'
+}
+{
+  message: Error: ENOENT: no such file or directory, unlink '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/undefined'
+      at Object.unlinkSync (node:fs:1772:3)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:102:12
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    errno: -2,
+    syscall: 'unlink',
+    code: 'ENOENT',
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/undefined'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T16:05:52.034Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:7
+      5|         <!-- html/partials/pages/profile/timeline/timeline-header.html -->
+      6|         <div class="cover-bg">
+   >> 7|             <% if (user.coverImge.data == null) { %>
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+      10|                 <img class="cover-image" src="data:image/<%=user.coverImge.contentType%>;base64,<%=post.coverImge.data.toString('base64')%>" alt="">
+  
+  Cannot read properties of undefined (reading 'data')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":12:27)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T20:19:02.711Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImge.contentType%>;base64,<%=post.coverImge.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" data-demo-src="assets/img/avatars/jenna.png" alt="">
+  
+  Cannot read properties of undefined (reading 'contentType')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":18:40)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T20:19:25.267Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImge.contentType%>;base64,<%=post.coverImge.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" data-demo-src="assets/img/avatars/jenna.png" alt="">
+  
+  Cannot read properties of undefined (reading 'contentType')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":18:40)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T20:19:44.838Z'
+}
+{
+  message: ReferenceError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=post.coverImage.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" alt="">
+  
+  post is not defined
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":20:25)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T20:20:31.580Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=user.coverImage.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" alt="">
+  
+  Cannot read properties of undefined (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":20:46)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T20:25:07.881Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=user.coverImage.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" alt="">
+  
+  Cannot read properties of undefined (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":20:46)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T20:25:45.390Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=user.coverImage.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" alt="">
+  
+  Cannot read properties of undefined (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":20:46)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T20:27:41.136Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=user.coverImage.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" alt="">
+  
+  Cannot read properties of undefined (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":20:46)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T20:30:43.934Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=user.coverImage.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" alt="">
+  
+  Cannot read properties of undefined (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":20:46)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-13T20:33:44.882Z'
+}

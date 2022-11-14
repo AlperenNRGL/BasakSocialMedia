@@ -9,30 +9,41 @@
     }
 
 </style>
-<div class="info-row" onclick="user_work2(this)">
+<div class="info-row"  style="display:<%=user.username==myuser.username?"none":""%>;" onclick="user_work2(this)">
     <div>
         <span id="user-btn2"  class="is-bold">
-            <% if (durum == null) { %>
-                <span class="friend-text" link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>
-                </span>
-                </div>
-                <img class="friend-icon" src="/static/icons/add-friend.png" >
-            <% } else if (durum == "istekgonderildi") { %>
-                <span class="friend-text" link="/remove-request/<%= myuser._id %>/<%= user._id %>">İstek Gönderildi</span>
-                </span>
-                </div>
-                <img class="friend-icon" src="/static/icons/unfriend.png" >
-            <% } else if (durum == "arkadaslar") { %>
-                <span class="friend-text" link="/remove-friend/<%= myuser._id %>/<%= user._id %>">Arkadaşlar</span>
-                </span>
-                </div>
-                <img class="friend-icon" src="/static/icons/icons8-friend-64.png" >
+
+
+            <% if (durum == "arkadaslar") { %>
+            <span class="friend-text" link="/remove-friend/<%= myuser._id %>/<%= user._id %>">Arkadaşlar</span>
+            </span>
+            </div>
+            <img class="friend-icon" src="/static/icons/icons8-friend-64.png" >
+
             <% } else if (durum == "kabulet") { %>
-                <span class="friend-text" link="/add-friend/<%= myuser._id %>/<%= user._id %>">Kabul Et</span>
-                </span>
-                </div>
-                <img class="friend-icon" src="/static/icons/icons8-add-user-group-man-man-80.png" >
+            <span class="friend-text" link="/add-friend/<%= myuser._id %>/<%= user._id %>">Kabul Et</span>
+            </span>
+            </div>
+            <img class="friend-icon" src="/static/icons/icons8-add-user-group-man-man-80.png" >
+
+            <% } else if (durum == "istekgonderildi") { %>
+            <span class="friend-text" link="/remove-request/<%= myuser._id %>/<%= user._id %>">İstek Gönderildi</span>
+            </span>
+            </div>
+            <img class="friend-icon" src="/static/icons/unfriend.png" >
+            
+
+            <% } else if (durum == null) { %>
+            <span class="friend-text" link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>
+            </span>
+            </div>
+            <img class="friend-icon" src="/static/icons/add-friend.png" >
+
             <% } %>
+
+
+
+            
         <!-- </span> -->
     <!-- </div> -->
     <!-- <img width="24px" height="24px" src="/static/icons/add-friend.png" > -->
@@ -44,26 +55,27 @@
 
         function user_work2(e){
             const value = e.children[0].children[0].children[0].attributes[1].nodeValue;
-            fetch(`https://basaksocialmediaapi.herokuapp.com/${value}`)
-            .then(data => {
-                switch(e.children[0].children[0].children[0].innerHTML){
-                    case "İstek Gönder":
-                        replacebtn(`<span class="friend-text" link="/remove-request/<%= myuser._id  %>/<%= user._id %>">İstek Gönderildi</span>`)
-                        replaceicon(e,`<img class="friend-icon" src="/static/icons/unfriend.png">`);
-                        break;
-                    case "İstek Gönderildi":
-                        replacebtn(`<span class="friend-text" link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>`)
-                        replaceicon(e,`<img class="friend-icon" src="/static/icons/add-friend.png" >`);
-                        break;
-                    case "Arkadaşlar":
-                        replacebtn(`<span class="friend-text" link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>`)
-                        replaceicon(e,`<img class="friend-icon" src="/static/icons/add-friend.png" >`)
-                        break;
-                    case "Kabul Et":
-                        replacebtn(`<span class="friend-text" link="/remove-friend/<%= myuser._id %>/<%= user._id %>">Arkadaşlar</span>`)
-                        replaceicon(e,`<img class="friend-icon" src="/static/icons/icons8-friend-64.png" >`)
-                        break;
+            switch(e.children[0].children[0].children[0].innerHTML){
+                case "İstek Gönder":
+                    replacebtn(`<span class="friend-text" link="/remove-request/<%= myuser._id  %>/<%= user._id %>">İstek Gönderildi</span>`)
+                    replaceicon(e,`<img class="friend-icon" src="/static/icons/unfriend.png">`);
+                    break;
+                case "İstek Gönderildi":
+                    replacebtn(`<span class="friend-text" link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>`)
+                    replaceicon(e,`<img class="friend-icon" src="/static/icons/add-friend.png" >`);
+                    break;
+                case "Arkadaşlar":
+                    replacebtn(`<span class="friend-text" link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>`)
+                    replaceicon(e,`<img class="friend-icon" src="/static/icons/add-friend.png" >`)
+                    break;
+                case "Kabul Et":
+                    replacebtn(`<span class="friend-text" link="/remove-friend/<%= myuser._id %>/<%= user._id %>">Arkadaşlar</span>`)
+                    replaceicon(e,`<img class="friend-icon" src="/static/icons/icons8-friend-64.png" >`)
+                    break;
                 }
+            fetch(`https://basaksocialmediaapi.herokuapp.com${value}`)
+            .then(data => {
+                console.log("Başarılı arkadaşlık işlemi");
             })
             .catch(err => console.log(err))
         }

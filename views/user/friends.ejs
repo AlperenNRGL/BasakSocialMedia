@@ -29,77 +29,20 @@
 
                 <div class="columns">
                     <div class="column">
-                        <div class="box-heading">
-                            <div class="dropdown friends-dropdown is-spaced is-neutral dropdown-trigger">
-                                <div>
-                                    <div class="button">
-                                        <span>All Friends</span>
-                                        <i data-feather="chevron-down"></i>
-                                    </div>
-                                </div>
-                                <div class="dropdown-menu" role="menu">
-                                    <div class="dropdown-content">
-                                        <a href="#" class="dropdown-item">
-                                            <div class="media">
-                                                <i data-feather="heart"></i>
-                                                <div class="media-content">
-                                                    <h3>Close Friends</h3>
-                                                    <small>Your closest friends list.</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item">
-                                            <div class="media">
-                                                <i data-feather="bell"></i>
-                                                <div class="media-content">
-                                                    <h3>Followed</h3>
-                                                    <small>Friends you are following.</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item">
-                                            <div class="media">
-                                                <i data-feather="coffee"></i>
-                                                <div class="media-content">
-                                                    <h3>Work relations</h3>
-                                                    <small>Your work relations.</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <hr class="dropdown-divider">
-                                        <a class="dropdown-item modal-trigger" data-modal="albums-modal"">
-                                                <div class=" media">
-                                            <i data-feather="mail"></i>
-                                            <div class="media-content">
-                                                <h3>Friend Requests</h3>
-                                                <small>Your pending friend requests.</small>
-                                            </div>
-                                    </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="control heading-search">
-                            <input type="text" class="input is-rounded" placeholder="Search Friends...">
-                            <div class="search-icon">
-                                <i data-feather="search"></i>
-                            </div>
-                        </div>
-                    </div>
+                      
 
                     <!--Friends grid-->
                     <div class="friends-grid">
                         <div class="columns is-multiline">
                             <% user.friends.forEach(friend => { %>
                                 <div class="column is-3">
-                                    <a class="friend-item has-text-centered">
+                                    <a href="/user/<%= friend._id %>"  class="friend-item has-text-centered">
                                         <div class="avatar-wrap">
                                             <div class="circle"></div>
                                             <div class="chat-button">
                                                 <i data-feather="message-circle"></i>
                                             </div>
-                                            <img src="/static/uploads/<%= friend.profilImage %>" data-demo-src="assets/img/avatars/dan.jpg" data-user-popover="1" alt="">
+                                                <img src="/static/uploads/<%= friend.profilImage %>" data-user-popover="1" alt="">
                                         </div>
                                         <h3><%= friend.firstName %> <%= friend.lastName %></h3>
                                         <p><%= friend.username %></p>
@@ -110,9 +53,9 @@
                     </div>
 
                     <!-- Load more photos -->
-                    <div class=" load-more-wrap has-text-centered">
+                    <!-- <div class=" load-more-wrap has-text-centered">
                         <a href="#" class="load-more-button">Load More</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
