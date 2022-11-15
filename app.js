@@ -6,6 +6,7 @@ const session = require('express-session')
 const authRouter = require("./routes/auth")
 const homeRouter = require("./routes/home")
 const userRouter = require("./routes/user")
+const workRouter = require("./routes/work")
 
 const isLogin = require("./middlewares/isLogin");
 const locals = require("./middlewares/locals");
@@ -28,6 +29,7 @@ app.use(session({
 
 //? Routers
 app.use(locals)
+app.use("/work", workRouter)
 app.use("/account", authRouter)
 app.use("/user", userRouter)
 app.use("/", homeRouter)

@@ -976,3 +976,114 @@
   level: 'info',
   timestamp: '2022-11-15T08:17:35.746Z'
 }
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T09:55:03.025Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T12:21:17.741Z'
+}
+{
+  message: Error: ENOENT: no such file or directory, unlink '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/profilimage59.605527792023125.jpeg'
+      at Object.unlinkSync (node:fs:1772:3)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:102:12
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    errno: -2,
+    syscall: 'unlink',
+    code: 'ENOENT',
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/profilimage59.605527792023125.jpeg'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-15T12:24:11.543Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T12:25:10.039Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T12:28:20.687Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T12:28:27.948Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:02:30.783Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:02:46.290Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:04:11.025Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:04:23.221Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:04:25.727Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:04:30.396Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:04:36.627Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:05:44.290Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:06:53.203Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:09:30.330Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T13:12:46.240Z'
+}

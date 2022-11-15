@@ -343,3 +343,18 @@
   label: 'Loglama',
   timestamp: '2022-11-13T20:33:44.882Z'
 }
+{
+  message: Error: ENOENT: no such file or directory, unlink '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/profilimage59.605527792023125.jpeg'
+      at Object.unlinkSync (node:fs:1772:3)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:102:12
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    errno: -2,
+    syscall: 'unlink',
+    code: 'ENOENT',
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/profilimage59.605527792023125.jpeg'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-15T12:24:11.543Z'
+}

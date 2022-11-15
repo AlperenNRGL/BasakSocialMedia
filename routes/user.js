@@ -97,8 +97,8 @@ router.post("/replace-cover", isLogin, upload.single("coverimage"), async (req, 
 
 
 router.post("/replace-profil", isLogin, upload.single("profilimage"), async (req, res) => {
-    const user = await User.findById(req.session.user);
-    if (user.profilImage != "icons8-person-64.png" && user.profilImage != undefined) {
+    let user = await User.findById(req.session.user);
+    if (user.profilImage != "icons8-person-64.png") {
         fs.unlinkSync(__dirname + "/../doc/uploads/" + user.profilImage,(err => err?console.log(err):"null" ))
     }
     user.profilImageData = {
