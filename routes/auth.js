@@ -24,7 +24,10 @@ router.post("/login", async (req, res) => {
         if (!user) {
             return res.render("auth/login",{message : {text :"Hatalı kullanıcı girişi", class : "danger" }})
         }
-        await bcrypt.compare(req.body.password, user.password) 
+        const result = await bcrypt.compare(req.body.password, user.password);
+        if (!result) {
+            return res.render("auth/login",{message : {text :"Hatalı kullanıcı girişi", class : "danger" }})
+        }
     }catch(err){
         console.log(err);
     }

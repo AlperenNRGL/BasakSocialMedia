@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <!-- Required meta tags -->
@@ -179,7 +179,7 @@
                                     <div class="friend-item">
                                         <img src="/static/uploads/<%=user.friends[i].profilImage  %>" data-demo-src="assets/img/avatars/dan.jpg" alt="" data-user-popover="1">
                                         <div class="text-content">
-                                            <a><%= user.friends[i].firstName %> <%= user.friends[i].lastName %> </a>
+                                            <a href="/user/<%= user.friends[i]._id %> "><%= user.friends[i].firstName %> <%= user.friends[i].lastName %> </a>
                                             <span><%= user.friends[i].username %></span>
                                         </div>
                                         <div class="star-friend">
@@ -295,7 +295,7 @@
                                                     <input type="hidden" value="<%= user._id %>">
                                                     <input type="hidden" value="<%= post._id %>">
                                                     <a onclick="like_btn(this)" class="like-button" >
-                                                        <% if (post.like.find(l => l.user.username== myuser.username )) { %>
+                                                        <% if (post.like.find(l => l.user.username == myuser.username )) { %>
                                                             <img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">
                                                         <% } else { %>
                                                             <img width="35px" height="35px" src="/static/uploads/icons8-like-64-2.png">
@@ -309,26 +309,21 @@
                                                         const userid = document.getElementById("userid").value;
                                                         const countlike = document.getElementById(postid);
                                                         if(e.children[0].attributes.src.nodeValue == "/static/uploads/icons8-like-64.png"){
+                                                            e.children[0].remove();
+                                                            e.insertAdjacentHTML("afterbegin",`<img width="40px" height="40px" src="/static/uploads/icons8-like-64-2.png">`)
                                                             fetch(`https://basaksocialmediaapi.herokuapp.com/remove-like/${postid}/${userid}`)
                                                             .then(data => {
-                                                            countlike.innerHTML = (Number(countlike.innerHTML) - 1)
-                                                            
-                                                            e.children[0].remove();
-                                                            e.insertAdjacentHTML("afterbegin",`
-                                                            <img width="40px" height="40px" src="/static/uploads/icons8-like-64-2.png">
-                                                            `)
+                                                                countlike.innerHTML = (Number(countlike.innerHTML) - 1)
                                                             })
                                                             .catch(err => console.log(err))
                                                             return;
                                                             }
+                                                        e.children[0].remove();
+                                                        e.insertAdjacentHTML("afterbegin",`<img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">`)
                                                         fetch(`https://basaksocialmediaapi.herokuapp.com/add-like/${postid}/${userid}`)
                                                         .then(data => {
                                                             add_nofication("like", userid, e.previousElementSibling.previousElementSibling.value )
-                                                            e.children[0].remove();
-                                                            e.insertAdjacentHTML("afterbegin",`
-                                                            <img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">
-                                                            `)
-                                                        countlike.innerHTML = (Number(countlike.innerHTML) + 1)
+                                                            countlike.innerHTML = (Number(countlike.innerHTML) + 1)
                                                         })
                                                         .catch(err => console.log(err))
                                                     }
