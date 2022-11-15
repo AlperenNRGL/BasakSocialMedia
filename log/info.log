@@ -958,3 +958,21 @@
   level: 'info',
   timestamp: '2022-11-15T07:47:18.129Z'
 }
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T08:14:44.893Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T08:16:36.215Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-15T08:17:35.746Z'
+}
