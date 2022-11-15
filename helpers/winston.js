@@ -20,6 +20,7 @@ const logger = createLogger({
         new transports.File({ filename: "log/info.log", maxsize:'1MB', }),
         new transports.MongoDB({
             db: 'mongodb+srv://alperen:135790@social-media.kttxyjd.mongodb.net/Social-Media?retryWrites=true&w=majority',
+            level : "error",
             options: {
                 useUnifiedTopology: true,
             },

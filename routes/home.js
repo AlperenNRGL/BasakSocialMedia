@@ -18,7 +18,11 @@ router.get("/", isLogin, async (req, res) => {
     delete req.session.message
 
     //todo Tek giren kullanıcının değilde bütün arkadaşlarının postlarını göster.
-    const user = await User.findById(req.session.user).populate("messages.user").populate("messages.messages").populate("friends", "_id");
+    const user = await User.findById(req.session.user)
+    .populate({ path : "messages.user", select : { "profilImageData" : 0, coverImage: 0 }})
+    .populate("messages.messages")
+    .populate("friends", "_id");
+
     let id_list = [];
     for (let i = 0; i < user.friends.length; i++) {
         id_list.push(user.friends[i]._id)
@@ -26,8 +30,11 @@ router.get("/", isLogin, async (req, res) => {
     id_list.push(user._id)
     const posts = await Post.find({ user: id_list })
         .sort({ date: -1 })
-        .populate("user").populate("comments").populate("comments.user").populate("comments.altcomment.user")
-        .populate({ path: "like.user", select: { username: 1, profilImage: 1 } })
+        .populate({ path : "user", select : {profilImageData : 0, coverImage: 0 } })
+        .populate("comments")
+        .populate({ path : "comments.user", select : { profilImageData : 0 , coverImage: 0 }})
+        .populate({path : "comments.altcomment.user", select : { profilImageData : 0, coverImage: 0  }})
+        .populate({ path: "like.user", select: { username: 1, profilImage: 1, profilImageData : 0, coverImage: 0 } })
         .limit(2);
 
 

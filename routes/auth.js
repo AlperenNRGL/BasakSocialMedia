@@ -19,7 +19,8 @@ router.get("/login", logined, (req, res) => {
 
 router.post("/login", async (req, res) => {
     
-    const user = await User.findOne({ "email": req.body.email});
+    const user = await User.findOne({ "email": req.body.email})
+    .select(["email", "password"]);
     try{
         if (!user) {
             return res.render("auth/login",{message : {text :"Hatalı kullanıcı girişi", class : "danger" }})
@@ -75,7 +76,7 @@ router.get("/new-password", async (req, res) => {
     res.render("auth/new-password",{message : sessionmessage});
 })
 router.post("/new-password", async (req, res) => {
-    const user = await User.findOne({email : req.body.email});
+    let user = await User.findOne({email : req.body.email}).select("email");
     if(user){
         const token = jwt.sign({user : user.email},"jwtsecretkey");
         user.token = token;
@@ -107,7 +108,7 @@ router.get("/reset-password/:token", async (req, res) => {
 router.post("/reset-password/:token", async (req, res) => {
     try{
         const data = jwt.verify(req.params.token,"jwtsecretkey");
-        const user = await User.findOne({email : data.user, token: req.params.token});
+        let user = await User.findOne({email : data.user, token: req.params.token}).select(["-profilImageData","-coverImageData"]);
         if(user){
             user.password = await bcrypt.hash(req.body.password2, 10);
             user.token = null;

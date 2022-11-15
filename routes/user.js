@@ -19,28 +19,18 @@ require("express-async-errors")
 
 
 router.get("/friends/:id", isLogin, async (req, res) => {
-    const user = await User.findById(req.params.id).populate("friends");
-    const myuser = await User.findById(req.session.user).populate("messages.user").populate("messages.messages");
+    const user = await User.findById(req.params.id)
+    .populate({ path: "friends", select :{ "profilImageData" : 0}})
+    .select(["-profilImageData","-coverImage"]);
 
-    const istek = await FriendRequest.find(({ istekuser: req.session.user, aliciuser: req.params.id }));
-    const useristek = await FriendRequest.find(({ istekuser: req.params.id, aliciuser: req.session.user }));
-    const arkadasmi = user.friends.find(f => f.username == myuser.username);
-    let durum;
-    if (istek.length != 0) {
-        durum = "istekgonderildi";
-    } else if (arkadasmi != undefined) {
-        durum = "arkadaslar"
-    } else if (useristek.length != 0) {
-        durum = "kabulet"
-    } else {
-        durum = null;
-    }
-
+    const myuser = await User.findById(req.session.user)
+    .populate({ path: "messages.user", select : {"profilImageData" : 0,"coverImage" : 0}})
+    .populate("messages.messages")
+    .select(["-profilImageData","-coverImage"]);
 
 
     res.render("user/friends", {
         user: user,
-        durum: durum,
         messages: myuser.messages,
         myuser: myuser,
 
@@ -51,29 +41,22 @@ router.get("/friends/:id", isLogin, async (req, res) => {
 
 router.get("/photos/:id", isLogin, async (req, res) => {
 
-    const user = await User.findById(req.params.id);
-    const posts = await Post.find({ user: req.params.id, image: { $ne: "null" } }).populate("user").limit(10);
+    const user = await User.findById(req.params.id)
+    .select(["-profilImageData"]);
 
-    const myuser = await User.findById(req.session.user).populate("messages.user").populate("messages.messages");
+    const posts = await Post.find({ user: req.params.id, image: { $ne: "null" } })
+    .populate({path:"user", select: { profilImageData : 0, coverImage: 0}})
+    .limit(10);
 
-    const istek = await FriendRequest.find(({ istekuser: req.session.user, aliciuser: req.params.id }));
-    const useristek = await FriendRequest.find(({ istekuser: req.params.id, aliciuser: req.session.user }));
-    const arkadasmi = user.friends.find(f => f.username == myuser.username);
-    let durum;
-    if (istek.length != 0) {
-        durum = "istekgonderildi";
-    } else if (arkadasmi != undefined) {
-        durum = "arkadaslar"
-    } else if (useristek.length != 0) {
-        durum = "kabulet"
-    } else {
-        durum = null;
-    }
+    const myuser = await User.findById(req.session.user)
+    .populate({path : "messages.user", select: { profilImageData : 0, coverImage: 0} })
+    .populate("messages.messages")
+    .select(["-profilImageData","-coverImage"]);
 
+  
     res.render("user/photos", {
         user: user,
         posts: posts,
-        durum: durum,
         messages: myuser.messages,
         myuser: myuser,
     })
@@ -82,8 +65,8 @@ router.get("/photos/:id", isLogin, async (req, res) => {
 
 
 router.post("/replace-cover", isLogin, upload.single("coverimage"), async (req, res) => {
-    const user = await User.findById(req.session.user);
-
+    let user = await User.findById(req.session.user)
+    .select("coverImage");
 
     user.coverImage = {
         data: req.file == undefined ? "null" : fs.readFileSync(path.join(__dirname + '/../doc/uploads/' + req.file.filename)),
@@ -97,7 +80,9 @@ router.post("/replace-cover", isLogin, upload.single("coverimage"), async (req, 
 
 
 router.post("/replace-profil", isLogin, upload.single("profilimage"), async (req, res) => {
-    let user = await User.findById(req.session.user);
+    let user = await User.findById(req.session.user)
+    .select("profilImageData");
+
     if (user.profilImage != "icons8-person-64.png") {
         fs.unlinkSync(__dirname + "/../doc/uploads/" + user.profilImage,(err => err?console.log(err):"null" ))
     }
@@ -114,7 +99,10 @@ router.post("/replace-profil", isLogin, upload.single("profilimage"), async (req
 
 router.get("/profile-settings", isLogin, async (req, res) => {
 
-    const user = await User.findById(req.session.user).populate("messages.user").populate("messages.messages");
+    const user = await User.findById(req.session.user)
+    .populate({path : "messages.user", select : {"profilImageData" : 0, coverImage: 0} })
+    .populate("messages.messages")
+    .select(["-profilImageData", "-coverImage"]);
 
     res.render("user/profile-settings", {
         user: user,
@@ -126,9 +114,14 @@ router.get("/profile-settings", isLogin, async (req, res) => {
 
 
 router.post("/profile-settings", isLogin, async (req, res) => {
-    const user = await User.findById(req.session.user).populate("messages.user").populate("messages.messages");
+    const user = await User.findById(req.session.user)
+    .populate({ path : "messages.user", select : { profilImageData : 0, coverImage : 0}})
+    .populate("messages.messages")
+    .select("-profilImageData", "-coverImage");
 
-    const username = await User.find({ _id: { $ne: req.session.user }, username: req.body.username });
+    const username = await User.find({ _id: { $ne: req.session.user }, username: req.body.username })
+    .select("-profilImageData","-coverImage");
+
     if (username.length != 0) {
         res.render("user/profile-settings", {
             message: { class: "danger", text: "Bu username adresi daha öndeceden alınmış" },
@@ -154,13 +147,18 @@ router.post("/profile-settings", isLogin, async (req, res) => {
 
 router.get("/:id", isLogin, async (req, res) => {
     const user = await User.findById(req.params.id).populate("friends");
-    const myuser = await User.findById(req.session.user).populate("messages.user").populate("messages.messages");
+    const myuser = await User.findById(req.session.user)
+    .populate({path: "messages.user", select : {profilImageData : 0, coverImage : 0}})
+    .populate("messages.messages");
+
     const posts = await Post.find({ user: req.params.id })
         .sort({ date: -1 })
-        .populate("user").populate("comments").populate("comments.user")
-        .populate("comments.altcomment.user")
-        .populate({ path: "like.user", select: { username: 1, profilImage: 1 } })
-        .limit(10);
+        .populate({path : "user", select : {profilImageData : 0, coverImage : 0}})
+        .populate("comments")
+        .populate({path : "comments.user", select : {profilImageData : 0, coverImage : 0}})
+        .populate({path : "comments.altcomment.user", select : {profilImageData : 0, coverImage : 0}})
+        .populate({ path: "like.user", select: { username: 1, profilImage: 1, profilImageData : 0, coverImage:0 } })
+        .limit(5);
 
 
 

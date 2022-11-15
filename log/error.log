@@ -358,3 +358,45 @@
   label: 'Loglama',
   timestamp: '2022-11-15T12:24:11.543Z'
 }
+{
+  message: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+      at populate (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/mongoose/lib/utils.js:573:11)
+      at model.Query.Query.populate (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/mongoose/lib/query.js:5184:30)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:27:6
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-15T19:54:24.213Z'
+}
+{
+  message: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+      at populate (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/mongoose/lib/utils.js:573:11)
+      at model.Query.Query.populate (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/mongoose/lib/query.js:5184:30)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:27:6
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-15T19:58:28.869Z'
+}
+{
+  message: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+      at populate (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/mongoose/lib/utils.js:573:11)
+      at model.Query.Query.populate (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/mongoose/lib/query.js:5184:30)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:27:6
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-15T20:04:15.843Z'
+}
+{
+  message: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+      at populate (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/mongoose/lib/utils.js:573:11)
+      at model.Query.Query.populate (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/mongoose/lib/query.js:5184:30)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:27:6
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-15T20:05:38.393Z'
+}

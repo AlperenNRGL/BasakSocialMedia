@@ -44,6 +44,7 @@ const userSchema = Schema({
     biyografi : {type : String, default : null},
 })
 
+
 const registerValidate = joi.object({
     firstName :joi.string().required(),
     lastName : joi.string().required(),
