@@ -120,7 +120,7 @@
 
                         <div class="is-photos-widget">
                             <% for( let i = 0; i < posts.length && i<12 ; i++ ) { %>
-                                <% if (posts[i].img.data != "null") { %>
+                                <% if (posts[i].img.data != null) { %>
                                     <img src="data:image/<%=posts[i].img.contentType%>;base64,<%=posts[i].img.data.toString('base64')%>"  alt="">
                                 <% } %>
                             <% } %>
@@ -282,9 +282,7 @@
                                             
                                             <div class="post-image">
                                                 <% if (post.img.data != null ) { %>
-                                                <!-- <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg"> -->
                                                     <img src="data:image/<%=post.img.contentType%>;base64,<%=post.img.data.toString('base64')%>" alt="post_image">
-                                                <!-- </a> -->
                                                 <% } else { %>
                                                  <div style="height: 30px;"></div>
                                                 <% } %>

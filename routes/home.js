@@ -18,16 +18,20 @@ router.get("/", isLogin, async (req, res) => {
     delete req.session.message
 
     //todo Tek giren kullanıcının değilde bütün arkadaşlarının postlarını göster.
+    console.log("deneme");
     const user = await User.findById(req.session.user)
-    .populate({ path : "messages.user", select : { "profilImageData" : 0, coverImage: 0 }})
+    .populate({ path : "messages.user", select : { profilImageData : 0, coverImage: 0 }})
     .populate("messages.messages")
-    .populate("friends", "_id");
+    .populate("friends", "_id")
+    .select(["-profilImageData","-coverImage"]);
+
 
     let id_list = [];
     for (let i = 0; i < user.friends.length; i++) {
         id_list.push(user.friends[i]._id)
     }
     id_list.push(user._id)
+
     const posts = await Post.find({ user: id_list })
         .sort({ date: -1 })
         .populate({ path : "user", select : {profilImageData : 0, coverImage: 0 } })
@@ -37,6 +41,7 @@ router.get("/", isLogin, async (req, res) => {
         .populate({ path: "like.user", select: { username: 1, profilImage: 1, profilImageData : 0, coverImage: 0 } })
         .limit(2);
 
+    console.log("deneme2");
 
     //? Suggested Friend
     let liste = []

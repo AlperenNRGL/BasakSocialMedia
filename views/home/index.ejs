@@ -682,7 +682,7 @@
                                                                                         </div>
                                                                                     <div class="user-info">
                                                                                         <a href="/user/${post.user._id}">${post.user.username}</a>
-                                                                                        <span class="time">${post.getDate()}</span>
+                                                                                        <span class="time">${ dateformat(new Date(post.date))}</span>
                                                                                     </div>
                                                                                 </div>
                                                                                 <!-- Right side dropdown -->
@@ -834,7 +834,7 @@
                                                                             <!-- Content -->
                                                                             <div class="media-content">
                                                                                 <a href="#">${comment.user.username}</a>
-                                                                                <span class="time">${comment.getDate()}</span>
+                                                                                <span class="time">${ dateformat(new Date (comment.date))}</span>
                                                                                 <p>${comment.text}</p>
                                                                                 <!-- Actions -->
                                                                                 
@@ -858,7 +858,7 @@
                                                                                          ${altcomment.user.username}
                                                                                      </a>
                                                                                      <span class="time">
-                                                                                         ${altcomment.getDate()}
+                                                                                         ${  dateformat(new Date (altcomment.date))}
                                                                                      </span>
                                                                                      <p>
                                                                                          ${altcomment.text}
@@ -980,7 +980,9 @@
                                                         }
 
 
-                                                        
+                                                        function dateformat(time){
+                                                            return `${time.getHours()}:${time.getMinutes()}   ${time.getDate()}/${time.getMonth()}/2022}} `
+                                                        }
 
                                                         function show_dropdown(e){
                                                             e.parentNode.parentNode.classList.add("is-active");

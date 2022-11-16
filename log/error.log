@@ -434,3 +434,81 @@
   label: 'Loglama',
   timestamp: '2022-11-16T04:31:57.698Z'
 }
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:124
+      122|                             <% for( let i = 0; i < posts.length && i<12 ; i++ ) { %>
+      123|                                 <% if (posts[i].img.data != "null") { %>
+   >> 124|                                     <img src="data:image/<%=posts[i].img.contentType%>;base64,<%=posts[i].img.data.toString('base64')%>"  alt="">
+      125|                                 <% } %>
+      126|                             <% } %>
+      127|                             <!-- <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/2.jpg" alt="">
+  
+  Cannot read properties of null (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":50:43)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:180:16
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-16T05:14:35.561Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:124
+      122|                             <% for( let i = 0; i < posts.length && i<12 ; i++ ) { %>
+      123|                                 <% if (posts[i].img.data != "null") { %>
+   >> 124|                                     <img src="data:image/<%=posts[i].img.contentType%>;base64,<%=posts[i].img.data.toString('base64')%>"  alt="">
+      125|                                 <% } %>
+      126|                             <% } %>
+      127|                             <!-- <img src="https://via.placeholder.com/200x200" data-demo-src="assets/img/demo/widgets/photos/2.jpg" alt="">
+  
+  Cannot read properties of null (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":50:43)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:185:16
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-16T05:19:15.111Z'
+}
+{
+  message: ReferenceError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:686
+      684|                                                                                     <div class="user-info">
+      685|                                                                                         <a href="/user/${post.user._id}">${post.user.username}</a>
+   >> 686|                                                                                         <span class="time"><%= post.getDate() %></span>
+      687|                                                                                     </div>
+      688|                                                                                 </div>
+      689|                                                                                 <!-- Right side dropdown -->
+  
+  post is not defined
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":68:26)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/home.js:63:16
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-16T07:58:15.182Z'
+}

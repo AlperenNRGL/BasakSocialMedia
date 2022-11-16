@@ -146,10 +146,15 @@ router.post("/profile-settings", isLogin, async (req, res) => {
 
 
 router.get("/:id", isLogin, async (req, res) => {
-    const user = await User.findById(req.params.id).populate("friends");
+    const user = await User.findById(req.params.id)
+    .populate({ path: "friends", select : {profilImageData : 0, coverImage : 0}})
+    .select(["-profilImageData", "-coverImage"]);
+
+
     const myuser = await User.findById(req.session.user)
     .populate({path: "messages.user", select : {profilImageData : 0, coverImage : 0}})
-    .populate("messages.messages");
+    .populate("messages.messages")
+    .select(["-profilImageData", "-coverImage"]);
 
     const posts = await Post.find({ user: req.params.id })
         .sort({ date: -1 })
