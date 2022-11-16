@@ -1321,3 +1321,49 @@
   level: 'info',
   timestamp: '2022-11-15T20:32:47.589Z'
 }
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T04:07:22.388Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T04:27:38.990Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:614
+      612|                                         <% } %>
+      613|                                         <% posts.forEach(post=> { %>
+   >> 614|                                             <%- include ("../partials/post",{post : post}) %>
+      615|                                                 <% }) %>
+      616| 
+      617|                                                     
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/post.ejs:78
+      76|                 <% if (post.img.data != "null" ) { %>
+      77|                     <!-- <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg"> -->
+   >> 78|                     <img src="data:image/<%=post.img.contentType%>;base64,<%=post.img.data.toString('base64')%>" alt="Post_image">
+      79|                     <!-- </a> -->
+      80|                 <% } else { %>
+      81|                         <div style="height: 30px;"></div>
+  
+  Cannot read properties of null (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/post.ejs":35:39)
+      at post (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":56:17)
+      at Array.forEach (<anonymous>)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":53:14)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-16T04:31:57.698Z'
+}

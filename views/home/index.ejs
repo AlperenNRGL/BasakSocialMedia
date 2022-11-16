@@ -722,7 +722,7 @@
                                                                         `
                                                                      
                                                                     let html2 = ""
-                                                                    if(post.img.data != "null"){
+                                                                    if(post.img.data != null){
                                                                         html2 += `<img src="data:image/${post.img.contentType};base64,${post.img.data.toString('base64')}" alt="">`
                                                                     }else{
                                                                         html2 += `<div style="height: 30px;"></div>`

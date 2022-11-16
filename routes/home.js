@@ -74,7 +74,7 @@ router.post("/", upload.single("image"), isLogin, async (req, res) => {
         user: req.session.user,
         text: req.body.text,
         img: {
-            data: req.file == undefined ? "null" : fs.readFileSync(path.join(__dirname + `/../doc/uploads/${req.file.filename}`)),
+            data: req.file == undefined ? null : fs.readFileSync(path.join(__dirname + `/../doc/uploads/${req.file.filename}`)),
             contentType: 'image/jpeg'
         }
     }, (err) => err?console.log(err):"")

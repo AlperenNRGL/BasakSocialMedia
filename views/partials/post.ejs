@@ -73,7 +73,7 @@
             <!-- Featured image -->
 
             <div class="post-image">
-                <% if (post.img.data != "null" ) { %>
+                <% if (post.img.data != null ) { %>
                     <!-- <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg"> -->
                     <img src="data:image/<%=post.img.contentType%>;base64,<%=post.img.data.toString('base64')%>" alt="Post_image">
                     <!-- </a> -->
