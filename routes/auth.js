@@ -60,12 +60,12 @@ router.post("/register", async (req, res) => {
     const user = await new User(req.body);
     user.password =  await bcrypt.hash(user.password,10)
     await user.save();
-    await mailer.sendMail({
-        from: 'alperennuroglu@hotmail.com', // sender address
-        to: user.email, // list of receivers
-        subject: "Social'a Hoşgeldiniz", // Subject line
-        html: "<h3>Sizi burada görmekten mululukar duyuyorum.</h3><br><b>Alperen Nuroğlu</b>", // html body
-    });
+    //await mailer.sendMail({
+    //    from: 'alperennuroglu@hotmail.com', // sender address
+    //    to: user.email, // list of receivers
+    //    subject: "Social'a Hoşgeldiniz", // Subject line
+    //     html: "<h3>Sizi burada görmekten mululukar duyuyorum.</h3><br><b>Alperen Nuroğlu</b>", // html body
+    //  });
     res.redirect("/account/login?account=true");
 })
 
