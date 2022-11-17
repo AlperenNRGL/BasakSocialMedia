@@ -158,11 +158,11 @@ router.get("/:id", isLogin, async (req, res) => {
 
     const posts = await Post.find({ user: req.params.id })
         .sort({ date: -1 })
-        .populate({path : "user", select : {profilImageData : 0, coverImage : 0}})
+        .populate({path : "user", select : {profilImage: 1 , username : 1}})
         .populate("comments")
-        .populate({path : "comments.user", select : {profilImageData : 0, coverImage : 0}})
-        .populate({path : "comments.altcomment.user", select : {profilImageData : 0, coverImage : 0}})
-        .populate({ path: "like.user", select: { username: 1, profilImage: 1, profilImageData : 0, coverImage:0 } })
+        .populate({path : "comments.user", select : {profilImage: 1 , username : 1}})
+        .populate({path : "comments.altcomment.user", select : {profilImage: 1 , username : 1}})
+        .populate({ path: "like.user", select: { profilImage: 1 , username : 1} })
         .limit(5);
 
 
