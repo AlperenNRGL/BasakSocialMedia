@@ -4,7 +4,7 @@
         <!-- Timeline Header -->
         <!-- html/partials/pages/profile/timeline/timeline-header.html -->
         <div class="cover-bg">
-            <% if (user.coverImage.data == undefined) { %>
+            <% if (user.coverImage.data == null) { %>
                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
             <% } else { %>
                 <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=user.coverImage.data.toString('base64')%>" alt="">

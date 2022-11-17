@@ -512,3 +512,196 @@
   label: 'Loglama',
   timestamp: '2022-11-16T07:58:15.182Z'
 }
+{
+  message: Error: ENOENT: no such file or directory, unlink '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/undefined'
+      at Object.unlinkSync (node:fs:1772:3)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:87:12
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    errno: -2,
+    syscall: 'unlink',
+    code: 'ENOENT',
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/undefined'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-16T10:04:19.747Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=user.coverImage.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" alt="">
+  
+  Cannot read properties of undefined (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":20:46)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-16T10:10:32.886Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDB Database not connect',
+  level: 'error',
+  timestamp: '2022-11-17T04:56:13.073Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:614
+      612|                                         <% } %>
+      613|                                         <% posts.forEach(post=> { %>
+   >> 614|                                             <%- include ("../partials/post",{post : post}) %>
+      615|                                                 <% }) %>
+      616| 
+      617|                                                     
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/post.ejs:76
+      74| 
+      75|             <div class="post-image">
+   >> 76|                 <% if (post.img.data != null ) { %>
+      77|                     <!-- <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg"> -->
+      78|                     <img src="data:image/<%=post.img.contentType%>;base64,<%=post.img.data.toString('base64')%>" alt="Post_image">
+      79|                     <!-- </a> -->
+  
+  Cannot read properties of undefined (reading 'data')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/post.ejs":30:21)
+      at post (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":56:17)
+      at Array.forEach (<anonymous>)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":53:14)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T05:02:56.342Z'
+}
+{
+  message: ReferenceError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:636
+      634|                                                         <ul class="pagination" style="justify-content:space-around ;">
+      635| 
+   >> 636|                                                             <% for( let i = 0; i < count / 2; i++ ) { %>
+      637|                                                                 <li class="page-item"><a class="page-link" href="/?page=<%= i++ %>"><%= i ++ %></a></li>
+      638|                                                             <% } %>
+      639|                                                           <!-- <li class="page-item"><a class="page-link" href="/?page=2">2</a></li>
+  
+  count is not defined
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":62:28)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/home.js:90:16
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T13:23:17.389Z'
+}
+{
+  message: ReferenceError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:641
+      639| 
+      640|                                                             <% for( let i = 0; i < postcount / 2; i++ ) { %>
+   >> 641|                                                                 <% if (currentpage == i) { %>
+      642|                                                                     <li class="page-item page-link" style="font-size: 1.5rem ;" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      643|                                                                 <% } else { %>
+      644|                                                                     <li class="page-item page-link" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+  
+  currentpage is not defined
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":65:8)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/home.js:59:16
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T13:32:28.913Z'
+}
+{
+  message: RangeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:644
+      642|                                                                     <li class="page-item page-link" style="font-size: 1.5rem ;" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      643|                                                                 <% } else { %>
+   >> 644|                                                                     <li class="page-item page-link" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      645|                                                                 <% } %>
+      646| 
+      647|                                                             <% } %>
+  
+  Invalid string length
+      at __append ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":8:73)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":79:7)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/home.js:59:16 {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T13:35:20.709Z'
+}
+{
+  message: RangeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:644
+      642|                                                                     <li class="page-item page-link" style="font-size: 1.5rem ;" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      643|                                                                 <% } else { %>
+   >> 644|                                                                     <li class="page-item page-link" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      645|                                                                 <% } %>
+      646| 
+      647|                                                             <% } %>
+  
+  Invalid string length
+      at __append ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":8:73)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":79:7)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/home.js:59:16 {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T13:35:34.833Z'
+}

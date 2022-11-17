@@ -36,7 +36,11 @@ const userSchema = Schema({
         default : "icons8-person-64.png"
     },
     coverImage : {
-        data: Buffer,
+        data: {
+            type : Buffer,
+            default : null,
+        
+        },
         contentType: String,
     },
     friends : [{type : Schema.Types.ObjectId, ref : "user"}],

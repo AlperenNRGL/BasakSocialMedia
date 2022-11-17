@@ -1505,3 +1505,712 @@
   label: 'Loglama',
   timestamp: '2022-11-16T07:58:15.182Z'
 }
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T08:51:25.512Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:02:34.684Z'
+}
+{
+  message: Error: ENOENT: no such file or directory, unlink '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/undefined'
+      at Object.unlinkSync (node:fs:1772:3)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/user.js:87:12
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    errno: -2,
+    syscall: 'unlink',
+    code: 'ENOENT',
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/routes/../doc/uploads/undefined'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-16T10:04:19.747Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:05:04.077Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:05:34.286Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:07:04.450Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs:29
+      27|             <!-- Profile page main wrapper -->
+      28|             <div id="profile-main" class="view-wrap is-headless">
+   >> 29|                 <%- include ("../partials/profile-top", {user : user}) %> 
+      30| 
+      31|                 <div class="columns">
+      32|                     <div id="profile-timeline-widgets" class="column is-4">
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs:10
+      8|                 <img class="cover-image" src="/static/uploads/coverimage.jpg" alt="">
+      9|             <% } else { %>
+   >> 10|                 <img class="cover-image" src="data:image/<%=user.coverImage.contentType%>;base64,<%=user.coverImage.data.toString('base64')%>" alt="">
+      11|             <% } %>
+      12|             <div class="avatar">
+      13|                 <img id="user-avatar" class="avatar-image" src="/static/uploads/<%= user.profilImage %>" alt="">
+  
+  Cannot read properties of undefined (reading 'toString')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/profile-top.ejs":20:46)
+      at profile-top (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs":21:17)
+      at profile (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/user/profile.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-16T10:10:32.886Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:11:36.869Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:12:25.359Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:21.927Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:35.117Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:49.921Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:51:13.838Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T10:54:40.769Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T11:25:14.336Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T13:44:32.253Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T13:45:26.945Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T13:47:03.971Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T13:47:39.690Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T13:48:38.918Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T13:49:23.172Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T13:51:01.399Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-16T13:52:58.419Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T04:19:16.529Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T04:19:40.683Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T04:19:53.880Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T04:29:14.077Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDB Database not connect',
+  level: 'error',
+  timestamp: '2022-11-17T04:56:13.073Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T04:59:16.545Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T05:02:28.195Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T05:02:39.376Z'
+}
+{
+  message: TypeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:614
+      612|                                         <% } %>
+      613|                                         <% posts.forEach(post=> { %>
+   >> 614|                                             <%- include ("../partials/post",{post : post}) %>
+      615|                                                 <% }) %>
+      616| 
+      617|                                                     
+  
+  /Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/post.ejs:76
+      74| 
+      75|             <div class="post-image">
+   >> 76|                 <% if (post.img.data != null ) { %>
+      77|                     <!-- <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg"> -->
+      78|                     <img src="data:image/<%=post.img.contentType%>;base64,<%=post.img.data.toString('base64')%>" alt="Post_image">
+      79|                     <!-- </a> -->
+  
+  Cannot read properties of undefined (reading 'data')
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/partials/post.ejs":30:21)
+      at post (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at include (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:701:39)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":56:17)
+      at Array.forEach (<anonymous>)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":53:14)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T05:02:56.342Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T05:03:13.519Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T05:13:30.102Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T05:14:19.844Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T05:16:17.085Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T05:25:42.019Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T05:28:27.270Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T06:01:55.406Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T06:10:34.512Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T06:11:50.123Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T07:20:07.423Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T07:20:24.531Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T07:21:42.481Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T07:24:27.875Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:06:03.374Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:06:36.446Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:10:26.786Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:11:17.617Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:15:03.132Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:16:15.210Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:19:24.641Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:20:12.974Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:22:22.787Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:22:26.602Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:22:41.264Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:25:08.386Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:26:21.838Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:26:51.399Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:28:34.975Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:30:41.259Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:33:16.625Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:33:43.279Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:34:41.667Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:39:28.175Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:40:51.515Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:41:15.745Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:42:09.068Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T10:42:44.415Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T11:06:46.343Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T11:06:49.840Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T11:08:45.926Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T11:09:48.868Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T11:10:40.136Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T11:14:14.004Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T11:17:29.235Z'
+}
+{
+  message: ReferenceError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:636
+      634|                                                         <ul class="pagination" style="justify-content:space-around ;">
+      635| 
+   >> 636|                                                             <% for( let i = 0; i < count / 2; i++ ) { %>
+      637|                                                                 <li class="page-item"><a class="page-link" href="/?page=<%= i++ %>"><%= i ++ %></a></li>
+      638|                                                             <% } %>
+      639|                                                           <!-- <li class="page-item"><a class="page-link" href="/?page=2">2</a></li>
+  
+  count is not defined
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":62:28)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/home.js:90:16
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T13:23:17.389Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T13:30:21.426Z'
+}
+{
+  message: ReferenceError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:641
+      639| 
+      640|                                                             <% for( let i = 0; i < postcount / 2; i++ ) { %>
+   >> 641|                                                                 <% if (currentpage == i) { %>
+      642|                                                                     <li class="page-item page-link" style="font-size: 1.5rem ;" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      643|                                                                 <% } else { %>
+      644|                                                                     <li class="page-item page-link" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+  
+  currentpage is not defined
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":65:8)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/home.js:59:16
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T13:32:28.913Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T13:32:48.230Z'
+}
+{
+  message: RangeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:644
+      642|                                                                     <li class="page-item page-link" style="font-size: 1.5rem ;" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      643|                                                                 <% } else { %>
+   >> 644|                                                                     <li class="page-item page-link" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      645|                                                                 <% } %>
+      646| 
+      647|                                                             <% } %>
+  
+  Invalid string length
+      at __append ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":8:73)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":79:7)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/home.js:59:16 {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T13:35:20.709Z'
+}
+{
+  message: RangeError: /Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs:644
+      642|                                                                     <li class="page-item page-link" style="font-size: 1.5rem ;" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      643|                                                                 <% } else { %>
+   >> 644|                                                                     <li class="page-item page-link" ><a class="page-link" href="/?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+      645|                                                                 <% } %>
+      646| 
+      647|                                                             <% } %>
+  
+  Invalid string length
+      at __append ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":8:73)
+      at eval ("/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs":79:7)
+      at index (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Documents/SocialMediakopyası2/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Documents/SocialMediakopyası2/routes/home.js:59:16 {
+    path: '/Users/alperennuroglu/Documents/SocialMediakopyası2/views/home/index.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-17T13:35:34.833Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T13:38:31.588Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T14:47:13.858Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T14:47:17.747Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T14:48:32.516Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T14:58:30.494Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T14:58:48.380Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T14:59:23.571Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T15:22:17.275Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T15:28:23.495Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T15:29:58.733Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T15:31:03.560Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-17T15:34:41.861Z'
+}

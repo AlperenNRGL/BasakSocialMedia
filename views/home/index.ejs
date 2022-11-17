@@ -616,7 +616,7 @@
 
                                                     
                                                     <div class=" load-more-wrap narrow-top has-text-centered">
-
+                                                    
                                                         <style>
 
                                                             /* CSS */
@@ -625,359 +625,380 @@
                                                                 padding: 10px;
                                                                 margin: 10px;
                                                             }
-                                                            
+                                                            .page-link{
+
+                                                                padding: 15px;
+
+                                                            }
                                                         
                                                         </style>
 
-                                                        <button onclick="loadmore(this)" id="load_more" style="width: 250px ;" class="button-19 load-more-button">Daha Fazla Post Geliyor ...</button>
+
+                                                    <nav aria-label="Page navigation example">
+                                                        <ul class="pagination" style="justify-content:center ;">
+                                                            <% for( let i = 0; i < postcount / 5; i++ ) { %>
+                                                                <% if (currentpage == (i)) { %>
+                                                                    <li class="page-item page-link active" style="font-size: 1.5rem ;font-weight: bolder;" ><a class="page-link" href="/?page=<%= i  %>"><%= i +1  %></a></li>
+                                                                <% } else { %>
+                                                                    <li class="page-item page-link" ><a class="page-link" href="/?page=<%= i %>"><%= i +1  %></a></li>
+                                                                <% } %>
+
+                                                            <% } %>
+                                                          <!-- <li class="page-item"><a class="page-link" href="/?page=2">2</a></li>
+                                                          <li class="page-item"><a class="page-link" href="/?page=3">3</a></li> -->
+                                                          <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+                                                        </ul>
+                                                      </nav>
+                                                        <!-- <button onclick="loadmore(this)" id="load_more" style="width: 250px ;" class="button-19 load-more-button">Daha Fazla Post Geliyor ...</button> -->
                                                     </div>
                                                     <!-- /Load more posts -->
                                                     <input id="post-count" type="hidden" value="<%= posts.length %>">
                                                     <input id="profilImage" type="hidden" value="<%= user.profilImage %>">
                                                     <script>
 
-                                                        let calısma = false;
-                                                        function deneme(){
-                                                            if(calısma)
-                                                                return;
+                                                        // let calısma = false;
+                                                        // function deneme(){
+                                                        //     if(calısma)
+                                                        //         return;
 
-                                                            let button = document.getElementById("load_more")
+                                                        //     let button = document.getElementById("load_more")
                                                             
-                                                            fark = ( window.scrollY + button.getBoundingClientRect().top) - window.scrollY ;
-                                                            if(fark < 1200){
-                                                                calısma = true
-                                                                button.click();
-                                                                button.setAttribute("disabled", "");
+                                                        //     fark = ( window.scrollY + button.getBoundingClientRect().top) - window.scrollY ;
+                                                        //     if(fark < 1200){
+                                                        //         calısma = true
+                                                        //         button.click();
+                                                        //         button.setAttribute("disabled", "");
                                                               
 
-                                                            }
-                                                        }
+                                                        //     }
+                                                        // }
 
-                                                        setInterval(()=>{deneme()},1000 )
+                                                        // setInterval(()=>{deneme()},1000 )
 
 
 
-                                                        const userid = document.getElementById("userid").value
-                                                        const profilImage = document.getElementById("profilImage").value
+                                                        // const userid = document.getElementById("userid").value
+                                                        // const profilImage = document.getElementById("profilImage").value
 
-                                                        function loadmore(e){
-                                                            const postcount = document.getElementById("post-count").value;
-                                                            console.log("Load More");
-                                                            fetch(`https://basaksocialmediaapi.herokuapp.com/get-posts/${userid}/${postcount}`)
-                                                            .then(data => data.json())
-                                                            .then(result =>{
-                                                                result.forEach(post => {
-                                                                    document.getElementById("post-count").value ++;
-                                                                    const html1 = `
-                                                                    <div id="feed-post-1" class="card is-post">
-                                                                        <!-- Main wrap -->
-                                                                        <div class="content-wrap">
-                                                                            <!-- Post header -->
-                                                                            <div class="card-heading">
-                                                                                <!-- User meta -->
-                                                                                <div class="user-block">
-                                                                                        <div class="image">
-                                                                                            <img src="/static/uploads/${post.user.profilImage}" data-demo-src="assets/img/avatars/dan.jpg"
-                                                                                                data-user-popover="1" alt="">
-                                                                                        </div>
-                                                                                    <div class="user-info">
-                                                                                        <a href="/user/${post.user._id}">${post.user.username}</a>
-                                                                                        <span class="time">${ dateformat(new Date(post.date))}</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <!-- Right side dropdown -->
-                                                                                <!-- /partials/pages/feed/dropdowns/feed-post-dropdown.html -->
-                                                                                <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
-                                                                                    <div>
-                                                                                        <div class="button" onclick="show_dropdown(this)">
-                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="dropdown-menu" role="menu">
-                                                                                        <div class="dropdown-content">
-                                                                                            <a href="/user/${post.user._id}" class="dropdown-item">
-                                                                                                <div class="media">
-                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                                                                                                    <div class="media-content">
-                                                                                                        <h3>Profil</h3>
-                                                                                                        <small>Profili Görüntelemek İçin Tıkla.</small>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <!-- /Post header -->
-                                                                            <!-- Post body -->
-                                                                            <div class="card-body">
-                                                                                <!-- Post body text -->
-                                                                                <div class="post-text">
-                                                                                    <p>
-                                                                                        ${post.text}
-                                                                                    </p>
-                                                                                </div>
-                                                                                <!-- Featured image -->
-                                                                        <div class="post-image">
-                                                                        `
+                                                        // function loadmore(e){
+                                                        //     const postcount = document.getElementById("post-count").value;
+                                                        //     console.log("Load More");
+                                                        //     fetch(`http://localhost:3000/get-posts/${userid}/${postcount}`)
+                                                        //     .then(data => data.json())
+                                                        //     .then(result =>{
+                                                        //         result.forEach(post => {
+                                                        //             document.getElementById("post-count").value ++;
+                                                        //             const html1 = `
+                                                        //             <div id="feed-post-1" class="card is-post">
+                                                        //                 <!-- Main wrap -->
+                                                        //                 <div class="content-wrap">
+                                                        //                     <!-- Post header -->
+                                                        //                     <div class="card-heading">
+                                                        //                         <!-- User meta -->
+                                                        //                         <div class="user-block">
+                                                        //                                 <div class="image">
+                                                        //                                     <img src="/static/uploads/${post.user.profilImage}" data-demo-src="assets/img/avatars/dan.jpg"
+                                                        //                                         data-user-popover="1" alt="">
+                                                        //                                 </div>
+                                                        //                             <div class="user-info">
+                                                        //                                 <a href="/user/${post.user._id}">${post.user.username}</a>
+                                                        //                                 <span class="time">${ dateformat(new Date(post.date))}</span>
+                                                        //                             </div>
+                                                        //                         </div>
+                                                        //                         <!-- Right side dropdown -->
+                                                        //                         <!-- /partials/pages/feed/dropdowns/feed-post-dropdown.html -->
+                                                        //                         <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                                        //                             <div>
+                                                        //                                 <div class="button" onclick="show_dropdown(this)">
+                                                        //                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                        //                                 </div>
+                                                        //                             </div>
+                                                        //                             <div class="dropdown-menu" role="menu">
+                                                        //                                 <div class="dropdown-content">
+                                                        //                                     <a href="/user/${post.user._id}" class="dropdown-item">
+                                                        //                                         <div class="media">
+                                                        //                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                                        //                                             <div class="media-content">
+                                                        //                                                 <h3>Profil</h3>
+                                                        //                                                 <small>Profili Görüntelemek İçin Tıkla.</small>
+                                                        //                                             </div>
+                                                        //                                         </div>
+                                                        //                                     </a>
+                                                        //                                 </div>
+                                                        //                             </div>
+                                                        //                         </div>
+                                                        //                     </div>
+                                                        //                     <!-- /Post header -->
+                                                        //                     <!-- Post body -->
+                                                        //                     <div class="card-body">
+                                                        //                         <!-- Post body text -->
+                                                        //                         <div class="post-text">
+                                                        //                             <p>
+                                                        //                                 ${post.text}
+                                                        //                             </p>
+                                                        //                         </div>
+                                                        //                         <!-- Featured image -->
+                                                        //                 <div class="post-image">
+                                                        //                 `
                                                                      
-                                                                    let html2 = ""
-                                                                    if(post.img.data != null){
-                                                                        html2 += `<img src="data:image/${post.img.contentType};base64,${post.img.data.toString('base64')}" alt="">`
-                                                                    }else{
-                                                                        html2 += `<div style="height: 30px;"></div>`
-                                                                    }
+                                                        //             let html2 = ""
+                                                        //             if(post.img.data != null){
+                                                        //                 console.log(post.img.data.toString('base64'));
+                                                        //                 html2 += `<img src="data:image/${post.img.contentType};base64,${post.img.data.toString('base64') }" alt="post_image">`
+                                                        //             }else{
+                                                        //                 html2 += `<div style="height: 30px;"></div>`
+                                                        //             }
 
-                                                                    const html3 = `
-                                                                    <div class="like-wrapper">
-                                                                    <input type="hidden" value="${post.user._id}">
-                                                                    <input type="hidden" value="${post._id}">
-                                                                    <a onclick="like_btn(this)" class="like-button" >
-                                                                    `
+                                                        //             const html3 = `
+                                                        //             <div class="like-wrapper">
+                                                        //             <input type="hidden" value="${post.user._id}">
+                                                        //             <input type="hidden" value="${post._id}">
+                                                        //             <a onclick="like_btn(this)" class="like-button" >
+                                                        //             `
                                                                     
-                                                                    let html4 = ""
-                                                                    if (post.like.find(l => l.user._id== userid )){
-                                                                        html4 =  `<img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">`
-                                                                    }else{
-                                                                        html4 =  `<img width="35px" height="35px" src="/static/uploads/icons8-like-64-2.png">`
-                                                                    }
+                                                        //             let html4 = ""
+                                                        //             if (post.like.find(l => l.user._id== userid )){
+                                                        //                 html4 =  `<img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">`
+                                                        //             }else{
+                                                        //                 html4 =  `<img width="35px" height="35px" src="/static/uploads/icons8-like-64-2.png">`
+                                                        //             }
 
 
-                                                                    const html5 = `     
-                                                                                <span class="like-overlay"></span>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="fab-wrapper is-share">
-                                                                            <a href="javascript:void(0);" class="small-fab share-fab modal-trigger" data-modal="share-modal">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-                                                                            </a>
-                                                                        </div>
+                                                        //             const html5 = `     
+                                                        //                         <span class="like-overlay"></span>
+                                                        //                     </a>
+                                                        //                 </div>
+                                                        //                 <div class="fab-wrapper is-share">
+                                                        //                     <a href="javascript:void(0);" class="small-fab share-fab modal-trigger" data-modal="share-modal">
+                                                        //                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                                                        //                     </a>
+                                                        //                 </div>
 
-                                                                        <div class="fab-wrapper is-comment" onclick="show_comment_loadmore(this)">
-                                                                            <a href="javascript:void(0);" class="small-fab">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- /Post body -->
+                                                        //                 <div class="fab-wrapper is-comment" onclick="show_comment_loadmore(this)">
+                                                        //                     <a href="javascript:void(0);" class="small-fab">
+                                                        //                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                                        //                     </a>
+                                                        //                 </div>
+                                                        //             </div>
+                                                        //         </div>
+                                                        //         <!-- /Post body -->
 
-                                                                <!-- Post footer -->
-                                                                <div class="card-footer">
-                                                                    <!-- Followers avatars -->
-                                                                    <div class="likers-group">`
+                                                        //         <!-- Post footer -->
+                                                        //         <div class="card-footer">
+                                                        //             <!-- Followers avatars -->
+                                                        //             <div class="likers-group">`
 
-                                                                    let html6 = ""
-                                                                    for ( let i = 0; i < post.like.length && i < 4; i++) {
-                                                                        html6+= `<img src="/static/uploads/${post.like[i].user.profilImage}" data-demo-src="/static/dist/assets/img/avatars/dan.jpg" data-user-popover="1" alt="">`
-                                                                    }
+                                                        //             let html6 = ""
+                                                        //             for ( let i = 0; i < post.like.length && i < 4; i++) {
+                                                        //                 html6+= `<img src="/static/uploads/${post.like[i].user.profilImage}" data-demo-src="/static/dist/assets/img/avatars/dan.jpg" data-user-popover="1" alt="">`
+                                                        //             }
 
-                                                                    const html7 = `
-                                                                            </div>
-                                                                            <!-- Followers text -->
-                                                                            <!-- <div class="likers-text">
-                                                                                <p>
-                                                                                    <a href="#">Milly</a>,
-                                                                                    <a href="#">David</a>
-                                                                                </p>
-                                                                                <p>and 23 more liked this</p>
-                                                                            </div> -->
-                                                                            <!-- Post statistics -->
-                                                                            <div class="social-count">
-                                                                                <div class="likes-count">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                                                                    <span class="countlike" id="${post._id}" >${post.like.length}</span>
-                                                                                </div>
-                                                                                <div class="shares-count">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-                                                                                    <span>not now</span>
-                                                                                </div>
-                                                                                <div class="comments-count">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                                                                    <span id="commentlike">${post.comments.length}</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- /Post footer -->
-                                                                    </div>
-                                                                    <!-- /Main wrap -->
+                                                        //             const html7 = `
+                                                        //                     </div>
+                                                        //                     <!-- Followers text -->
+                                                        //                     <!-- <div class="likers-text">
+                                                        //                         <p>
+                                                        //                             <a href="#">Milly</a>,
+                                                        //                             <a href="#">David</a>
+                                                        //                         </p>
+                                                        //                         <p>and 23 more liked this</p>
+                                                        //                     </div> -->
+                                                        //                     <!-- Post statistics -->
+                                                        //                     <div class="social-count">
+                                                        //                         <div class="likes-count">
+                                                        //                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                        //                             <span class="countlike" id="${post._id}" >${post.like.length}</span>
+                                                        //                         </div>
+                                                        //                         <div class="shares-count">
+                                                        //                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                                                        //                             <span>not now</span>
+                                                        //                         </div>
+                                                        //                         <div class="comments-count">
+                                                        //                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                                        //                             <span id="commentlike">${post.comments.length}</span>
+                                                        //                         </div>
+                                                        //                     </div>
+                                                        //                 </div>
+                                                        //                 <!-- /Post footer -->
+                                                        //             </div>
+                                                        //             <!-- /Main wrap -->
 
-                                                                    <!-- Post #1 Comments -->
-                                                                    <div class="comments-wrap is-hidden">
-                                                                        <!-- Header -->
-                                                                        <div class="comments-heading">
-                                                                            <h4>Yorumlar
-                                                                                <small>( ${post.comments.length} )</small>
-                                                                            </h4>
-                                                                            <div onclick="show_comment_loadmore_close(this)" class="close-comments">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- /Header -->
+                                                        //             <!-- Post #1 Comments -->
+                                                        //             <div class="comments-wrap is-hidden">
+                                                        //                 <!-- Header -->
+                                                        //                 <div class="comments-heading">
+                                                        //                     <h4>Yorumlar
+                                                        //                         <small>( ${post.comments.length} )</small>
+                                                        //                     </h4>
+                                                        //                     <div onclick="show_comment_loadmore_close(this)" class="close-comments">
+                                                        //                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                                        //                     </div>
+                                                        //                 </div>
+                                                        //                 <!-- /Header -->
 
-                                                                        <!-- Comments body -->
-                                                                        <div class="comments-body has-slimscroll" id="post-${post._id}">
-                                                                            <!-- Comment -->
-                                                                    `
+                                                        //                 <!-- Comments body -->
+                                                        //                 <div class="comments-body has-slimscroll" id="post-${post._id}">
+                                                        //                     <!-- Comment -->
+                                                        //             `
                                                                     
-                                                                    let html8 = ""
-                                                                    post.comments.forEach(comment => {
-                                                                        let comment1 = `
-                                                                        <div class="media is-comment">
-                                                                            <!-- User image -->
-                                                                            <div class="media-left">
-                                                                                <div class="image">
-                                                                                    <img src="/static/uploads/${comment.user.profilImage} "
-                                                                                        data-demo-src="assets/img/avatars/dan.jpg" data-user-popover="1" alt="">
-                                                                                </div>
-                                                                            </div>
-                                                                            <!-- Content -->
-                                                                            <div class="media-content">
-                                                                                <a href="#">${comment.user.username}</a>
-                                                                                <span class="time">${ dateformat(new Date (comment.date))}</span>
-                                                                                <p>${comment.text}</p>
-                                                                                <!-- Actions -->
+                                                        //             let html8 = ""
+                                                        //             post.comments.forEach(comment => {
+                                                        //                 let comment1 = `
+                                                        //                 <div class="media is-comment">
+                                                        //                     <!-- User image -->
+                                                        //                     <div class="media-left">
+                                                        //                         <div class="image">
+                                                        //                             <img src="/static/uploads/${comment.user.profilImage} "
+                                                        //                                 data-demo-src="assets/img/avatars/dan.jpg" data-user-popover="1" alt="">
+                                                        //                         </div>
+                                                        //                     </div>
+                                                        //                     <!-- Content -->
+                                                        //                     <div class="media-content">
+                                                        //                         <a href="#">${comment.user.username}</a>
+                                                        //                         <span class="time">${ dateformat(new Date (comment.date))}</span>
+                                                        //                         <p>${comment.text}</p>
+                                                        //                         <!-- Actions -->
                                                                                 
-                                                                                <!-- Nested Comment -->
-                                                                        `
+                                                        //                         <!-- Nested Comment -->
+                                                        //                 `
                                                                     
-                                                                        comment.altcomment.forEach(altcomment=> {
+                                                        //                 comment.altcomment.forEach(altcomment=> {
 
-                                                                            comment1+= `
-                                                                            <div class="media is-comment">
-                                                                                 <!-- User image -->
-                                                                                 <div class="media-left">
-                                                                                     <div class="image">
-                                                                                         <img src="/static/uploads/${altcomment.user.profilImage}"
-                                                                                             data-demo-src="assets/img/avatars/david.jpg" data-user-popover="4" alt="">
-                                                                                     </div>
-                                                                                 </div>
-                                                                                 <!-- Content -->
-                                                                                 <div class="media-content">
-                                                                                     <a href="#">
-                                                                                         ${altcomment.user.username}
-                                                                                     </a>
-                                                                                     <span class="time">
-                                                                                         ${  dateformat(new Date (altcomment.date))}
-                                                                                     </span>
-                                                                                     <p>
-                                                                                         ${altcomment.text}
-                                                                                     </p>
-                                                                                     <!-- Actions -->
-                                                                                     <div class="controls">
-                                                                                         <div class="like-count">
+                                                        //                     comment1+= `
+                                                        //                     <div class="media is-comment">
+                                                        //                          <!-- User image -->
+                                                        //                          <div class="media-left">
+                                                        //                              <div class="image">
+                                                        //                                  <img src="/static/uploads/${altcomment.user.profilImage}"
+                                                        //                                      data-demo-src="assets/img/avatars/david.jpg" data-user-popover="4" alt="">
+                                                        //                              </div>
+                                                        //                          </div>
+                                                        //                          <!-- Content -->
+                                                        //                          <div class="media-content">
+                                                        //                              <a href="#">
+                                                        //                                  ${altcomment.user.username}
+                                                        //                              </a>
+                                                        //                              <span class="time">
+                                                        //                                  ${  dateformat(new Date (altcomment.date))}
+                                                        //                              </span>
+                                                        //                              <p>
+                                                        //                                  ${altcomment.text}
+                                                        //                              </p>
+                                                        //                              <!-- Actions -->
+                                                        //                              <div class="controls">
+                                                        //                                  <div class="like-count">
 
-                                                                                             <span></span>
-                                                                                         </div>
-                                                                                         <div class="reply">
-                                                                                             <a onclick="show_alt_comment(this)"></a>
-                                                                                         </div>
-                                                                                     </div>
-                                                                                 </div>
-                                                                                 <!-- Right side dropdown -->
-                                                                                 <div class="media-right">
+                                                        //                                      <span></span>
+                                                        //                                  </div>
+                                                        //                                  <div class="reply">
+                                                        //                                      <a onclick="show_alt_comment(this)"></a>
+                                                        //                                  </div>
+                                                        //                              </div>
+                                                        //                          </div>
+                                                        //                          <!-- Right side dropdown -->
+                                                        //                          <div class="media-right">
                                                                                     
-                                                                                 </div>
-                                                                                </div>
-                                                                            `
-                                                                        })
+                                                        //                          </div>
+                                                        //                         </div>
+                                                        //                     `
+                                                        //                 })
                                                                     
-                                                                        comment1 += ` <div class="card-footer">
-                                                                                     <div class="media post-comment has-emojis">
-                                                                                         <!-- Comment Textarea -->
-                                                                                         <div class="media-content">
-                                                                                             <div class="field">
-                                                                                                 <p class="control">
-                                                                                                     <textarea class="textarea comment-textarea" rows="0"
-                                                                                                         placeholder="Alt yorum yaz ..."></textarea>
-                                                                                                 </p>
-                                                                                             </div>
-                                                                                             <!-- Additional actions -->
-                                                                                             <div class="actions">
-                                                                                                 <div class="image is-32x32">
-                                                                                                     <img class="is-rounded"
-                                                                                                         src="/static/uploads/${profilImage}"
-                                                                                                         data-demo-src="assets/img/avatars/jenna.png"
-                                                                                                         data-user-popover="0" alt="">
-                                                                                                 </div>
-                                                                                                 <div class="toolbar">
-                                                                                                     <input type="hidden" value="${comment._id}">
-                                                                                                     <input type="hidden" value="${post._id}">
-                                                                                                     <a class="button is-solid primary-button"
-                                                                                                         onclick="add_alt_comment(this)" raised">Alt Yorum Ekle</a>
-                                                                                                 </div>
-                                                                                             </div>
-                                                                                         </div>
-                                                                                     </div>
-                                                                                 </div>
-                                                                              </div>
-                                                                           </div>`
+                                                        //                 comment1 += ` <div class="card-footer">
+                                                        //                              <div class="media post-comment has-emojis">
+                                                        //                                  <!-- Comment Textarea -->
+                                                        //                                  <div class="media-content">
+                                                        //                                      <div class="field">
+                                                        //                                          <p class="control">
+                                                        //                                              <textarea class="textarea comment-textarea" rows="0"
+                                                        //                                                  placeholder="Alt yorum yaz ..."></textarea>
+                                                        //                                          </p>
+                                                        //                                      </div>
+                                                        //                                      <!-- Additional actions -->
+                                                        //                                      <div class="actions">
+                                                        //                                          <div class="image is-32x32">
+                                                        //                                              <img class="is-rounded"
+                                                        //                                                  src="/static/uploads/${profilImage}"
+                                                        //                                                  data-demo-src="assets/img/avatars/jenna.png"
+                                                        //                                                  data-user-popover="0" alt="">
+                                                        //                                          </div>
+                                                        //                                          <div class="toolbar">
+                                                        //                                              <input type="hidden" value="${comment._id}">
+                                                        //                                              <input type="hidden" value="${post._id}">
+                                                        //                                              <a class="button is-solid primary-button"
+                                                        //                                                  onclick="add_alt_comment(this)" raised">Alt Yorum Ekle</a>
+                                                        //                                          </div>
+                                                        //                                      </div>
+                                                        //                                  </div>
+                                                        //                              </div>
+                                                        //                          </div>
+                                                        //                       </div>
+                                                        //                    </div>`
 
-                                                                        html8 += comment1
+                                                        //                 html8 += comment1
                                                                     
-                                                                    });
+                                                        //             });
 
 
 
-                                                                    const html9 = `
-                                                                            </div>
-                                                                               <div class="card-footer">
-                                                                                   <div class="media post-comment has-emojis">
-                                                                                       <!-- Comment Textarea -->
-                                                                                       <div class="media-content">
-                                                                                           <div class="field">
-                                                                                               <p class="control">
-                                                                                                   <textarea class="textarea comment-textarea" rows="1"
-                                                                                                       placeholder="Yorum yaz ..."></textarea>
-                                                                                               </p>
-                                                                                           </div>
-                                                                                           <!-- Additional actions -->
-                                                                                           <div class="actions">
-                                                                                               <div class="image is-32x32">
-                                                                                                   <img class="is-rounded" src="/static/uploads/${profilImage}" data-user-popover="0" alt="">
-                                                                                               </div>
-                                                                                               <div class="toolbar">
-                                                                                                   <!-- <div class="action is-auto">
-                                                                                                       <i data-feather="at-sign"></i>
-                                                                                                   </div>
-                                                                                                   <div class="action is-emoji">
-                                                                                                       <i data-feather="smile"></i>
-                                                                                                   </div>
-                                                                                                   <div class="action is-upload">
-                                                                                                       <i data-feather="camera"></i>
-                                                                                                       <input type="file">
-                                                                                                   </div> -->
-                                                                                                   <input type="hidden" value="${post.user._id}">
-                                                                                                   <input type="hidden" value="${post._id}">
-                                                                                                   <a class="button is-solid primary-button" onclick="add_comment(this)">Yorum Yap</a>
-                                                                                               </div>
-                                                                                           </div>
-                                                                                       </div>
-                                                                                   </div>
-                                                                               </div>
+                                                        //             const html9 = `
+                                                        //                     </div>
+                                                        //                        <div class="card-footer">
+                                                        //                            <div class="media post-comment has-emojis">
+                                                        //                                <!-- Comment Textarea -->
+                                                        //                                <div class="media-content">
+                                                        //                                    <div class="field">
+                                                        //                                        <p class="control">
+                                                        //                                            <textarea class="textarea comment-textarea" rows="1"
+                                                        //                                                placeholder="Yorum yaz ..."></textarea>
+                                                        //                                        </p>
+                                                        //                                    </div>
+                                                        //                                    <!-- Additional actions -->
+                                                        //                                    <div class="actions">
+                                                        //                                        <div class="image is-32x32">
+                                                        //                                            <img class="is-rounded" src="/static/uploads/${profilImage}" data-user-popover="0" alt="">
+                                                        //                                        </div>
+                                                        //                                        <div class="toolbar">
+                                                        //                                            <!-- <div class="action is-auto">
+                                                        //                                                <i data-feather="at-sign"></i>
+                                                        //                                            </div>
+                                                        //                                            <div class="action is-emoji">
+                                                        //                                                <i data-feather="smile"></i>
+                                                        //                                            </div>
+                                                        //                                            <div class="action is-upload">
+                                                        //                                                <i data-feather="camera"></i>
+                                                        //                                                <input type="file">
+                                                        //                                            </div> -->
+                                                        //                                            <input type="hidden" value="${post.user._id}">
+                                                        //                                            <input type="hidden" value="${post._id}">
+                                                        //                                            <a class="button is-solid primary-button" onclick="add_comment(this)">Yorum Yap</a>
+                                                        //                                        </div>
+                                                        //                                    </div>
+                                                        //                                </div>
+                                                        //                            </div>
+                                                        //                        </div>
 
-                                                                               <input type="hidden" name="userid" id="userid" value="${userid}">
+                                                        //                        <input type="hidden" name="userid" id="userid" value="${userid}">
 
-                                                                               <!-- /Comments body -->
+                                                        //                        <!-- /Comments body -->
                                                                            
-                                                                               <!-- Comments footer -->
-                                                                               <!-- Comments footer -->
-                                                                           </div>
-                                                                           <!-- /Post #1 Comments -->
-                                                                        </div>
-                                                                        `
+                                                        //                        <!-- Comments footer -->
+                                                        //                        <!-- Comments footer -->
+                                                        //                    </div>
+                                                        //                    <!-- /Post #1 Comments -->
+                                                        //                 </div>
+                                                        //                 `
                                                                     
-                                                                    e.parentNode.insertAdjacentHTML("beforebegin",(html1+html2+html3+html4+html5+html6+html7+html8+html9));
+                                                        //             e.parentNode.insertAdjacentHTML("beforebegin",(html1+html2+html3+html4+html5+html6+html7+html8+html9));
 
-                                                                });
+                                                        //         });
 
-                                                                calısma=false;
-                                                                document.getElementById("load_more").removeAttribute("disabled")
+                                                        //         calısma=false;
+                                                        //         document.getElementById("load_more").removeAttribute("disabled")
 
-                                                            })
-                                                            .catch(err => console.log(err))
+                                                        //     })
+                                                        //     .catch(err => console.log(err))
 
-                                                        }
+                                                        // }
 
 
                                                         function dateformat(time){

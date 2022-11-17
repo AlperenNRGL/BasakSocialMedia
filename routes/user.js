@@ -21,7 +21,7 @@ require("express-async-errors")
 router.get("/friends/:id", isLogin, async (req, res) => {
     const user = await User.findById(req.params.id)
     .populate({ path: "friends", select :{ "profilImageData" : 0}})
-    .select(["-profilImageData","-coverImage"]);
+    .select(["-profilImageData"]);
 
     const myuser = await User.findById(req.session.user)
     .populate({ path: "messages.user", select : {"profilImageData" : 0,"coverImage" : 0}})
@@ -44,7 +44,7 @@ router.get("/photos/:id", isLogin, async (req, res) => {
     const user = await User.findById(req.params.id)
     .select(["-profilImageData"]);
 
-    const posts = await Post.find({ user: req.params.id, image: { $ne: "null" } })
+    const posts = await Post.find({ user: req.params.id, "img.data": { $ne: null } })
     .populate({path:"user", select: { profilImageData : 0, coverImage: 0}})
     .limit(10);
 
@@ -69,8 +69,8 @@ router.post("/replace-cover", isLogin, upload.single("coverimage"), async (req, 
     .select("coverImage");
 
     user.coverImage = {
-        data: req.file == undefined ? "null" : fs.readFileSync(path.join(__dirname + '/../doc/uploads/' + req.file.filename)),
-        contentType: req.file == undefined ? "null" : 'image/png'
+        data: req.file == undefined ? null : fs.readFileSync(path.join(__dirname + '/../doc/uploads/' + req.file.filename)),
+        contentType: req.file == undefined ? null : 'image/png'
     };
     await user.save();
     fs.unlinkSync(path.join(__dirname + '/../doc/uploads/' + req.file.filename))
@@ -81,7 +81,7 @@ router.post("/replace-cover", isLogin, upload.single("coverimage"), async (req, 
 
 router.post("/replace-profil", isLogin, upload.single("profilimage"), async (req, res) => {
     let user = await User.findById(req.session.user)
-    .select("profilImageData");
+    .select([ "profilImage", "profilImageData"]);
 
     if (user.profilImage != "icons8-person-64.png") {
         fs.unlinkSync(__dirname + "/../doc/uploads/" + user.profilImage,(err => err?console.log(err):"null" ))
@@ -148,7 +148,7 @@ router.post("/profile-settings", isLogin, async (req, res) => {
 router.get("/:id", isLogin, async (req, res) => {
     const user = await User.findById(req.params.id)
     .populate({ path: "friends", select : {profilImageData : 0, coverImage : 0}})
-    .select(["-profilImageData", "-coverImage"]);
+    .select(["-profilImageData"]);
 
 
     const myuser = await User.findById(req.session.user)
