@@ -236,25 +236,32 @@
                                                 </div>
                                                 <div class="dropdown-menu" role="menu">
                                                     <div class="dropdown-content">
-                                                        <a href="/user/<%= post.user._id %>" class="dropdown-item">
-                                                            <div class="media">
-                                                                <i data-feather="bookmark"></i>
-                                                                <div class="media-content">
-                                                                    <h3>Profil</h3>
-                                                                    <small>Profili Görüntelemek İçin Tıkla.</small>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <!-- <a class="dropdown-item">
-                                                            <div class="media">
-                                                                <i data-feather="bell"></i>
-                                                                <div class="media-content">
-                                                                    <h3>Notify me</h3>
-                                                                    <small>Send me the updates.</small>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <hr class="dropdown-divider">
+                                                       
+                                                        <% if (user.username == myuser.username) { %>
+                                                            <a onclick="delete_post(this)" id="<%= post._id %>" class="dropdown-item">
+                                                                 <div class="media">
+                                                                     <i data-feather="delete"></i>
+                                                                     <div class="media-content">
+                                                                         <h3>Postu Sil</h3>
+                                                                         <small>Bu postu gösterimden kaldırabilirsin.</small>
+                                                                     </div>
+                                                                 </div>
+                                                             </a> 
+                                                        <% } %>
+
+
+                                                        <script>
+
+                                                            function delete_post(element){
+                                                                const postid = element.attributes["id"].value;
+                                                                element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.remove()
+                                                                fetch(`https://basaksocialmediaapi.herokuapp.com/delete-post/${postid}`)
+                                                                .then(data => console.log("Post başarılı bir şekilde silindi."))
+                                                                .catch(err => console.log(err))
+                                                            }
+
+                                                        </script>
+                                                        <!-- <hr class="dropdown-divider">
                                                         <a href="#" class="dropdown-item">
                                                             <div class="media">
                                                                 <i data-feather="flag"></i>

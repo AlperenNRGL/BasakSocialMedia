@@ -47,7 +47,6 @@ router.get("/", isLogin, async (req, res) => {
 
 
     const postcount = await Post.find({ user: id_list }).select("_id");
-    console.log(postcount.length);
     
     if(page != 0){
 
