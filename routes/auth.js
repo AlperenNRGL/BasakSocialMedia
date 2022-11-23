@@ -51,21 +51,29 @@ router.post("/register", async (req, res) => {
             message: {class : "danger" , text : error.details[0].message},
         })
     };
-    const emailDuplicated = await User.findOne({ email: req.body.email });
+    const emailDuplicated = await User.findOne({ email: req.body.email }).select("email");
     if (emailDuplicated) {
         return res.render("auth/register", {
-            message: "Bu email adresi daha önceden alınmış"
+            message: { class : "warning" , text : "Bu email adresi daha önceden alınmış"}
         })
     }
+
+    const usernameDuplicated = await User.findOne({ username: req.body.username }).select("username");
+    if (usernameDuplicated) {
+        return res.render("auth/register", {
+            message: { class : "warning" , text : "Bu username daha önceden alınmış"}
+        })
+    }
+
     const user = await new User(req.body);
     user.password =  await bcrypt.hash(user.password,10)
     await user.save();
-    //await mailer.sendMail({
-    //    from: 'alperennuroglu@hotmail.com', // sender address
-    //    to: user.email, // list of receivers
-    //    subject: "Social'a Hoşgeldiniz", // Subject line
-    //     html: "<h3>Sizi burada görmekten mululukar duyuyorum.</h3><br><b>Alperen Nuroğlu</b>", // html body
-    //  });
+    await mailer.sendMail({
+       from: 'alperen.nuroglu@yandex.com', // sender address
+       to: user.email, // list of receivers
+       subject: "Başak Social Media'ya Hoşgeldiniz", // Subject line
+        html: "<h3>Sizi burada görmekten mululukar duyuyorum.</h3><br><b>Alperen Nuroğlu</b>", // html body
+     });
     res.redirect("/account/login?account=true");
 })
 
@@ -75,6 +83,7 @@ router.get("/new-password", async (req, res) => {
     delete req.session.message
     res.render("auth/new-password",{message : sessionmessage});
 })
+
 router.post("/new-password", async (req, res) => {
     let user = await User.findOne({email : req.body.email}).select("email");
     if(user){
@@ -82,11 +91,11 @@ router.post("/new-password", async (req, res) => {
         user.token = token;
         await user.save();
         await mailer.sendMail({
-            from: 'alperennuroglu@hotmail.com', // sender address
+            from: 'alperen.nuroglu@yandex.com', // sender address
             to: user.email, // list of receivers
             subject: "Social Şifre Yenileme", // Subject line
             html: `<p>Parolayı sıfırlamak için butona basınız</p><br>
-            <button> <a href='http://localhost:3005/account/reset-password/${token}'>Parolayı Sıfırla</a></button>`,
+            <button> <a href='http://basaksocialmedia.herokuapp.com/account/reset-password/${token}'>Parolayı Sıfırla</a></button>`,
         });
         req.session.message = { class : "warning", text : "Lütfen mail adresinizi kontrol ediniz !"}
         return res.redirect("/account/login")

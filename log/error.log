@@ -705,3 +705,9 @@
   label: 'Loglama',
   timestamp: '2022-11-17T13:35:34.833Z'
 }
+{
+  label: 'Loglama',
+  message: 'MongoDB Database not connect',
+  level: 'error',
+  timestamp: '2022-11-23T15:03:19.619Z'
+}

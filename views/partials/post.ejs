@@ -101,7 +101,7 @@
                                         e.insertAdjacentHTML("afterbegin", `<img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">`)
                                         fetch(`https://basaksocialmediaapi.herokuapp.com/add-like/${postid}/${userid}`)
                                             .then(data => {
-                                                add_nofication("like", userid, e.previousElementSibling.previousElementSibling.value)
+                                                // add_nofication("like", userid, e.previousElementSibling.previousElementSibling.value)
                                                 countlike.innerHTML = (Number(countlike.innerHTML) + 1)
                                             })
                                             .catch(err => console.log(err))
@@ -408,7 +408,7 @@
             })
             .catch(err => console.log(err))
 
-        add_nofication("comment", userid, touserid);
+        // add_nofication("comment", userid, touserid);
 
     }
 
@@ -457,21 +457,21 @@
     }
 
 
-    function add_nofication(work, bildirimiyapan, aitolan) {
-        const userid = document.getElementById("userid").value;
-        if(userid == bildirimiyapan)
-            return;
+    // function add_nofication(work, bildirimiyapan, aitolan) {
+    //     const userid = document.getElementById("userid").value;
+    //     if(userid == bildirimiyapan)
+    //         return;
 
-        fetch(`https://basaksocialmediaapi.herokuapp.com/add-nofication/${aitolan}/${bildirimiyapan}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ type: work }),
-        })
-            .then(data => data.json())
-            .then(veri => console.log(veri))
-            .catch(err => console.log(err))
-    }
+    //     fetch(`https://basaksocialmediaapi.herokuapp.com/add-nofication/${aitolan}/${bildirimiyapan}`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({ type: work }),
+    //     })
+    //         .then(data => data.json())
+    //         .then(veri => console.log(veri))
+    //         .catch(err => console.log(err))
+    // }
 
 </script>
