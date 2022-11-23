@@ -105,6 +105,7 @@ router.get("/profile-settings", isLogin, async (req, res) => {
     .select(["-profilImageData", "-coverImage"]);
 
     res.render("user/profile-settings", {
+        myuser : user,
         user: user,
         messages: user.messages,
     })
@@ -115,12 +116,12 @@ router.get("/profile-settings", isLogin, async (req, res) => {
 
 router.post("/profile-settings", isLogin, async (req, res) => {
     const user = await User.findById(req.session.user)
-    .populate({ path : "messages.user", select : { profilImageData : 0, coverImage : 0}})
+    .populate({path : "messages.user", select : {"profilImageData" : 0, coverImage: 0} })
     .populate("messages.messages")
-    .select("-profilImageData", "-coverImage");
+    .select(["-profilImageData", "-coverImage"]);
 
     const username = await User.find({ _id: { $ne: req.session.user }, username: req.body.username })
-    .select("-profilImageData","-coverImage");
+    .select(["-profilImageData","-coverImage"]);
 
     if (username.length != 0) {
         res.render("user/profile-settings", {

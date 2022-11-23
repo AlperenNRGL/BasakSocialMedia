@@ -2586,3 +2586,75 @@
   level: 'info',
   timestamp: '2022-11-23T17:37:14.675Z'
 }
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-23T19:28:28.432Z'
+}
+{
+  message: ReferenceError: /Users/alperennuroglu/Desktop/SocialMedia/views/user/profile-settings.ejs:27
+      25|     <%- include ("../partials/chat") %> 
+      26| 
+   >> 27|     <input type="hidden" id="userid" value="<%= myuser._id %>">
+      28| 
+      29|     <div class="explorer-menu">
+      30|         <div class="explorer-inner">
+  
+  myuser is not defined
+      at eval ("/Users/alperennuroglu/Desktop/SocialMedia/views/user/profile-settings.ejs":27:26)
+      at profile-settings (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/ejs/lib/ejs.js:703:17)
+      at tryHandleCache (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/ejs/lib/ejs.js:274:36)
+      at View.exports.renderFile [as engine] (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/ejs/lib/ejs.js:491:10)
+      at View.render (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express/lib/view.js:135:8)
+      at tryRender (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express/lib/application.js:657:10)
+      at Function.render (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express/lib/application.js:609:3)
+      at ServerResponse.render (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express/lib/response.js:1039:7)
+      at /Users/alperennuroglu/Desktop/SocialMedia/routes/user.js:107:9
+      at runMicrotasks (<anonymous>) {
+    path: '/Users/alperennuroglu/Desktop/SocialMedia/views/user/profile-settings.ejs'
+  },
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-23T19:29:00.360Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-23T19:29:38.395Z'
+}
+{
+  message: Error: Invalid select: select only takes 1 argument
+      at model.Query.select (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/mongoose/lib/query.js:1084:11)
+      at /Users/alperennuroglu/Desktop/SocialMedia/routes/user.js:121:6
+      at newFn (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express-async-errors/index.js:16:20)
+      at Layer.handle [as handle_request] (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express/lib/router/layer.js:95:5)
+      at next (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express/lib/router/route.js:144:13)
+      at module.exports (/Users/alperennuroglu/Desktop/SocialMedia/middlewares/isLogin.js:5:9)
+      at newFn (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express-async-errors/index.js:16:20)
+      at Layer.handle [as handle_request] (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express/lib/router/layer.js:95:5)
+      at next (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express/lib/router/route.js:144:13)
+      at Route.dispatch (/Users/alperennuroglu/Desktop/SocialMedia/node_modules/express/lib/router/route.js:114:3),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-23T19:30:39.760Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-23T19:32:51.011Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-23T19:33:38.975Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-23T19:35:07.251Z'
+}
