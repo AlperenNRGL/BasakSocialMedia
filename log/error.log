@@ -753,3 +753,34 @@
   label: 'Loglama',
   timestamp: '2022-11-23T19:30:39.760Z'
 }
+{
+  message: ReferenceError: Notification is not defined
+      at /Users/alperennuroglu/Desktop/SocialMedia/routes/user.js:171:19
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-24T12:24:37.662Z'
+}
+{
+  message: TypeError: Cannot read properties of undefined (reading 'find')
+      at /Users/alperennuroglu/Desktop/SocialMedia/routes/user.js:172:38
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-24T12:25:46.649Z'
+}
+{
+  message: TypeError: Cannot read properties of undefined (reading 'find')
+      at /Users/alperennuroglu/Desktop/SocialMedia/routes/user.js:172:38
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-24T12:28:04.699Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDB Database not connect',
+  level: 'error',
+  timestamp: '2022-11-24T14:02:13.312Z'
+}

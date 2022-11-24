@@ -2664,3 +2664,112 @@
   level: 'info',
   timestamp: '2022-11-24T10:11:48.910Z'
 }
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:17:53.981Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:22:09.522Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:22:45.916Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:23:34.932Z'
+}
+{
+  message: ReferenceError: Notification is not defined
+      at /Users/alperennuroglu/Desktop/SocialMedia/routes/user.js:171:19
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-24T12:24:37.662Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:25:13.412Z'
+}
+{
+  message: TypeError: Cannot read properties of undefined (reading 'find')
+      at /Users/alperennuroglu/Desktop/SocialMedia/routes/user.js:172:38
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-24T12:25:46.649Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:27:15.453Z'
+}
+{
+  message: TypeError: Cannot read properties of undefined (reading 'find')
+      at /Users/alperennuroglu/Desktop/SocialMedia/routes/user.js:172:38
+      at processTicksAndRejections (node:internal/process/task_queues:96:5),
+  level: 'error',
+  label: 'Loglama',
+  timestamp: '2022-11-24T12:28:04.699Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:28:38.428Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:31:22.325Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:39:35.383Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:45:55.603Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T12:50:17.825Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDB Database not connect',
+  level: 'error',
+  timestamp: '2022-11-24T14:02:13.312Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T14:02:31.689Z'
+}
+{
+  label: 'Loglama',
+  message: 'MongoDDB database connect',
+  level: 'info',
+  timestamp: '2022-11-24T14:13:09.090Z'
+}
