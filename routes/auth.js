@@ -95,7 +95,7 @@ router.post("/new-password", async (req, res) => {
             to: user.email, // list of receivers
             subject: "Social Şifre Yenileme", // Subject line
             html: `<p>Parolayı sıfırlamak için butona basınız</p><br>
-            <button> <a href='http://basaksocialmedia.herokuapp.com/account/reset-password/${token}'>Parolayı Sıfırla</a></button>`,
+            <a href='http://basaksocialmedia.herokuapp.com/account/reset-password/${token}'>Parolayı Sıfırla</a>`,
         });
         req.session.message = { class : "warning", text : "Lütfen mail adresinizi kontrol ediniz !"}
         return res.redirect("/account/login")
