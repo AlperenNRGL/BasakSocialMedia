@@ -1,6 +1,11 @@
 <div class="navbar-item is-icon drop-trigger" onclick="get_friend_request()">
     <a id="request-btn" class="icon-link is-friends" href="javascript:void(0);">
-        <i data-feather="heart"></i>
+        <% if (request_count != 0) { %>
+            <img src="/static/icons/user-request.png" class="user-request" >
+        <% } else { %>    
+            <i data-feather="user"></i>
+        <% } %>
+        <!-- <i data-feather="heart"></i> -->
         <span class="indicator"></span>
     </a>
 

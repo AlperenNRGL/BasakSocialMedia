@@ -29,6 +29,8 @@ router.get("/", isLogin, async (req, res) => {
 
 
 
+    const request_count = await Nofication.find({ aitolan: req.session.user , worktype: "request" }).select("_id")
+
     let id_list = [];
     for (let i = 0; i < user.friends.length; i++) {
         id_list.push(user.friends[i]._id)
@@ -58,6 +60,7 @@ router.get("/", isLogin, async (req, res) => {
         suggestedusers: [],
         postcount: postcount.length,
         currentpage : page,
+        request_count : request_count.length,
 
 
     });
@@ -91,6 +94,7 @@ router.get("/", isLogin, async (req, res) => {
         suggestedusers: suggestedusers,
         postcount: postcount.length,
         currentpage : page,
+        request_count : request_count.length,
 
     });
 
