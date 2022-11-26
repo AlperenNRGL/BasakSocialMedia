@@ -130,37 +130,3 @@
 
 
 
-<script>
-
-    function user_work(e){
-        fetch(`https://basaksocialmediaapi.herokuapp.com/${e.children[1].attributes[0].nodeValue}`)
-        .then(data => {
-            // console.log(e.children[1].innerHTML);
-            switch(e.children[1].innerHTML){
-                case "İstek Gönder":
-                    replacebtn(`<span link="/remove-request/<%= myuser._id %>/<%= user._id %>">İstek Gönderildi</span>`);
-                    break;
-                case "İstek Gönderildi":
-                    replacebtn(`<span link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>`);
-                    break;
-                case "Arkadaşlar":
-                    replacebtn(`<span link="/friend-request/<%= myuser._id %>/<%= user._id %>">İstek Gönder</span>`)
-                    break;
-                case "Kabul Et":
-                    replacebtn(`<span link="/remove-friend/<%= myuser._id %>/<%= user._id %>">Arkadaşlar</span>`)
-                    break;
-            }
-        })
-        .catch(err => console.log(err))
-    }
-
-
-    function replacebtn(newbutton){
-        const e = document.getElementById("user-btn")
-        e.children[1].remove();
-        e.insertAdjacentHTML("beforeend",newbutton)
-    }
-
-
-
-</script>

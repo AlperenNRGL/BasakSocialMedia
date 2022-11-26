@@ -27,7 +27,6 @@ router.get("/profilimage", async (req, res) => {
 
 router.get("/dir-list", async (req, res) => {
     const result = fs.readdirSync( __dirname + "/../doc/uploads" );
-
     res.send(result);
 })
 

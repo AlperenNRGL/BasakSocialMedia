@@ -1,10 +1,6 @@
 <div class="navbar-item is-icon drop-trigger" onclick="get_friend_request()">
     <a id="request-btn" class="icon-link is-friends" href="javascript:void(0);">
-        <% if (request_count != 0) { %>
-            <img src="/static/icons/user-request.png" class="user-request" >
-        <% } else { %>    
             <i data-feather="user"></i>
-        <% } %>
         <!-- <i data-feather="heart"></i> -->
         <span class="indicator"></span>
     </a>
@@ -12,7 +8,7 @@
     <div id="get-request-drop" class="nav-drop">
         <div class="inner">
             <div class="nav-drop-header">
-                <span>Arkadaşlık İstekleri</span>
+                <span>Arkadaşlık Bildirimleri</span>
                 <a href="#">
                     <i data-feather="search"></i>
                 </a>
@@ -51,11 +47,10 @@
                     </figure>
                     <div class="media-content">
                         <a href="/user/${request.bildirimiyapan._id}">${request.bildirimiyapan.firstName} ${request.bildirimiyapan.lastName}</a>
-                        <span>${request.date}</span>
+                        ${ request.worktype == "request"?`<span>Artık sizi takip ediyor</span>`:`<span>Maalesef artık sizi takip etmiyor</span>` }
                     </div>
                     <div class="media-right">
-                        <img onclick="add_friend('${request.bildirimiyapan._id}','${request.aitolan}','${request._id}')" style="margin-right:8px ;"  src="/static/icons/add-friend3.png">
-                        <img onclick="delete_request('${request.bildirimiyapan._id}','${request.aitolan}','${request._id}')" src="/static/icons/unfollow.png">
+                        ${ request.worktype == "request"?`<img src="/static/icons/add-friend4.png">`:`<img src="/static/icons/unfollow.png">` }
                     </div>
                 </div>
                 `)
@@ -87,11 +82,10 @@
                     </figure>
                     <div class="media-content">
                         <a href="/user/${request.bildirimiyapan._id}">${request.bildirimiyapan.firstName} ${request.bildirimiyapan.lastName}</a>
-                        <span>${request.date}</span>
+                        ${ request.worktype == "request"?`<span>Artık sizi takip ediyor</span>`:`<span>Maalesef artık sizi takip etmiyor</span>` }
                     </div>
                     <div class="media-right">
-                        <img onclick="add_friend('${request.bildirimiyapan._id}','${request.aitolan}','${request._id}')" style="margin-right:8px ;"  src="/static/icons/add-friend3.png">
-                        <img onclick="delete_request('${request.bildirimiyapan._id}','${request.aitolan}','${request._id}')" src="/static/icons/unfollow.png">
+                        ${ request.worktype == "request"?`<img src="/static/icons/add-friend4.png">`:`<img src="/static/icons/unfollow.png">` }
                     </div>
                 </div>
                 `)
@@ -99,16 +93,6 @@
             })
             .catch(err => console.log(err))
     }
-    function add_friend(bildirimiyapan, aitolan,noficationid){
-        fetch(`https://basaksocialmediaapi.herokuapp.com/add-friend/${bildirimiyapan}/${aitolan}/${noficationid}`)
-        .then(data => data)
-        .catch(err => console.log(err))
-    }
-
-    function delete_request(bildirimiyapan, aitolan, noficationid){
-        fetch(`https://basaksocialmediaapi.herokuapp.com/remove-request/${bildirimiyapan}/${aitolan}`)
-        .then(data => data)
-        .catch(err => console.log(err))
-    }
+    
 
 </script>

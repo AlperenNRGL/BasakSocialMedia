@@ -28,9 +28,6 @@ router.get("/", isLogin, async (req, res) => {
         .select(["-profilImageData", "-coverImage"]);
 
 
-
-    const request_count = await Nofication.find({ aitolan: req.session.user , worktype: "request" }).select("_id")
-
     let id_list = [];
     for (let i = 0; i < user.friends.length; i++) {
         id_list.push(user.friends[i]._id)
@@ -47,23 +44,20 @@ router.get("/", isLogin, async (req, res) => {
         .limit(5)
         .skip(page * 5);
 
-
     const postcount = await Post.find({ user: id_list }).select("_id");
-    
-    if(page != 0){
 
-    return res.render("home/index", {
-        posts: posts,
-        message: sessionmessage,
-        user: user,
-        messages: user.messages,
-        suggestedusers: [],
-        postcount: postcount.length,
-        currentpage : page,
-        request_count : request_count.length,
+    if (page != 0) {
 
+        return res.render("home/index", {
+            posts: posts,
+            message: sessionmessage,
+            user: user,
+            messages: user.messages,
+            suggestedusers: [],
+            postcount: postcount.length,
+            currentpage: page,
 
-    });
+        });
     }
 
     //? Suggested Friend
@@ -72,8 +66,13 @@ router.get("/", isLogin, async (req, res) => {
         liste.push(user.friends[i]._id)
     }
 
+    const suggesteduserscount = await User.find().select("_id").count() - user.friends.length;
+    let random_number = Math.floor(Math.random() * (suggesteduserscount - 4));
+    random_number < 0 ? random_number = 0 : ""
+
     suggestedusers = await User.find({ _id: { $nin: liste } })
-        .limit(5)
+        .limit(4)
+        .skip(random_number)
         .select(["username", "firstName", "lastName", "profilImage"]);
 
 
@@ -84,8 +83,6 @@ router.get("/", isLogin, async (req, res) => {
     }
 
 
-
-
     return res.render("home/index", {
         posts: posts,
         message: sessionmessage,
@@ -93,8 +90,7 @@ router.get("/", isLogin, async (req, res) => {
         messages: user.messages,
         suggestedusers: suggestedusers,
         postcount: postcount.length,
-        currentpage : page,
-        request_count : request_count.length,
+        currentpage: page,
 
     });
 

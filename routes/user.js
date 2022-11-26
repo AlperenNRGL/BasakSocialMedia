@@ -167,21 +167,8 @@ router.get("/:id", isLogin, async (req, res) => {
         .limit(5);
 
 
-
-    const istek = await FriendRequest.find(({ istekuser: req.session.user, aliciuser: req.params.id }));
-    const useristek = await FriendRequest.find(({ istekuser: req.params.id, aliciuser: req.session.user }));
-    const arkadasmi = user.friends.find(f => f.username == myuser.username);
-    let durum;
-    if (istek.length != 0) {
-        durum = "istekgonderildi";
-    } else if (arkadasmi != undefined) {
-        durum = "arkadaslar"
-    } else if (useristek.length != 0) {
-        durum = "kabulet"
-    } else {
-        durum = null;
-    }
-
+    
+    const durum = myuser.friends.indexOf(user._id);
 
     return res.render("user/profile", {
         posts: posts,
