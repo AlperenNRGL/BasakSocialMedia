@@ -33,7 +33,7 @@
         const userid = document.getElementById("userid").value;
         const list = document.getElementById("mobile-request-list");
         list.innerHTML = "";
-        fetch(`https://basaksocialmediaapi.herokuapp.com/get-request-nofication/${userid}`)
+        fetch(`<%= url %>/get-request-nofication/${userid}`)
             .then(data => data.json())
             .then(requests => {
                 requests.forEach(request => {
@@ -65,7 +65,7 @@
         const userid = document.getElementById("userid").value;
         const list = document.getElementById("ipad_request");
         list.innerHTML = "";
-        fetch(`https://basaksocialmediaapi.herokuapp.com/get-request-nofication/${userid}`)
+        fetch(`<%= url %>/get-request-nofication/${userid}`)
             .then(data => data.json())
             .then(requests => {
                 console.log(requests);

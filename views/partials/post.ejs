@@ -65,8 +65,8 @@
             <!-- Featured image -->
 
             <div class="post-image">
-                <% if (post.img.data != null ) { %>
-                        <img src="data:image/<%=post.img.contentType%>;base64,<%=post.img.data.toString('base64')%>" alt="Post_image">
+                <% if (post.imgPath != null ) { %>
+                        <img src="/static/uploads/<%= post.imgPath %>" alt="Post_image">
                 <% } else { %>
                         <div style="height: 30px;"></div>
                 <% } %>
@@ -93,13 +93,13 @@
                                     if (e.children[0].attributes.src.nodeValue == "/static/uploads/icons8-like-64.png") {
                                         e.children[0].remove();
                                         e.insertAdjacentHTML("afterbegin", `<img width="40px" height="40px" src="/static/uploads/icons8-like-64-2.png">`)
-                                        fetch(`https://basaksocialmediaapi.herokuapp.com/remove-like/${postid}/${userid}`)
+                                        fetch(`<%= url %>/remove-like/${postid}/${userid}`)
                                             .then(data => { countlike.innerHTML = (Number(countlike.innerHTML) - 1) })
                                             .catch(err => console.log(err))
                                     } else {
                                         e.children[0].remove();
                                         e.insertAdjacentHTML("afterbegin", `<img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">`)
-                                        fetch(`https://basaksocialmediaapi.herokuapp.com/add-like/${postid}/${userid}`)
+                                        fetch(`<%= url %>/add-like/${postid}/${userid}`)
                                             .then(data => {
                                                 // add_nofication("like", userid, e.previousElementSibling.previousElementSibling.value)
                                                 countlike.innerHTML = (Number(countlike.innerHTML) + 1)
@@ -376,7 +376,7 @@
         if(text == "")
             return;
         e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value = ""
-        fetch(`https://basaksocialmediaapi.herokuapp.com/add-comment/${postid}/${userid}`, {
+        fetch(`<%= url %>/add-comment/${postid}/${userid}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -445,7 +445,7 @@
             <!-- Right side dropdown -->
             <div class="media-right"></div>
         </div>`);
-        fetch(`https://basaksocialmediaapi.herokuapp.com/add-alt-comment/${postid}/${userid}/${commentid}`, {
+        fetch(`<%= url %>/add-alt-comment/${postid}/${userid}/${commentid}`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

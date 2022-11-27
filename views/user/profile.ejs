@@ -255,7 +255,7 @@
                                                             function delete_post(element){
                                                                 const postid = element.attributes["id"].value;
                                                                 element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.remove()
-                                                                fetch(`https://basaksocialmediaapi.herokuapp.com/delete-post/${postid}`)
+                                                                fetch(`<%= url %>/delete-post/${postid}`)
                                                                 .then(data => console.log("Post başarılı bir şekilde silindi."))
                                                                 .catch(err => console.log(err))
                                                             }
@@ -316,7 +316,7 @@
                                                         if(e.children[0].attributes.src.nodeValue == "/static/uploads/icons8-like-64.png"){
                                                             e.children[0].remove();
                                                             e.insertAdjacentHTML("afterbegin",`<img width="40px" height="40px" src="/static/uploads/icons8-like-64-2.png">`)
-                                                            fetch(`https://basaksocialmediaapi.herokuapp.com/remove-like/${postid}/${userid}`)
+                                                            fetch(`<%= url %>/remove-like/${postid}/${userid}`)
                                                             .then(data => {
                                                                 countlike.innerHTML = (Number(countlike.innerHTML) - 1)
                                                             })
@@ -325,7 +325,7 @@
                                                             }
                                                         e.children[0].remove();
                                                         e.insertAdjacentHTML("afterbegin",`<img width="40px" height="40px" src="/static/uploads/icons8-like-64.png">`)
-                                                        fetch(`https://basaksocialmediaapi.herokuapp.com/add-like/${postid}/${userid}`)
+                                                        fetch(`<%= url %>/add-like/${postid}/${userid}`)
                                                         .then(data => {
                                                             // add_nofication("like", userid, e.previousElementSibling.previousElementSibling.value )
                                                             countlike.innerHTML = (Number(countlike.innerHTML) + 1)
@@ -589,7 +589,7 @@
                                                 const touserid = e.previousElementSibling.previousElementSibling.value
                                                 const postid = e.previousElementSibling.value;
                                                 const text = e.parentNode.parentNode.parentNode.children[0].children[0].children[0].value
-                                                fetch(`https://basaksocialmediaapi.herokuapp.com/add-comment/${postid}/${userid}`, {
+                                                fetch(`<%= url %>/add-comment/${postid}/${userid}`, {
                                                     method: 'POST',
                                                     headers: {
                                                         'Content-Type': 'application/json',
@@ -655,7 +655,7 @@
                                                     <!-- Right side dropdown -->
                                                     <div class="media-right"></div>
                                                 </div>`);
-                                                fetch(`https://basaksocialmediaapi.herokuapp.com/add-alt-comment/${postid}/${userid}/${commentid}`, {
+                                                fetch(`<%= url %>/add-alt-comment/${postid}/${userid}/${commentid}`, {
                                                     method: 'POST', // or 'PUT'
                                                     headers: {
                                                         'Content-Type': 'application/json',

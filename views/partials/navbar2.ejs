@@ -37,7 +37,7 @@
                     document.getElementById("nofication-btn2").addEventListener("click", (e) => {
                         console.log("nofication-btn click");
                         const userid = document.getElementById("userid")
-                        fetch(`https://basaksocialmediaapi.herokuapp.com/get-nofication/${userid.value}`)
+                        fetch(`<%= url %>/get-nofication/${userid.value}`)
                             .then(data => data.json())
                             .then(data => {
 
@@ -313,7 +313,7 @@
                         element.style.display = "none";
                         return;
                     }
-                    fetch("https://basaksocialmediaapi.herokuapp.com/users/" + e.target.value)
+                    fetch("<%= url %>/users/" + e.target.value)
                         .then(value => value.json())
                         .then(data => showUser(data))
                         .catch(err => console.log(err))

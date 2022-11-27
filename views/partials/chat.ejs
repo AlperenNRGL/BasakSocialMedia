@@ -99,7 +99,7 @@
                                     const userid = element.attributes[2].nodeValue;
                                     const messageid = element.attributes[3].nodeValue;
 
-                                    fetch(`https://basaksocialmediaapi.herokuapp.com/delete-message/${myid}/${userid}/${messageid}`)
+                                    fetch(`<%= url %>/delete-message/${myid}/${userid}/${messageid}`)
                                     .then(data => {
                                         document.getElementById(`${messageid}-conversation`).remove();
                                         document.getElementById(`${messageid}-details`).remove();
@@ -291,7 +291,7 @@
                         </div>
                     </div>
 
-        </div>
+        </div> 
 
         <script>
             document.getElementById("message-input").addEventListener("keyup",(e) => {
@@ -319,7 +319,8 @@
                             text : text
                         }),
                 }
-                fetch(`https://basaksocialmediaapi.herokuapp.com/sendmessage/${messageid}/${userid}`,options)
+                
+                fetch(`<%= url %>/sendmessage/${messageid}/${userid}`,options)
                 .then(data => {
                     document.getElementById(`${messageid}-conversation`).insertAdjacentHTML("beforeend",`
                         <div class="chat-message is-sent">
@@ -346,7 +347,7 @@
                 messagecount = data["message_count"].nodeValue;
                 // console.log(messageid,messagecount);
 
-                fetch(`https://basaksocialmediaapi.herokuapp.com/getmessage/${messageid}`)
+                fetch(`<%= url %>/getmessage/${messageid}`)
                 .then(data => data.json())
                 .then(res =>{
                     if(messagecount != res.__v){
@@ -578,7 +579,7 @@
                                 name: e.target.value
                             }),
                         }
-                        fetch(`https://basaksocialmediaapi.herokuapp.com/getnewmessageusers/${userid}`, options)
+                        fetch(`<%= url %>/getnewmessageusers/${userid}`, options)
                             .then(data => data.json())
                             .then(result => {
                                 let start = "<div class='tipue_drop_box'>"
@@ -610,7 +611,7 @@
                         const fromid = element.getAttribute("fromid");
                         pageloader.classList.add("is-active")
 
-                        fetch(`https://basaksocialmediaapi.herokuapp.com/newmessage/${userid}/${fromid}`)
+                        fetch(`<%= url %>/newmessage/${userid}/${fromid}`)
                             .then(data => {
                                 console.log("Mesaj Başlatıldı");
                                 window.location.reload();

@@ -43,7 +43,7 @@
         document.getElementById("nofication-btn").addEventListener("click", (e) => {
             console.log("nofication-btn click");
             const userid = document.getElementById("userid")
-            fetch(`https://basaksocialmediaapi.herokuapp.com/get-nofication/${userid.value}`)
+            fetch(`<%= url %>/get-nofication/${userid.value}`)
             .then(data => data.json())
             .then(data => {
     

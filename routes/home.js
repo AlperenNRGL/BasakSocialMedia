@@ -41,24 +41,9 @@ router.get("/", isLogin, async (req, res) => {
         .populate({ path: "comments.user", select: { profilImage: 1, username: 1 } })
         .populate({ path: "comments.altcomment.user", select: { profilImage: 1, username: 1 } })
         .populate({ path: "like.user", select: { profilImage: 1 , username : 1} })
-        .limit(5)
-        .skip(page * 5);
-
-    const postcount = await Post.find({ user: id_list }).select("_id");
-
-    if (page != 0) {
-
-        return res.render("home/index", {
-            posts: posts,
-            message: sessionmessage,
-            user: user,
-            messages: user.messages,
-            suggestedusers: [],
-            postcount: postcount.length,
-            currentpage: page,
-
-        });
-    }
+        .limit(1)
+        .skip(page * 5)
+        .select("-img");
 
     //? Suggested Friend
     let liste = []
@@ -89,7 +74,7 @@ router.get("/", isLogin, async (req, res) => {
         user: user,
         messages: user.messages,
         suggestedusers: suggestedusers,
-        postcount: postcount.length,
+        // postcount: postcount.length,
         currentpage: page,
 
     });
@@ -106,12 +91,13 @@ router.post("/", upload.single("image"), isLogin, async (req, res) => {
         img: {
             data: req.file == undefined ? null : fs.readFileSync(path.join(__dirname + `/../doc/uploads/${req.file.filename}`)),
             contentType: 'image/jpeg'
-        }
+        },
+        imgPath : req.file == undefined ? null : req.file.filename,
     }, (err) => err ? console.log(err) : "")
 
-    if (req.file != undefined) {
-        fs.unlinkSync(path.join(__dirname + '/../doc/uploads/' + req.file.filename))
-    }
+    // if (req.file != undefined) {
+    //     fs.unlinkSync(path.join(__dirname + '/../doc/uploads/' + req.file.filename))
+    // }
 
     await new Promise(r => setTimeout(r, 2000));
     return res.redirect("/")

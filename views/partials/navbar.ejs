@@ -132,7 +132,7 @@
                                 element.style.display = "none";
                                 return;
                             }
-                            fetch("https://basaksocialmediaapi.herokuapp.com/users/" + e.target.value)
+                            fetch("<%= url %>/users/" + e.target.value)
                                 .then(value => value.json())
                                 .then(data => showUser2(data))
                                 .catch(err => console.log(err))

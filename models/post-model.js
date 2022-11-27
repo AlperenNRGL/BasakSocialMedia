@@ -24,10 +24,10 @@ const comment = Schema({
 });
 
 
-comment.methods.getDate = function (){
+comment.methods.getDate = function () {
     return date.format(this.date, 'HH:mm  DD/MM/YYYY ')
 }
-altcomment.methods.getDate = function (){
+altcomment.methods.getDate = function () {
     return date.format(this.date, 'HH:mm  DD/MM/YYYY ')
 }
 
@@ -40,7 +40,8 @@ const post = Schema({
         data: Buffer,
         contentType: String
     },
-     date: {
+    imgPath : String,
+    date: {
         type: Date,
         default: Date.now,
     },
@@ -54,7 +55,7 @@ const post = Schema({
     comments: [comment]
 })
 
-post.methods.getDate = function (){
+post.methods.getDate = function () {
     return date.format(this.date, 'HH:mm  DD/MM/YYYY ')
 }
 

@@ -50,7 +50,7 @@
                     replaceicon(e,`<img class="friend-icon" src="/static/icons/add-friend.png" >`);
                     break;
                 }
-            fetch(`https://basaksocialmediaapi.herokuapp.com${value}`)
+            fetch(`<%= url %>${value}`)
             .then(data => {
                 console.log("Başarılı arkadaşlık işlemi");
             })
