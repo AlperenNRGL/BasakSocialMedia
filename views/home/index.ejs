@@ -703,10 +703,22 @@
                                                                                         <div class="dropdown-content">
                                                                                             <a href="/user/${post.user._id}" class="dropdown-item">
                                                                                                 <div class="media">
-                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                                                                                    <img width="18px" height="18px" style="margin-right:8px ;" src="/static/icons/user.png">
                                                                                                     <div class="media-content">
                                                                                                         <h3>Profil</h3>
-                                                                                                        <small>Profili Görüntelemek İçin Tıkla.</small>
+                                                                                                        <small>Profili görüntülemek için tıkla.</small>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </a>
+                                                                                            <hr class="dropdown-divider">
+                                                                                            <input type="hidden" value="${post.user._id}" >
+                                                                                            <a onclick="sikayet(this, '${post._id}')" class="dropdown-item">
+                                                                                                <div class="media">
+                                                                                                    <!-- <i data-feather=""></i> -->
+                                                                                                    <img width="18px" height="18px" style="margin-right:8px ;" src="/static/icons/talk.png">
+                                                                                                    <div class="media-content">
+                                                                                                        <h3>Şikayet</h3>
+                                                                                                        <small>Olumsuz içerikler için şikayet edin.</small>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </a>
@@ -1000,6 +1012,19 @@
 
                                                         function show_comment_loadmore_close(e){
                                                             e.parentNode.parentNode.classList.toggle("is-hidden");
+                                                        }
+
+                                                        function sikayet(element, id){
+                                                            const addElement = element.parentNode.parentNode.parentNode.parentNode.parentNode
+                                                            let parent = element.parentNode.parentNode.parentNode.remove()
+                                                            const userid = document.getElementById("userid").value ; 
+                                                            
+                                                        
+                                                            fetch(`<%= url %>/sikayet/${userid}/${id}`)
+                                                            .then( data => {
+                                                                addElement.insertAdjacentHTML("afterbegin","<div class='alert'><small>En kısa sürede değerlendirip size dönüş yapacağız</small></div>");
+                                                            })
+                                                            .catch(err => console.log(err))
                                                         }
 
 
@@ -2485,6 +2510,7 @@
                             </div>
                         </div>
                     </div>
+                    <button id="deneme-button"></button>
                     <!-- Concatenated js plugins and jQuery -->
                     <%- include ("../partials/script") %>
 

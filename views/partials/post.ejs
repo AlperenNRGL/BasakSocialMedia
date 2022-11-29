@@ -1,5 +1,12 @@
 <div id="feed-post-1" class="card is-post">
     <!-- Main wrap -->
+    <style>
+        .alert{
+            text-align: center;
+            color: #99cc33;
+            padding: 16px 5px 0px 5px;
+        }
+    </style>
     <div class="content-wrap">
         <!-- Post header -->
         <div class="card-heading">
@@ -20,7 +27,7 @@
             </div>
             <!-- Right side dropdown -->
             <!-- /partials/pages/feed/dropdowns/feed-post-dropdown.html -->
-            <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+            <div id="dropdown-<%= post._id %>" class="dropdown is-spaced is-right is-neutral dropdown-trigger">
                 <div>
                     <div class="button">
                         <i data-feather="more-vertical"></i>
@@ -30,13 +37,27 @@
                     <div class="dropdown-content">
                         <a href="/user/<%= post.user._id %>" class="dropdown-item">
                             <div class="media">
-                                <i data-feather="user"></i>
+                                <!-- <i data-feather="user"></i> -->
+                                <img width="18px" height="18px" style="margin-right:8px ;" src="/static/icons/user.png">
                                 <div class="media-content">
                                     <h3>Profil</h3>
                                     <small>Profili Görüntelemek için tıkla.</small>
                                 </div>
                             </div>
                         </a>
+                        <hr class="dropdown-divider">
+                        <input type="hidden" value="<%= post.user._id %>">
+                        <a onclick="sikayet(this, `<%= post._id %>`)" class="dropdown-item">
+                            <div class="media">
+                                <!-- <i data-feather=""></i> -->
+                                <img width="18px" height="18px" style="margin-right:8px ;" src="/static/icons/talk.png">
+                                <div class="media-content">
+                                    <h3>Şikayet</h3>
+                                    <small>Olumsuz içerikler için şikayet edin.</small>
+                                </div>
+                            </div>
+                        </a>
+                          
                        
                         <!-- <hr class="dropdown-divider">
                         <a href="#" class="dropdown-item">
